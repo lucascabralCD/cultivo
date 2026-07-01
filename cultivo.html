@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#2E5E3A">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Cultivo — Diário & Adubação</title>
+<style>
+:root{--g:#2E5E3A;--g2:#3A6E4A;--bg:#f4f6f4;--card:#fff;--ink:#1f2a22;--mut:#667;--line:#e2e7e2;
+--ok:#2ecc71;--at:#f1c40f;--fl:#e67e22;--cr:#c0392b;}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);-webkit-text-size-adjust:100%}
+header{position:sticky;top:0;background:var(--g);color:#fff;padding:12px 14px;font-weight:700;font-size:17px;z-index:10}
+main{padding:12px;padding-bottom:78px;max-width:640px;margin:0 auto}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+h2{font-size:15px;margin:2px 0 10px;color:var(--g)}
+label{display:block;font-size:13px;color:var(--mut);margin:10px 0 4px}
+input,select,textarea{width:100%;font-size:16px;padding:11px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+textarea{min-height:52px}
+.row{display:flex;gap:10px}.row>*{flex:1}
+.btn{background:var(--g);color:#fff;border:0;border-radius:11px;padding:13px;font-size:16px;font-weight:600;width:100%;margin-top:12px}
+.btn.sec{background:#eef3ee;color:var(--g)}
+.btn.mini{padding:8px 12px;font-size:14px;width:auto;margin:0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.kv{background:#f7faf7;border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+.kv b{display:block;font-size:19px;color:var(--g)}.kv span{font-size:11px;color:var(--mut)}
+.badge{display:inline-block;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700;color:#fff}
+.b-OK{background:var(--ok)}.b-ATENÇÃO{background:var(--at);color:#000}.b-FLUSH{background:var(--fl)}.b-CRÍTICO{background:var(--cr)}
+.rec{margin-top:8px;font-size:14px;line-height:1.4;background:#f7faf7;border-left:4px solid var(--g);padding:8px 10px;border-radius:8px}
+nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);display:flex;z-index:10}
+nav button{flex:1;background:none;border:0;padding:9px 2px 8px;font-size:10.5px;color:var(--mut)}
+nav button .i{display:block;font-size:19px;line-height:1}
+nav button.on{color:var(--g);font-weight:700}
+.pot{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:11px;padding:10px 12px;margin:8px 0}
+.pot .st{font-size:12px;color:var(--mut)}
+.hist{border:1px solid var(--line);border-radius:11px;padding:10px 12px;margin:8px 0}
+.hist .top{display:flex;justify-content:space-between;align-items:center;font-size:13px}
+.hist .meta{font-size:12px;color:var(--mut);margin:4px 0}
+.small{font-size:12px;color:var(--mut)}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{border:1px solid var(--line);padding:6px 5px;text-align:center}
+th{background:var(--g);color:#fff;font-weight:600}
+tr.hl td{background:#fff7e6;font-weight:700}
+.hide{display:none}
+.del{color:var(--cr);background:none;border:0;font-size:13px}
+.note{font-size:12px;color:var(--mut);line-height:1.45}
+a{color:var(--g)}
+</style>
+</head>
+<body>
+<header>🌱 Cultivo — Diário & Adubação</header>
+<main>
+  <!-- ADUBAR -->
+  <section id="tab-dose">
+    <div class="card">
+      <h2>Calculadora de dosagem</h2>
+      <label>Volume que vou misturar (litros)</label>
+      <input id="vol" type="number" inputmode="decimal" value="5" step="0.5" oninput="renderDose()">
+      <label>Fase</label>
+      <select id="dphase" onchange="renderDose()"></select>
+      <div id="doseOut"></div>
+    </div>
+    <div class="card">
+      <h2>Programa completo (por volume acima)</h2>
+      <div id="doseTable"></div>
+      <p class="note">Ordem de mistura: dissolva Plant Prod + MKP + Sulfato de Mg primeiro; o Nitrato de Cálcio à parte e só junte no volume final. Ajuste o pH por último (6,0–6,5). Gramas = ponto de partida; confira a EC.</p>
+    </div>
+  </section>
+
+  <!-- REGISTRAR -->
+  <section id="tab-reg" class="hide">
+    <div class="card">
+      <h2>Registrar rega</h2>
+      <div class="row"><div><label>Data</label><input id="f-date" type="date"></div>
+      <div><label>Vaso</label><select id="f-pot"></select></div></div>
+      <label>Fase</label><select id="f-phase"></select>
+      <h2 style="margin-top:14px">Entrada (o que você rega)</h2>
+      <div class="row"><div><label>pH entrada</label><input id="f-phin" type="number" inputmode="decimal" step="0.1" placeholder="6.2"></div>
+      <div><label>EC entrada</label><input id="f-ecin" type="number" inputmode="decimal" step="0.1" placeholder="1.4"></div></div>
+      <h2 style="margin-top:14px">Saída (runoff)</h2>
+      <div class="row"><div><label>pH saída</label><input id="f-phout" type="number" inputmode="decimal" step="0.1" placeholder="6.3"></div>
+      <div><label>EC saída</label><input id="f-ecout" type="number" inputmode="decimal" step="0.1" placeholder="1.6"></div></div>
+      <label>N / P / K saída (kit de cores)</label>
+      <div class="grid" style="grid-template-columns:1fr 1fr 1fr">
+        <select id="f-n"></select><select id="f-p"></select><select id="f-k"></select>
+      </div>
+      <div class="row" style="margin-top:8px"><div><label>% runoff</label><input id="f-ro" type="number" inputmode="decimal" placeholder="15"></div>
+      <div><label>Obs.</label><input id="f-obs" type="text" placeholder="opcional"></div></div>
+      <button class="btn" onclick="saveEntry()">Salvar e ver recomendação</button>
+      <div id="regResult"></div>
+    </div>
+  </section>
+
+  <!-- PAINEL -->
+  <section id="tab-pan" class="hide">
+    <div class="card"><h2>Painel — status de cada vaso</h2><div id="panel"></div></div>
+  </section>
+
+  <!-- HISTÓRICO -->
+  <section id="tab-hist" class="hide">
+    <div class="card">
+      <h2>Histórico</h2>
+      <label>Filtrar por vaso</label><select id="h-filter" onchange="renderHist()"></select>
+      <div id="hist"></div>
+    </div>
+  </section>
+
+  <!-- MAIS -->
+  <section id="tab-more" class="hide">
+    <div class="card">
+      <h2>Vasos</h2>
+      <div class="row"><input id="np" type="text" placeholder="Nome do vaso novo"><button class="btn mini" onclick="addPot()">Adicionar</button></div>
+      <div id="pots"></div>
+    </div>
+    <div class="card">
+      <h2>Backup dos dados</h2>
+      <p class="note">O app guarda tudo no próprio celular. Exporte de vez em quando para não perder (troca de aparelho, limpeza do navegador).</p>
+      <div class="row"><button class="btn sec mini" onclick="exportData()">Exportar</button>
+      <label class="btn sec mini" style="text-align:center;margin:0;cursor:pointer">Importar<input type="file" id="imp" accept="application/json" class="hide" onchange="importData(event)"></label></div>
+    </div>
+    <div class="card">
+      <h2>Guia rápido</h2>
+      <p class="note"><b>Alvo:</b> pH 6,0–6,5 na entrada e no runoff.<br>
+      <b>Runoff EC ≈ entrada</b> (+0,3 ok). <b>+0,5</b> → próxima rega só água. <b>+1,0 ou ≥2,5</b> → flush.<br>
+      <b>Regar:</b> pelo peso do vaso (quando secar). Padrão <b>adubo : adubo : água</b>, sempre com 10–20% de escoamento.<br>
+      <b>pH:</b> ajuste por último; use pH Down (ácido fosfórico) / pH Up (hidróxido de potássio).<br>
+      <b>Alertas:</b> <span class="badge b-OK">OK</span> seguir · <span class="badge b-ATENÇÃO">ATENÇÃO</span> só água · <span class="badge b-FLUSH">FLUSH</span> lavar · <span class="badge b-CRÍTICO">CRÍTICO</span> flush pesado.</p>
+    </div>
+  </section>
+</main>
+
+<nav>
+  <button data-t="dose" class="on" onclick="go('dose')"><span class="i">💧</span>Adubar</button>
+  <button data-t="reg" onclick="go('reg')"><span class="i">📝</span>Registrar</button>
+  <button data-t="pan" onclick="go('pan')"><span class="i">📊</span>Painel</button>
+  <button data-t="hist" onclick="go('hist')"><span class="i">📜</span>Histórico</button>
+  <button data-t="more" onclick="go('more')"><span class="i">⚙️</span>Mais</button>
+</nav>
+
+<script>
+const PHASES=[
+ {k:'muda',l:'Muda / clone',pp:2.9,cn:1.9,mkp:0,mg:0,ec:'0,6–0,9'},
+ {k:'inicio',l:'Início vegetativo',pp:5.2,cn:3.5,mkp:0,mg:0,ec:'1,0–1,2'},
+ {k:'vegpleno',l:'Vegetativo pleno',pp:7.5,cn:5.0,mkp:0,mg:0,ec:'1,4–1,6'},
+ {k:'transicao',l:'Pré-floração / transição',pp:7.5,cn:4.5,mkp:1.5,mg:1.5,ec:'1,5–1,7'},
+ {k:'floinicio',l:'Floração início',pp:7.5,cn:3.5,mkp:2.0,mg:2.0,ec:'1,6–2,0'},
+ {k:'flopico',l:'Floração pico',pp:7.0,cn:3.0,mkp:2.5,mg:2.0,ec:'1,7–2,0'},
+ {k:'flofinal',l:'Floração final',pp:6.0,cn:2.0,mkp:2.5,mg:1.5,ec:'1,3–1,6'},
+ {k:'flush',l:'Flush (lavagem)',pp:0,cn:0,mkp:0,mg:0,ec:'só água'},
+];
+const CATS=['','Depletado','Baixo','Adequado','Alto','Excesso'];
+function ppm(p){return{N:p.pp*7+p.cn*15,P:p.pp*4.80+p.mkp*22.48,K:p.pp*22.41+p.mkp*28.22,Ca:p.cn*19,Mg:p.pp*3.75+p.mg*9,S:p.pp*5.6+p.mg*12,EC:(p.pp*1.37+p.cn*1.20+p.mkp*0.70+p.mg*0.80)/10};}
+
+// ---- storage ----
+let mem={pots:[],entries:[]};
+function load(){try{const p=localStorage.getItem('cultivo_v1');if(p)mem=JSON.parse(p);}catch(e){}
+ if(!mem.pots||!mem.pots.length)mem.pots=['Vaso 1'];if(!mem.entries)mem.entries=[];}
+function save(){try{localStorage.setItem('cultivo_v1',JSON.stringify(mem));}catch(e){alert('Não consegui salvar no navegador. Use Exportar para backup.');}}
+
+// ---- logic (igual à planilha) ----
+function evaluate(e){
+ const P={ecAgua:.5,ecFlush:1,ecAlta:2.5,ecCrit:3.5,phMin:5.5,phMax:6.8,phCB:5,phCA:7.5,ecSub:-.3};
+ const num=v=>v!==''&&v!=null&&!isNaN(parseFloat(v));
+ const ecIn=parseFloat(e.ecIn),ecOut=parseFloat(e.ecOut),ph=parseFloat(e.phOut);
+ const n=e.nOut,p=e.pOut,k=e.kOut;
+ if(!(num(e.phOut)||num(e.ecOut)||n||p||k))return{alert:'',rec:''};
+ const crit=(num(e.ecOut)&&ecOut>=P.ecCrit)||(num(e.phOut)&&(ph<=P.phCB||ph>=P.phCA));
+ const flush=(num(e.ecOut)&&num(e.ecIn)&&(ecOut-ecIn>=P.ecFlush))||(num(e.ecOut)&&ecOut>=P.ecAlta);
+ const agua=num(e.ecOut)&&num(e.ecIn)&&(ecOut-ecIn>=P.ecAgua);
+ const phmild=num(e.phOut)&&(ph<P.phMin||ph>P.phMax);
+ const exc=[n,p,k].includes('Excesso');
+ const low=c=>c==='Baixo'||c==='Depletado';
+ const eating=num(e.ecOut)&&num(e.ecIn)&&(ecOut-ecIn<=P.ecSub);
+ let alert='OK';
+ if(crit)alert='CRÍTICO';else if(flush)alert='FLUSH';else if(agua||phmild||exc)alert='ATENÇÃO';
+ let rec;
+ if(e.phase==='flush')rec='Só água (pH 6,0–6,5) — período de flush.';
+ else if(crit)rec='CRÍTICO: flush pesado (2–3× o volume do vaso) só com água pH 6,0–6,5 até o runoff baixar; verifique raízes/pragas e recalibre os medidores.';
+ else if(flush)rec='Fazer FLUSH: 1–2 regas só água pH 6,0–6,5 até a EC do runoff normalizar.';
+ else if(agua)rec='Próxima rega SÓ ÁGUA (pH 6,0–6,5) para lavar o excesso de sal.';
+ else if(phmild)rec='Ajustar o pH da solução para 6,0–6,5 na próxima rega.';
+ else if(exc)rec='Reduzir adubo: regas só água até os níveis normalizarem.';
+ else if(low(n))rec='Subir N: +0,5 g Nitrato de Cálcio por 10 L ou adubar com mais frequência.';
+ else if(low(p))rec='Reforçar P: aumentar o MKP na próxima rega.';
+ else if(low(k))rec='Reforçar K: MKP / Sulfato de Potássio.';
+ else if(eating)rec='Planta consumindo bem: pode subir a dose ~10%.';
+ else rec='Seguir o programa da fase (adubar normal).';
+ return{alert,rec};
+}
+
+// ---- nav ----
+function go(t){document.querySelectorAll('main>section').forEach(s=>s.classList.add('hide'));
+ document.getElementById('tab-'+t).classList.remove('hide');
+ document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));
+ if(t==='pan')renderPanel();if(t==='hist')renderHist();if(t==='more')renderPots();window.scrollTo(0,0);}
+
+// ---- render dose ----
+function renderDose(){
+ const v=parseFloat(document.getElementById('vol').value)||10;
+ const k=document.getElementById('dphase').value;const p=PHASES.find(x=>x.k===k);
+ const f=g=>(g*v/10).toFixed(2);const m=ppm(p);
+ document.getElementById('doseOut').innerHTML=p.k==='flush'
+  ?`<div class="rec">Flush: regue só com <b>água</b> a pH 6,0–6,5. Sem adubos.</div>`
+  :`<div class="grid" style="margin-top:10px">
+    <div class="kv"><b>${f(p.pp)} g</b><span>Plant Prod 7-11-27</span></div>
+    <div class="kv"><b>${f(p.cn)} g</b><span>Nitrato de Cálcio</span></div>
+    <div class="kv"><b>${f(p.mkp)} g</b><span>MKP</span></div>
+    <div class="kv"><b>${f(p.mg)} g</b><span>Sulfato de Magnésio</span></div>
+   </div>
+   <div class="rec">Alvo EC: <b>${p.ec}</b> mS/cm · pH 6,0–6,5<br>ppm ≈ N ${Math.round(m.N)} · P ${Math.round(m.P)} · K ${Math.round(m.K)} · Ca ${Math.round(m.Ca)} · Mg ${Math.round(m.Mg)}</div>`;
+ let t=`<table><tr><th>Fase</th><th>PP</th><th>NitCa</th><th>MKP</th><th>MgSO4</th><th>EC</th></tr>`;
+ PHASES.forEach(x=>{t+=`<tr class="${x.k===k?'hl':''}"><td style="text-align:left">${x.l}</td><td>${(x.pp*v/10).toFixed(2)}</td><td>${(x.cn*v/10).toFixed(2)}</td><td>${(x.mkp*v/10).toFixed(2)}</td><td>${(x.mg*v/10).toFixed(2)}</td><td>${x.ec}</td></tr>`;});
+ t+=`</table><p class="small">Valores em gramas para ${v} L.</p>`;
+ document.getElementById('doseTable').innerHTML=t;
+}
+
+// ---- selects ----
+function fillSel(id,arr,val){const s=document.getElementById(id);s.innerHTML='';arr.forEach(o=>{const op=document.createElement('option');op.value=(typeof o==='object')?o.v:o;op.textContent=(typeof o==='object')?o.l:(o||'—');s.appendChild(op);});if(val!=null)s.value=val;}
+function refreshSelects(){
+ fillSel('dphase',PHASES.map(p=>({v:p.k,l:p.l})),'vegpleno');
+ fillSel('f-phase',PHASES.map(p=>({v:p.k,l:p.l})),'vegpleno');
+ fillSel('f-pot',mem.pots);
+ fillSel('h-filter',['(todos)'].concat(mem.pots));
+ fillSel('f-n',CATS);fillSel('f-p',CATS);fillSel('f-k',CATS);
+}
+
+// ---- save entry ----
+function saveEntry(){
+ const g=id=>document.getElementById(id).value;
+ const e={id:Date.now(),date:g('f-date'),pot:g('f-pot'),phase:g('f-phase'),
+  phIn:g('f-phin'),ecIn:g('f-ecin'),phOut:g('f-phout'),ecOut:g('f-ecout'),
+  nOut:g('f-n'),pOut:g('f-p'),kOut:g('f-k'),runoff:g('f-ro'),obs:g('f-obs')};
+ const r=evaluate(e);e.alert=r.alert;e.rec=r.rec;
+ mem.entries.push(e);save();
+ document.getElementById('regResult').innerHTML=
+  `<div style="margin-top:12px">${r.alert?`<span class="badge b-${r.alert}">${r.alert}</span>`:''}
+   <div class="rec">${r.rec||'Preencha ao menos os dados de saída para gerar recomendação.'}</div></div>`;
+ ['f-phin','f-ecin','f-phout','f-ecout','f-ro','f-obs'].forEach(i=>document.getElementById(i).value='');
+ document.getElementById('f-n').value='';document.getElementById('f-p').value='';document.getElementById('f-k').value='';
+}
+
+// ---- panel ----
+function lastByPot(pot){const es=mem.entries.filter(e=>e.pot===pot);if(!es.length)return null;
+ es.sort((a,b)=>(a.date+String(a.id)).localeCompare(b.date+String(b.id)));return es[es.length-1];}
+function renderPanel(){
+ let h='';if(!mem.pots.length)h='<p class="note">Cadastre um vaso em Mais → Vasos.</p>';
+ mem.pots.forEach(p=>{const e=lastByPot(p);
+  h+=`<div class="pot"><div><b>${p}</b><div class="st">${e?('Últ.: '+fmt(e.date)+' · EC saída '+(e.ecOut||'—')+' · pH '+(e.phOut||'—')):'sem registros'}</div></div>
+   <div>${e&&e.alert?`<span class="badge b-${e.alert}">${e.alert}</span>`:'<span class="small">—</span>'}</div></div>`;
+  if(e&&e.rec)h+=`<div class="rec" style="margin:-4px 0 10px">${e.rec}</div>`;});
+ document.getElementById('panel').innerHTML=h;
+}
+function fmt(d){if(!d)return'—';const p=d.split('-');return p.length===3?`${p[2]}/${p[1]}/${p[0]}`:d;}
+
+// ---- history ----
+function renderHist(){
+ const f=document.getElementById('h-filter').value;
+ let es=mem.entries.slice().sort((a,b)=>(b.date+String(b.id)).localeCompare(a.date+String(a.id)));
+ if(f&&f!=='(todos)')es=es.filter(e=>e.pot===f);
+ let h=es.length?'':'<p class="note">Nenhum registro ainda.</p>';
+ es.forEach(e=>{h+=`<div class="hist"><div class="top"><b>${fmt(e.date)} · ${e.pot}</b>
+   <span>${e.alert?`<span class="badge b-${e.alert}">${e.alert}</span>`:''} <button class="del" onclick="delEntry(${e.id})">excluir</button></span></div>
+   <div class="meta">${phaseLabel(e.phase)} · ent pH ${e.phIn||'—'}/EC ${e.ecIn||'—'} · saída pH ${e.phOut||'—'}/EC ${e.ecOut||'—'} · N/P/K ${e.nOut||'—'}/${e.pOut||'—'}/${e.kOut||'—'}${e.obs?(' · '+e.obs):''}</div>
+   <div class="rec">${e.rec||''}</div></div>`;});
+ document.getElementById('hist').innerHTML=h;
+}
+function phaseLabel(k){const p=PHASES.find(x=>x.k===k);return p?p.l:(k||'—');}
+function delEntry(id){if(!confirm('Excluir este registro?'))return;mem.entries=mem.entries.filter(e=>e.id!==id);save();renderHist();}
+
+// ---- pots ----
+function renderPots(){let h='';mem.pots.forEach((p,i)=>{h+=`<div class="pot"><b>${p}</b><button class="del" onclick="delPot(${i})">remover</button></div>`;});
+ document.getElementById('pots').innerHTML=h||'<p class="note">Nenhum vaso.</p>';}
+function addPot(){const v=document.getElementById('np').value.trim();if(!v)return;if(mem.pots.includes(v)){alert('Já existe.');return;}mem.pots.push(v);document.getElementById('np').value='';save();refreshSelects();renderPots();}
+function delPot(i){if(!confirm('Remover vaso? (os registros continuam no histórico)'))return;mem.pots.splice(i,1);save();refreshSelects();renderPots();}
+
+// ---- backup ----
+function exportData(){const blob=new Blob([JSON.stringify(mem,null,2)],{type:'application/json'});
+ const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='cultivo_backup.json';a.click();}
+function importData(ev){const f=ev.target.files[0];if(!f)return;const r=new FileReader();
+ r.onload=()=>{try{const d=JSON.parse(r.result);if(d.pots&&d.entries){mem=d;save();refreshSelects();alert('Importado!');go('pan');}else alert('Arquivo inválido.');}catch(e){alert('Erro ao ler.');}};r.readAsText(f);}
+
+// ---- init ----
+load();refreshSelects();
+document.getElementById('f-date').value=new Date().toISOString().slice(0,10);
+renderDose();
+</script>
+</body>
+</html>
