@@ -14,11 +14,13 @@ Este arquivo serve de handoff/contexto: coloque-o na raiz do repositório para o
 ## Arquitetura
 - **Single-file**: todo CSS e JS embutidos em `cultivo.html`. Sem build, sem libs externas (funciona offline).
 - **Persistência**: `localStorage`, chave `cultivo_v1`, objeto `mem = {pots:[], entries:[], cal:1}`.
-  - `pots`: lista de vasos, cada um um objeto `{name, strain, origin:'semente'|'clone', type:'foto'|'auto', substrate, volume, start}` (`start` = data de início ISO `YYYY-MM-DD`). A identidade do vaso é o `name` (os `entries` referenciam pelo nome; renomear no Jardim propaga aos registros). `migratePots()` converte vasos antigos (que eram só strings) para objetos automaticamente no load/import.
-  - `entries`: registros de rega (ver estrutura abaixo).
+  - `pots`: lista de vasos, cada um um objeto `{name, strain, origin:'semente'|'clone', type:'foto'|'auto', substrate, volume, start, phase, phaseLog}`. `start` = data de início ISO `YYYY-MM-DD`; `phase` = fase atual (key de PHASES); `phaseLog` = `[{phase, start}]` com o início de cada fase (a duração de cada fase é a diferença entre `start` consecutivos, e a última até hoje). A identidade do vaso é o `name` (os `entries` referenciam pelo nome; renomear no Jardim propaga aos registros). `migratePots()` converte vasos antigos (strings ou sem `phase/phaseLog`) automaticamente no load/import.
+  - `entries`: registros de rega (ver estrutura abaixo). Agora incluem `photos: [dataURL jpeg]` (fotos redimensionadas p/ máx 1000px, qualidade 0.6, guardadas em base64 no próprio `mem`).
   - `cal`: fator de calibração da tabela de dosagem (1 = original).
 - **UI em abas** (nav inferior): Adubar, Registrar, Painel, Jardim, Histórico, Mais.
-  - **Jardim**: cadastro completo de vaso (nome, estirpe/genética, semente ou clone, fotoperíodo ou automática, substrato, volume, data de início) + lista dos vasos com a idade calculada até hoje. `ageOf(startISO)` devolve `{months, weeks, days, totalDays, totalWeeks}`; `ageLabel()` formata "X meses, Y semanas e Z dias · N dias no total". Suporta editar/remover. Substituiu o antigo card "Vasos" da aba Mais.
+  - **Jardim**: cadastro completo de vaso (nome, estirpe/genética, semente ou clone, fotoperíodo ou automática, substrato, **fase atual**, volume, data de início) + lista dos vasos com a idade calculada até hoje, a **fase atual** e há quanto tempo está nela, e a **última foto**. `ageOf(startISO)` devolve `{months, weeks, days, totalDays, totalWeeks}`; `ageLabel()` formata "X meses, Y semanas e Z dias · N dias no total". Suporta editar/remover. Substituiu o antigo card "Vasos" da aba Mais.
+  - **Mudança de fase**: botão "mudar fase" no card abre um modal (`#phaseModal`) que registra uma nova entrada em `phaseLog` (fase + data) e mostra a linha do tempo com a duração de cada fase (`phaseDurations()`), com "Desfazer última mudança". Sugere automaticamente a próxima fase da tabela.
+  - **Fotos**: no Registrar há "📷 Adicionar foto" (`onPhotoPick` → `resizeImage` via canvas → base64 em `pendingPhotos`, anexado ao `entry.photos` no `saveEntry`). Miniaturas no Histórico e no card do Jardim (`latestPhoto`); toque abre o lightbox (`#lightbox`).
 - **Idioma**: PT-BR. **EC sempre em µS/cm** (não mS/cm).
 
 ## Domínio / agronomia (regras que o app implementa)

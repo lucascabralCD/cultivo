@@ -1,10 +1,10 @@
 {
- "version": "1.0002",
+ "version": "1.0003",
  "date": "2026-07-03",
  "changes": [
-  "Nova aba Jardim: cadastro completo de vasos e lista com as infos de cada um.",
-  "Cadastro de vaso: nome, estirpe/genética, semente ou clone, fotoperíodo ou automática, substrato, volume e data de início.",
-  "Idade do vaso calculada até hoje (meses, semanas e dias + total).",
-  "Editar e remover vasos direto no Jardim."
+  "Jardim mostra a fase atual de cada planta (da tabela de fases).",
+  "Mudar a fase de cada vaso, guardando por quanto tempo ficou em cada fase (linha do tempo com durações).",
+  "Ao registrar, a fase já vem preenchida com a fase atual do vaso.",
+  "Fotos no diário: anexe fotos aos registros; miniatura no card do vaso e no histórico, toque para ampliar."
  ]
 }

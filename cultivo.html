@@ -68,6 +68,23 @@ a{color:var(--g)}
 .gage{margin-top:9px}
 .gage .kv{display:block}
 .gage .kv b{font-size:16px}
+.gphase{display:flex;align-items:center;gap:8px;margin-top:9px;flex-wrap:wrap}
+.phasebadge{background:var(--g);color:#fff;border-radius:999px;padding:4px 11px;font-size:12.5px;font-weight:700}
+.phasebadge.fl{background:var(--fl)}
+.gthumbs{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
+.gthumbs img,.histthumb{width:64px;height:64px;object-fit:cover;border-radius:9px;border:1px solid var(--line);cursor:pointer}
+.photorow{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.photorow .ph{position:relative}
+.photorow img{width:72px;height:72px;object-fit:cover;border-radius:9px;border:1px solid var(--line)}
+.photorow .x{position:absolute;top:-7px;right:-7px;background:var(--cr);color:#fff;border:0;border-radius:50%;width:22px;height:22px;font-size:14px;line-height:1;cursor:pointer}
+.addphoto{cursor:pointer}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:50;display:flex;align-items:flex-end;justify-content:center}
+.modalcard{background:var(--card);width:100%;max-width:640px;border-radius:16px 16px 0 0;padding:16px;max-height:88vh;overflow:auto}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:60;display:flex;align-items:center;justify-content:center}
+.lightbox img{max-width:96vw;max-height:92vh;border-radius:8px}
+.phline{display:flex;justify-content:space-between;gap:8px;border:1px solid var(--line);border-radius:9px;padding:7px 10px;margin:6px 0;font-size:13px}
+.phline b{color:var(--g)}
+.phline.cur{background:#f7faf7;border-color:var(--g)}
 </style>
 </head>
 <body>
@@ -108,7 +125,7 @@ a{color:var(--g)}
     <div class="card">
       <h2>Registrar rega</h2>
       <div class="row"><div><label>Data</label><input id="f-date" type="date"></div>
-      <div><label>Vaso</label><select id="f-pot"></select></div></div>
+      <div><label>Vaso</label><select id="f-pot" onchange="syncRegPhase()"></select></div></div>
       <label>Fase</label><select id="f-phase"></select>
       <h2 style="margin-top:14px">Entrada (o que você rega)</h2>
       <div class="row"><div><label>pH entrada</label><input id="f-phin" type="number" inputmode="decimal" step="0.1" placeholder="6.2"></div>
@@ -124,6 +141,9 @@ a{color:var(--g)}
       </div>
       <div class="row" style="margin-top:8px"><div><label>% runoff</label><input id="f-ro" type="number" inputmode="decimal" placeholder="15"></div>
       <div><label>Obs.</label><input id="f-obs" type="text" placeholder="opcional"></div></div>
+      <label>Fotos (opcional)</label>
+      <label class="btn sec addphoto">📷 Adicionar foto<input type="file" id="f-photo" accept="image/*" capture="environment" multiple class="hide" onchange="onPhotoPick(event)"></label>
+      <div id="photoPreview" class="photorow"></div>
       <button class="btn" onclick="saveEntry()">Salvar e ver recomendação</button>
       <div id="regResult"></div>
     </div>
@@ -148,6 +168,8 @@ a{color:var(--g)}
       </div>
       <label>Tipo de substrato</label>
       <input id="j-sub" type="text" placeholder="Ex.: Light Mix, coco, solo vivo">
+      <label>Fase atual</label>
+      <select id="j-phase"></select>
       <div class="row">
         <div><label>Volume do vaso (L)</label><input id="j-vol" type="number" inputmode="decimal" step="0.5" placeholder="11"></div>
         <div><label>Data de início</label><input id="j-start" type="date"></div>
@@ -196,6 +218,18 @@ a{color:var(--g)}
   </section>
 </main>
 
+<div id="phaseModal" class="modal hide">
+  <div class="modalcard">
+    <div class="gtop"><h2 id="pmTitle" style="margin:0">Mudar fase</h2><button class="del" onclick="closePhase()">fechar</button></div>
+    <label>Nova fase</label><select id="pm-phase"></select>
+    <label>Data da mudança</label><input id="pm-date" type="date">
+    <button class="btn" onclick="confirmPhase()">Registrar mudança de fase</button>
+    <h2 style="margin-top:16px">Tempo em cada fase</h2>
+    <div id="pm-hist"></div>
+  </div>
+</div>
+<div id="lightbox" class="lightbox hide" onclick="closeLightbox()"><img id="lightboxImg" src="" alt=""></div>
+
 <nav>
   <button data-t="dose" class="on" onclick="go('dose')"><span class="i">💧</span>Adubar</button>
   <button data-t="reg" onclick="go('reg')"><span class="i">📝</span>Registrar</button>
@@ -206,7 +240,7 @@ a{color:var(--g)}
 </nav>
 
 <script>
-const APP_VERSION='1.0002';
+const APP_VERSION='1.0003';
 const APP_DATE='03/07/2026';
 const PHASES=[
  {k:'muda',l:'Muda / clone',pp:2.9,cn:1.9,mkp:0,mg:0,ecLo:0.6,ecHi:0.9},
@@ -227,9 +261,16 @@ function load(){try{const p=localStorage.getItem('cultivo_v1');if(p)mem=JSON.par
  if(!Array.isArray(mem.pots)||!mem.pots.length)mem.pots=['Vaso 1'];
  migratePots();
  if(!mem.entries)mem.entries=[];if(mem.cal==null)mem.cal=1;}
-function migratePots(){mem.pots=(mem.pots||[]).map(p=>typeof p==='string'
- ?{name:p,strain:'',origin:'semente',type:'foto',substrate:'',volume:'',start:''}
- :Object.assign({name:'',strain:'',origin:'semente',type:'foto',substrate:'',volume:'',start:''},p));}
+function migratePots(){mem.pots=(mem.pots||[]).map(p=>{
+ const o=(typeof p==='string')?{name:p}:Object.assign({},p);
+ const r=Object.assign({name:'',strain:'',origin:'semente',type:'foto',substrate:'',volume:'',start:'',phase:'muda',phaseLog:null},o);
+ if(!Array.isArray(r.phaseLog))r.phaseLog=(r.start||r.phase)?[{phase:r.phase||'muda',start:r.start||''}]:[];
+ if(r.phaseLog.length)r.phase=r.phaseLog[r.phaseLog.length-1].phase;
+ return r;
+});}
+function todayISO(){return new Date().toISOString().slice(0,10);}
+function daysDiff(fromISO,toISO){if(!fromISO)return null;const a=new Date(fromISO+'T00:00:00');const b=toISO?new Date(toISO+'T00:00:00'):(function(){const n=new Date();n.setHours(0,0,0,0);return n;})();if(isNaN(a)||isNaN(b))return null;return Math.floor((b-a)/86400000);}
+function daysLabel(d){if(d==null)return '—';if(d<=0)return 'hoje';return d+(d>1?' dias':' dia');}
 function save(){try{localStorage.setItem('cultivo_v1',JSON.stringify(mem));}catch(e){alert('Não consegui salvar no navegador. Use Exportar para backup.');}}
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 
@@ -261,7 +302,7 @@ function evaluate(e){
 function go(t){document.querySelectorAll('main>section').forEach(s=>s.classList.add('hide'));
  document.getElementById('tab-'+t).classList.remove('hide');
  document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));
- if(t==='pan')renderPanel();if(t==='jard')renderGarden();if(t==='hist')renderHist();window.scrollTo(0,0);}
+ if(t==='pan')renderPanel();if(t==='jard')renderGarden();if(t==='hist')renderHist();if(t==='reg')syncRegPhase();window.scrollTo(0,0);}
 
 // ---- render dose ----
 function renderDose(){
@@ -339,17 +380,36 @@ function refreshSelects(){
  fillSel('dphase',PHASES.map(p=>({v:p.k,l:p.l})),'vegpleno');
  fillSel('f-phase',PHASES.map(p=>({v:p.k,l:p.l})),'vegpleno');
  fillSel('c-fase',PHASES.map(p=>({v:p.k,l:p.l})),'vegpleno');
+ fillSel('j-phase',PHASES.map(p=>({v:p.k,l:p.l})),'muda');
+ fillSel('pm-phase',PHASES.map(p=>({v:p.k,l:p.l})));
  const names=mem.pots.map(p=>p.name);
  fillSel('f-pot',names);
  fillSel('h-filter',['(todos)'].concat(names));
 }
+function syncRegPhase(){const nm=document.getElementById('f-pot').value;const p=mem.pots.find(x=>x.name===nm);
+ if(p){const cur=(p.phaseLog&&p.phaseLog.length)?p.phaseLog[p.phaseLog.length-1].phase:p.phase;if(cur)document.getElementById('f-phase').value=cur;}}
+
+// ---- fotos ----
+let pendingPhotos=[];
+function resizeImage(file,maxDim,quality){return new Promise((res,rej)=>{const rd=new FileReader();
+ rd.onload=()=>{const img=new Image();img.onload=()=>{let w=img.width,h=img.height;const sc=Math.min(1,maxDim/Math.max(w,h));
+  w=Math.round(w*sc);h=Math.round(h*sc);const c=document.createElement('canvas');c.width=w;c.height=h;
+  c.getContext('2d').drawImage(img,0,0,w,h);res(c.toDataURL('image/jpeg',quality));};img.onerror=rej;img.src=rd.result;};
+ rd.onerror=rej;rd.readAsDataURL(file);});}
+function onPhotoPick(ev){const files=[...ev.target.files];ev.target.value='';if(!files.length)return;
+ Promise.all(files.map(f=>resizeImage(f,1000,0.6))).then(arr=>{pendingPhotos=pendingPhotos.concat(arr);renderPhotoPreview();}).catch(()=>alert('Não consegui processar a imagem.'));}
+function renderPhotoPreview(){document.getElementById('photoPreview').innerHTML=pendingPhotos.map((d,i)=>`<div class="ph"><img src="${d}" onclick="openLightbox(this.src)"><button class="x" onclick="removePending(${i})">×</button></div>`).join('');}
+function removePending(i){pendingPhotos.splice(i,1);renderPhotoPreview();}
+function openLightbox(src){document.getElementById('lightboxImg').src=src;document.getElementById('lightbox').classList.remove('hide');}
+function closeLightbox(){document.getElementById('lightbox').classList.add('hide');document.getElementById('lightboxImg').src='';}
+function latestPhoto(pot){const es=mem.entries.filter(e=>e.pot===pot&&e.photos&&e.photos.length).sort((a,b)=>(b.date+String(b.id)).localeCompare(a.date+String(a.id)));return es.length?es[0].photos[0]:null;}
 
 // ---- save entry ----
 function saveEntry(){
  const g=id=>document.getElementById(id).value;
  const e={id:Date.now(),date:g('f-date'),pot:g('f-pot'),phase:g('f-phase'),
   phIn:g('f-phin'),ecIn:g('f-ecin'),phOut:g('f-phout'),ecOut:g('f-ecout'),
-  nOut:g('f-n'),pOut:g('f-p'),kOut:g('f-k'),runoff:g('f-ro'),obs:g('f-obs')};
+  nOut:g('f-n'),pOut:g('f-p'),kOut:g('f-k'),runoff:g('f-ro'),obs:g('f-obs'),photos:pendingPhotos.slice()};
  const r=evaluate(e);e.alert=r.alert;e.rec=r.rec;
  mem.entries.push(e);save();
  document.getElementById('regResult').innerHTML=
@@ -357,6 +417,7 @@ function saveEntry(){
    <div class="rec">${r.rec||'Preencha ao menos os dados de saída para gerar recomendação.'}</div></div>`;
  ['f-phin','f-ecin','f-phout','f-ecout','f-ro','f-obs'].forEach(i=>document.getElementById(i).value='');
  document.getElementById('f-n').value='';document.getElementById('f-p').value='';document.getElementById('f-k').value='';
+ pendingPhotos=[];renderPhotoPreview();
 }
 
 // ---- panel ----
@@ -380,7 +441,8 @@ function renderHist(){
  let h=es.length?'':'<p class="note">Nenhum registro ainda.</p>';
  es.forEach(e=>{h+=`<div class="hist"><div class="top"><b>${fmt(e.date)} · ${e.pot}</b>
    <span>${e.alert?`<span class="badge b-${e.alert}">${e.alert}</span>`:''} <button class="del" onclick="delEntry(${e.id})">excluir</button></span></div>
-   <div class="meta">${phaseLabel(e.phase)} · ent pH ${e.phIn||'—'}/EC ${e.ecIn||'—'} · saída pH ${e.phOut||'—'}/EC ${e.ecOut||'—'} · N/P/K(ppm) ${e.nOut||'—'}/${e.pOut||'—'}/${e.kOut||'—'}${e.obs?(' · '+e.obs):''}</div>
+   <div class="meta">${phaseLabel(e.phase)} · ent pH ${e.phIn||'—'}/EC ${e.ecIn||'—'} · saída pH ${e.phOut||'—'}/EC ${e.ecOut||'—'} · N/P/K(ppm) ${e.nOut||'—'}/${e.pOut||'—'}/${e.kOut||'—'}${e.obs?(' · '+esc(e.obs)):''}</div>
+   ${e.photos&&e.photos.length?`<div class="gthumbs">${e.photos.map(d=>`<img class="histthumb" src="${d}" onclick="openLightbox(this.src)">`).join('')}</div>`:''}
    <div class="rec">${e.rec||''}</div></div>`;});
  document.getElementById('hist').innerHTML=h;
 }
@@ -418,25 +480,71 @@ function renderGarden(){
   const a=ageOf(p.start);
   const originL=p.origin==='clone'?'🌿 Clone':'🌱 Semente';
   const typeL=p.type==='auto'?'Automática':'Fotoperíodo';
+  const cp=(p.phaseLog&&p.phaseLog.length)?p.phaseLog[p.phaseLog.length-1]:null;
+  const ph=PHASES.find(x=>x.k===(cp?cp.phase:p.phase));
+  const dIn=cp?daysDiff(cp.start):null;
+  const photo=latestPhoto(p.name);
   h+=`<div class="gcard">
    <div class="gtop"><b>${esc(p.name)}</b><span class="gact"><span class="lnk" onclick="editPot(${i})">editar</span> · <button class="del" onclick="delPot(${i})">remover</button></span></div>
    ${p.strain?`<div class="gstrain">🧬 ${esc(p.strain)}</div>`:''}
    <div class="gtags"><span class="tag">${originL}</span><span class="tag${p.type==='auto'?' auto':''}">${typeL}</span>${p.substrate?`<span class="tag">🪵 ${esc(p.substrate)}</span>`:''}${p.volume?`<span class="tag">🪴 ${esc(p.volume)} L</span>`:''}</div>
+   <div class="gphase"><span class="phasebadge${ph&&ph.fl?' fl':''}">${ph?esc(ph.l):'sem fase'}</span>${cp&&dIn!=null?`<span class="small">há ${daysLabel(dIn)} nesta fase</span>`:''}<span class="lnk" onclick="openPhase(${i})">mudar fase</span></div>
    ${p.start?`<div class="gage"><div class="kv"><b>${ageLabel(a)}</b><span>desde ${fmt(p.start)}</span></div></div>`:'<div class="small" style="margin-top:6px">Sem data de início.</div>'}
+   ${photo?`<div class="gthumbs"><img src="${photo}" onclick="openLightbox(this.src)"></div>`:''}
   </div>`;
  });
  el.innerHTML=h;
 }
+// ---- mudança de fase ----
+function phaseDurations(p){const log=(p.phaseLog||[]).slice().sort((a,b)=>(a.start||'').localeCompare(b.start||''));
+ return log.map((e,i)=>({phase:e.phase,start:e.start,end:i<log.length-1?log[i+1].start:null,days:daysDiff(e.start,i<log.length-1?log[i+1].start:null),current:i===log.length-1}));}
+let phaseIdx=-1;
+function openPhase(i){phaseIdx=i;const p=mem.pots[i];
+ document.getElementById('pmTitle').textContent='Fase — '+p.name;
+ const cur=(p.phaseLog&&p.phaseLog.length)?p.phaseLog[p.phaseLog.length-1].phase:(p.phase||'muda');
+ const idx=PHASES.findIndex(x=>x.k===cur);
+ document.getElementById('pm-phase').value=PHASES[Math.min(idx+1,PHASES.length-1)].k;
+ document.getElementById('pm-date').value=todayISO();
+ renderPhaseHist(p);
+ document.getElementById('phaseModal').classList.remove('hide');}
+function closePhase(){document.getElementById('phaseModal').classList.add('hide');phaseIdx=-1;}
+function confirmPhase(){if(phaseIdx<0)return;const p=mem.pots[phaseIdx];
+ const phase=document.getElementById('pm-phase').value;const date=document.getElementById('pm-date').value||todayISO();
+ if(!Array.isArray(p.phaseLog))p.phaseLog=[];
+ const last=p.phaseLog[p.phaseLog.length-1];
+ if(last&&last.phase===phase&&last.start===date){alert('Esse vaso já está nessa fase nessa data.');return;}
+ p.phaseLog.push({phase,start:date});
+ p.phaseLog.sort((a,b)=>(a.start||'').localeCompare(b.start||''));
+ p.phase=p.phaseLog[p.phaseLog.length-1].phase;
+ save();renderPhaseHist(p);renderGarden();}
+function undoPhase(){if(phaseIdx<0)return;const p=mem.pots[phaseIdx];if(!p.phaseLog||p.phaseLog.length<2)return;
+ if(!confirm('Remover a última mudança de fase?'))return;p.phaseLog.pop();p.phase=p.phaseLog[p.phaseLog.length-1].phase;
+ save();renderPhaseHist(p);renderGarden();}
+function renderPhaseHist(p){const ds=phaseDurations(p);
+ let h=ds.length?'':'<p class="small">Sem fases registradas ainda.</p>';
+ ds.forEach(d=>{const ph=PHASES.find(x=>x.k===d.phase);
+  h+=`<div class="phline${d.current?' cur':''}"><span><b>${ph?esc(ph.l):esc(d.phase)}</b><br><span class="small">${fmt(d.start)}${d.end?(' → '+fmt(d.end)):''}</span></span>
+   <span style="white-space:nowrap;text-align:right">${d.current?'fase atual<br>':''}${daysLabel(d.days)}</span></div>`;});
+ if(ds.length>1)h+=`<button class="btn sec mini" style="margin-top:8px" onclick="undoPhase()">Desfazer última mudança</button>`;
+ document.getElementById('pm-hist').innerHTML=h;}
 let editIdx=-1;
 function savePot(){
  const g=id=>document.getElementById(id).value.trim();
  const name=g('j-name');
  if(!name){alert('Dê um nome ao vaso.');return;}
  if(mem.pots.some((p,i)=>p.name===name&&i!==editIdx)){alert('Já existe um vaso com esse nome.');return;}
- const obj={name,strain:g('j-strain'),origin:document.getElementById('j-origin').value,type:document.getElementById('j-type').value,substrate:g('j-sub'),volume:g('j-vol'),start:document.getElementById('j-start').value};
- if(editIdx>=0){const old=mem.pots[editIdx].name;mem.pots[editIdx]=obj;
+ const phase=document.getElementById('j-phase').value;
+ const start=document.getElementById('j-start').value;
+ const obj={name,strain:g('j-strain'),origin:document.getElementById('j-origin').value,type:document.getElementById('j-type').value,substrate:g('j-sub'),volume:g('j-vol'),start,phase,phaseLog:[]};
+ if(editIdx>=0){const prev=mem.pots[editIdx];const old=prev.name;
+  obj.phaseLog=Array.isArray(prev.phaseLog)?prev.phaseLog.slice():[];
+  if(!obj.phaseLog.length)obj.phaseLog=[{phase,start:start||todayISO()}];
+  else{obj.phaseLog[obj.phaseLog.length-1].phase=phase; // corrige a fase atual
+   if(obj.phaseLog.length===1)obj.phaseLog[0].start=start||obj.phaseLog[0].start;}
+  obj.phase=obj.phaseLog[obj.phaseLog.length-1].phase;
+  mem.pots[editIdx]=obj;
   if(old!==name)mem.entries.forEach(e=>{if(e.pot===old)e.pot=name;});
- }else mem.pots.push(obj);
+ }else{obj.phaseLog=[{phase,start:start||todayISO()}];mem.pots.push(obj);}
  save();refreshSelects();clearPotForm();renderGarden();
 }
 function editPot(i){editIdx=i;const p=mem.pots[i];
@@ -447,6 +555,7 @@ function editPot(i){editIdx=i;const p=mem.pots[i];
  document.getElementById('j-sub').value=p.substrate||'';
  document.getElementById('j-vol').value=p.volume||'';
  document.getElementById('j-start').value=p.start||'';
+ document.getElementById('j-phase').value=(p.phaseLog&&p.phaseLog.length?p.phaseLog[p.phaseLog.length-1].phase:p.phase)||'muda';
  document.getElementById('jardTitle').textContent='Editar vaso';
  document.getElementById('jSave').textContent='Salvar alterações';
  document.getElementById('jCancel').style.display='';
@@ -457,7 +566,8 @@ function clearPotForm(){editIdx=-1;
  ['j-name','j-strain','j-sub','j-vol'].forEach(i=>document.getElementById(i).value='');
  document.getElementById('j-origin').value='semente';
  document.getElementById('j-type').value='foto';
- document.getElementById('j-start').value=new Date().toISOString().slice(0,10);
+ document.getElementById('j-phase').value='muda';
+ document.getElementById('j-start').value=todayISO();
  document.getElementById('jardTitle').textContent='Novo vaso';
  document.getElementById('jSave').textContent='Adicionar vaso';
  document.getElementById('jCancel').style.display='none';
