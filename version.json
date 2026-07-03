@@ -1,0 +1,10 @@
+{
+ "version": "1.0001",
+ "date": "2026-07-03",
+ "changes": [
+  "Primeira versão numerada.",
+  "Correção de calda: água, KOH (subir pH) e ácido fosfórico (baixar pH).",
+  "Calibração da tabela pela EC medida.",
+  "EC em µS/cm; verificação de atualizações."
+ ]
+}

@@ -11,7 +11,8 @@
 --ok:#2ecc71;--at:#f1c40f;--fl:#e67e22;--cr:#c0392b;}
 *{box-sizing:border-box}
 body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);-webkit-text-size-adjust:100%}
-header{position:sticky;top:0;background:var(--g);color:#fff;padding:12px 14px;font-weight:700;font-size:17px;z-index:10}
+header{position:sticky;top:0;background:var(--g);color:#fff;padding:12px 14px;font-weight:700;font-size:16px;z-index:10;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.ver{font-size:12px;font-weight:600;opacity:.85;white-space:nowrap}
 main{padding:12px;padding-bottom:78px;max-width:640px;margin:0 auto}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 1px 2px rgba(0,0,0,.04)}
 h2{font-size:15px;margin:2px 0 10px;color:var(--g)}
@@ -43,13 +44,23 @@ th,td{border:1px solid var(--line);padding:6px 5px;text-align:center}
 th{background:var(--g);color:#fff;font-weight:600}
 tr.hl td{background:#fff7e6;font-weight:700}
 .hide{display:none}
+.seq{margin-top:10px}
+.step{display:flex;align-items:center;gap:10px;background:#f7faf7;border:1px solid var(--line);border-radius:11px;padding:10px 12px}
+.step .n{flex:none;width:24px;height:24px;border-radius:50%;background:var(--g);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.step .pn{flex:1;font-weight:600;font-size:14px}
+.step .pg{font-weight:700;color:var(--g);font-size:16px;white-space:nowrap}
+.step.warn{border-color:#e67e22;background:#fff6ec}
+.step .wtag{font-weight:500;font-size:11px;color:#c0392b;margin-top:2px}
+.arr{text-align:center;color:var(--g);font-size:18px;line-height:1;margin:1px 0}
+.warnbox{border-left-color:#e67e22 !important;background:#fff6ec}
+.lnk{color:var(--g);text-decoration:underline;cursor:pointer}
 .del{color:var(--cr);background:none;border:0;font-size:13px}
 .note{font-size:12px;color:var(--mut);line-height:1.45}
 a{color:var(--g)}
 </style>
 </head>
 <body>
-<header>🌱 Cultivo — Diário & Adubação</header>
+<header><span>🌱 Cultivo — Diário & Adubação</span><span class="ver" id="verTag"></span></header>
 <main>
   <!-- ADUBAR -->
   <section id="tab-dose">
@@ -66,6 +77,19 @@ a{color:var(--g)}
       <div id="doseTable"></div>
       <p class="note">Ordem de mistura: dissolva Plant Prod + MKP + Sulfato de Mg primeiro; o Nitrato de Cálcio à parte e só junte no volume final. Ajuste o pH por último (6,0–6,5). Gramas = ponto de partida; confira a EC.</p>
     </div>
+    <div class="card">
+      <h2>Corrigir calda pronta</h2>
+      <p class="small">Misturou e a EC/pH saiu fora? Informe como ficou que eu digo quanta água, KOH ou ácido adicionar — e se vale recalibrar a tabela.</p>
+      <label>Fase que você misturou</label>
+      <select id="c-fase"></select>
+      <div class="row"><div><label>Volume atual (L)</label><input id="c-vol" type="number" inputmode="decimal" placeholder="10"></div>
+      <div><label>EC atual (µS/cm)</label><input id="c-ec" type="number" inputmode="decimal" placeholder="2110"></div></div>
+      <div class="row"><div><label>EC alvo (µS/cm)</label><input id="c-ect" type="number" inputmode="decimal" placeholder="1500"></div>
+      <div><label>pH atual</label><input id="c-ph" type="number" inputmode="decimal" step="0.1" placeholder="5.6"></div></div>
+      <button class="btn" onclick="corrigir()">Calcular correção</button>
+      <div id="corrOut"></div>
+      <p class="note">Alvo de pH: 6,0–6,5 (uso 6,3). O EC-alvo você vê na tabela acima por fase.</p>
+    </div>
   </section>
 
   <!-- REGISTRAR -->
@@ -77,13 +101,15 @@ a{color:var(--g)}
       <label>Fase</label><select id="f-phase"></select>
       <h2 style="margin-top:14px">Entrada (o que você rega)</h2>
       <div class="row"><div><label>pH entrada</label><input id="f-phin" type="number" inputmode="decimal" step="0.1" placeholder="6.2"></div>
-      <div><label>EC entrada</label><input id="f-ecin" type="number" inputmode="decimal" step="0.1" placeholder="1.4"></div></div>
+      <div><label>EC entrada (µS/cm)</label><input id="f-ecin" type="number" inputmode="decimal" step="10" placeholder="1400"></div></div>
       <h2 style="margin-top:14px">Saída (runoff)</h2>
       <div class="row"><div><label>pH saída</label><input id="f-phout" type="number" inputmode="decimal" step="0.1" placeholder="6.3"></div>
-      <div><label>EC saída</label><input id="f-ecout" type="number" inputmode="decimal" step="0.1" placeholder="1.6"></div></div>
-      <label>N / P / K saída (kit de cores)</label>
+      <div><label>EC saída (µS/cm)</label><input id="f-ecout" type="number" inputmode="decimal" step="10" placeholder="1600"></div></div>
+      <label>N / P / K saída (ppm, do teste químico)</label>
       <div class="grid" style="grid-template-columns:1fr 1fr 1fr">
-        <select id="f-n"></select><select id="f-p"></select><select id="f-k"></select>
+        <input id="f-n" type="number" inputmode="decimal" placeholder="N ppm">
+        <input id="f-p" type="number" inputmode="decimal" placeholder="P ppm">
+        <input id="f-k" type="number" inputmode="decimal" placeholder="K ppm">
       </div>
       <div class="row" style="margin-top:8px"><div><label>% runoff</label><input id="f-ro" type="number" inputmode="decimal" placeholder="15"></div>
       <div><label>Obs.</label><input id="f-obs" type="text" placeholder="opcional"></div></div>
@@ -109,6 +135,12 @@ a{color:var(--g)}
   <!-- MAIS -->
   <section id="tab-more" class="hide">
     <div class="card">
+      <h2>Atualizações</h2>
+      <p class="small">Versão atual: <b id="curVer"></b> · <span id="curDate"></span></p>
+      <button class="btn sec" onclick="checkUpdate()">Verificar atualizações</button>
+      <div id="updOut"></div>
+    </div>
+    <div class="card">
       <h2>Vasos</h2>
       <div class="row"><input id="np" type="text" placeholder="Nome do vaso novo"><button class="btn mini" onclick="addPot()">Adicionar</button></div>
       <div id="pots"></div>
@@ -121,8 +153,9 @@ a{color:var(--g)}
     </div>
     <div class="card">
       <h2>Guia rápido</h2>
-      <p class="note"><b>Alvo:</b> pH 6,0–6,5 na entrada e no runoff.<br>
-      <b>Runoff EC ≈ entrada</b> (+0,3 ok). <b>+0,5</b> → próxima rega só água. <b>+1,0 ou ≥2,5</b> → flush.<br>
+      <p class="note"><b>Alvo:</b> pH 6,0–6,5 na entrada e no runoff. EC em µS/cm.<br>
+      <b>Runoff EC ≈ entrada</b> (+300 ok). <b>+500</b> → próxima rega só água. <b>+1000 ou ≥2500</b> → flush.<br>
+      <b>Não use o ppm da calda:</b> a conversão EC→ppm muda com o fator do medidor (500/640/700) — o mesmo líquido "muda" de ppm. Dose sempre pelo <b>EC em µS/cm</b>. (O ppm dos testes de N/P/K é outra medida e continua válido.)<br>
       <b>Regar:</b> pelo peso do vaso (quando secar). Padrão <b>adubo : adubo : água</b>, sempre com 10–20% de escoamento.<br>
       <b>pH:</b> ajuste por último; use pH Down (ácido fosfórico) / pH Up (hidróxido de potássio).<br>
       <b>Alertas:</b> <span class="badge b-OK">OK</span> seguir · <span class="badge b-ATENÇÃO">ATENÇÃO</span> só água · <span class="badge b-FLUSH">FLUSH</span> lavar · <span class="badge b-CRÍTICO">CRÍTICO</span> flush pesado.</p>
@@ -139,15 +172,17 @@ a{color:var(--g)}
 </nav>
 
 <script>
+const APP_VERSION='1.0001';
+const APP_DATE='03/07/2026';
 const PHASES=[
- {k:'muda',l:'Muda / clone',pp:2.9,cn:1.9,mkp:0,mg:0,ec:'0,6–0,9'},
- {k:'inicio',l:'Início vegetativo',pp:5.2,cn:3.5,mkp:0,mg:0,ec:'1,0–1,2'},
- {k:'vegpleno',l:'Vegetativo pleno',pp:7.5,cn:5.0,mkp:0,mg:0,ec:'1,4–1,6'},
- {k:'transicao',l:'Pré-floração / transição',pp:7.5,cn:4.5,mkp:1.5,mg:1.5,ec:'1,5–1,7'},
- {k:'floinicio',l:'Floração início',pp:7.5,cn:3.5,mkp:2.0,mg:2.0,ec:'1,6–2,0'},
- {k:'flopico',l:'Floração pico',pp:7.0,cn:3.0,mkp:2.5,mg:2.0,ec:'1,7–2,0'},
- {k:'flofinal',l:'Floração final',pp:6.0,cn:2.0,mkp:2.5,mg:1.5,ec:'1,3–1,6'},
- {k:'flush',l:'Flush (lavagem)',pp:0,cn:0,mkp:0,mg:0,ec:'só água'},
+ {k:'muda',l:'Muda / clone',pp:2.9,cn:1.9,mkp:0,mg:0,ecLo:0.6,ecHi:0.9},
+ {k:'inicio',l:'Início vegetativo',pp:5.2,cn:3.5,mkp:0,mg:0,ecLo:1.0,ecHi:1.2},
+ {k:'vegpleno',l:'Vegetativo pleno',pp:7.5,cn:5.0,mkp:0,mg:0,ecLo:1.4,ecHi:1.6},
+ {k:'transicao',l:'Pré-floração / transição',pp:7.5,cn:4.5,mkp:1.5,mg:1.5,ecLo:1.5,ecHi:1.7},
+ {k:'floinicio',l:'Floração início',pp:7.5,cn:3.5,mkp:2.0,mg:2.0,ecLo:1.6,ecHi:2.0},
+ {k:'flopico',l:'Floração pico',pp:7.0,cn:3.0,mkp:2.5,mg:2.0,ecLo:1.7,ecHi:2.0},
+ {k:'flofinal',l:'Floração final',pp:6.0,cn:2.0,mkp:2.5,mg:1.5,ecLo:1.3,ecHi:1.6},
+ {k:'flush',l:'Flush (lavagem)',pp:0,cn:0,mkp:0,mg:0,ecLo:0,ecHi:0.6,fl:1},
 ];
 const CATS=['','Depletado','Baixo','Adequado','Alto','Excesso'];
 function ppm(p){return{N:p.pp*7+p.cn*15,P:p.pp*4.80+p.mkp*22.48,K:p.pp*22.41+p.mkp*28.22,Ca:p.cn*19,Mg:p.pp*3.75+p.mg*9,S:p.pp*5.6+p.mg*12,EC:(p.pp*1.37+p.cn*1.20+p.mkp*0.70+p.mg*0.80)/10};}
@@ -155,35 +190,28 @@ function ppm(p){return{N:p.pp*7+p.cn*15,P:p.pp*4.80+p.mkp*22.48,K:p.pp*22.41+p.m
 // ---- storage ----
 let mem={pots:[],entries:[]};
 function load(){try{const p=localStorage.getItem('cultivo_v1');if(p)mem=JSON.parse(p);}catch(e){}
- if(!mem.pots||!mem.pots.length)mem.pots=['Vaso 1'];if(!mem.entries)mem.entries=[];}
+ if(!mem.pots||!mem.pots.length)mem.pots=['Vaso 1'];if(!mem.entries)mem.entries=[];if(mem.cal==null)mem.cal=1;}
 function save(){try{localStorage.setItem('cultivo_v1',JSON.stringify(mem));}catch(e){alert('Não consegui salvar no navegador. Use Exportar para backup.');}}
 
 // ---- logic (igual à planilha) ----
 function evaluate(e){
- const P={ecAgua:.5,ecFlush:1,ecAlta:2.5,ecCrit:3.5,phMin:5.5,phMax:6.8,phCB:5,phCA:7.5,ecSub:-.3};
+ const P={ecAgua:500,ecFlush:1000,ecAlta:2500,ecCrit:3500,phMin:5.5,phMax:6.8,phCB:5,phCA:7.5,ecSub:-300};
  const num=v=>v!==''&&v!=null&&!isNaN(parseFloat(v));
  const ecIn=parseFloat(e.ecIn),ecOut=parseFloat(e.ecOut),ph=parseFloat(e.phOut);
- const n=e.nOut,p=e.pOut,k=e.kOut;
- if(!(num(e.phOut)||num(e.ecOut)||n||p||k))return{alert:'',rec:''};
+ if(!(num(e.phOut)||num(e.ecOut)))return{alert:'',rec:''};
  const crit=(num(e.ecOut)&&ecOut>=P.ecCrit)||(num(e.phOut)&&(ph<=P.phCB||ph>=P.phCA));
  const flush=(num(e.ecOut)&&num(e.ecIn)&&(ecOut-ecIn>=P.ecFlush))||(num(e.ecOut)&&ecOut>=P.ecAlta);
  const agua=num(e.ecOut)&&num(e.ecIn)&&(ecOut-ecIn>=P.ecAgua);
  const phmild=num(e.phOut)&&(ph<P.phMin||ph>P.phMax);
- const exc=[n,p,k].includes('Excesso');
- const low=c=>c==='Baixo'||c==='Depletado';
  const eating=num(e.ecOut)&&num(e.ecIn)&&(ecOut-ecIn<=P.ecSub);
  let alert='OK';
- if(crit)alert='CRÍTICO';else if(flush)alert='FLUSH';else if(agua||phmild||exc)alert='ATENÇÃO';
+ if(crit)alert='CRÍTICO';else if(flush)alert='FLUSH';else if(agua||phmild)alert='ATENÇÃO';
  let rec;
  if(e.phase==='flush')rec='Só água (pH 6,0–6,5) — período de flush.';
  else if(crit)rec='CRÍTICO: flush pesado (2–3× o volume do vaso) só com água pH 6,0–6,5 até o runoff baixar; verifique raízes/pragas e recalibre os medidores.';
  else if(flush)rec='Fazer FLUSH: 1–2 regas só água pH 6,0–6,5 até a EC do runoff normalizar.';
  else if(agua)rec='Próxima rega SÓ ÁGUA (pH 6,0–6,5) para lavar o excesso de sal.';
  else if(phmild)rec='Ajustar o pH da solução para 6,0–6,5 na próxima rega.';
- else if(exc)rec='Reduzir adubo: regas só água até os níveis normalizarem.';
- else if(low(n))rec='Subir N: +0,5 g Nitrato de Cálcio por 10 L ou adubar com mais frequência.';
- else if(low(p))rec='Reforçar P: aumentar o MKP na próxima rega.';
- else if(low(k))rec='Reforçar K: MKP / Sulfato de Potássio.';
  else if(eating)rec='Planta consumindo bem: pode subir a dose ~10%.';
  else rec='Seguir o programa da fase (adubar normal).';
  return{alert,rec};
@@ -198,31 +226,81 @@ function go(t){document.querySelectorAll('main>section').forEach(s=>s.classList.
 // ---- render dose ----
 function renderDose(){
  const v=parseFloat(document.getElementById('vol').value)||10;
+ const cal=mem.cal||1;
  const k=document.getElementById('dphase').value;const p=PHASES.find(x=>x.k===k);
- const f=g=>(g*v/10).toFixed(2);const m=ppm(p);
- document.getElementById('doseOut').innerHTML=p.k==='flush'
-  ?`<div class="rec">Flush: regue só com <b>água</b> a pH 6,0–6,5. Sem adubos.</div>`
-  :`<div class="grid" style="margin-top:10px">
-    <div class="kv"><b>${f(p.pp)} g</b><span>Plant Prod 7-11-27</span></div>
-    <div class="kv"><b>${f(p.cn)} g</b><span>Nitrato de Cálcio</span></div>
-    <div class="kv"><b>${f(p.mkp)} g</b><span>MKP</span></div>
-    <div class="kv"><b>${f(p.mg)} g</b><span>Sulfato de Magnésio</span></div>
+ const f=g=>(g*v/10*cal).toFixed(2);const m=ppm(p);
+ const uLo=Math.round(p.ecLo*1000),uHi=Math.round(p.ecHi*1000);
+ const ecu=Math.round(m.EC*1000*cal);
+ const calnote=cal!==1?`<br><span class="small">Tabela calibrada \u00d7${cal.toFixed(2)} \u00b7 <span class="lnk" onclick="resetCal()">resetar</span></span>`:'';
+ const est=cal!==1?`<b>Com a calibração, deve cair perto do alvo (${uLo}\u2013${uHi} µS/cm)</b> — meça e ajuste`:`<b>Estimativa da receita:</b> ~${ecu} µS/cm (só referência — confie no seu medidor)`;
+ let out;
+ if(p.fl){out=`<div class="rec">Flush: regue só com <b>água</b> a pH 6,0\u20136,5. Sem adubos.</div>`;}
+ else{out=`<p class="small" style="margin:8px 0 2px">Ordem de dissolução na água:</p>
+   <div class="seq">
+    <div class="step"><span class="n">1</span><div class="pn">Plant Prod 7-11-27</div><div class="pg">${f(p.pp)} g</div></div>
+    <div class="arr">\u2193</div>
+    <div class="step"><span class="n">2</span><div class="pn">MKP (fosfato monopotássico)</div><div class="pg">${f(p.mkp)} g</div></div>
+    <div class="arr">\u2193</div>
+    <div class="step"><span class="n">3</span><div class="pn">Sulfato de Magnésio</div><div class="pg">${f(p.mg)} g</div></div>
+    <div class="arr">\u2193</div>
+    <div class="step warn"><span class="n">4</span><div class="pn">Nitrato de Cálcio<div class="wtag">\u26a0 dilua à parte num pouco de água e junte por último (nunca direto com os outros)</div></div><div class="pg">${f(p.cn)} g</div></div>
    </div>
-   <div class="rec">Alvo EC: <b>${p.ec}</b> mS/cm · pH 6,0–6,5<br>ppm ≈ N ${Math.round(m.N)} · P ${Math.round(m.P)} · K ${Math.round(m.K)} · Ca ${Math.round(m.Ca)} · Mg ${Math.round(m.Mg)}</div>`;
- let t=`<table><tr><th>Fase</th><th>PP</th><th>NitCa</th><th>MKP</th><th>MgSO4</th><th>EC</th></tr>`;
- PHASES.forEach(x=>{t+=`<tr class="${x.k===k?'hl':''}"><td style="text-align:left">${x.l}</td><td>${(x.pp*v/10).toFixed(2)}</td><td>${(x.cn*v/10).toFixed(2)}</td><td>${(x.mkp*v/10).toFixed(2)}</td><td>${(x.mg*v/10).toFixed(2)}</td><td>${x.ec}</td></tr>`;});
- t+=`</table><p class="small">Valores em gramas para ${v} L.</p>`;
+   <div class="rec"><b>Alvo da fase:</b> EC <b>${uLo}\u2013${uHi} µS/cm</b> \u00b7 pH 6,0\u20136,5<br>
+   ${est}<br>
+   Nutrientes na calda (ppm): N ${Math.round(m.N*cal)} \u00b7 P ${Math.round(m.P*cal)} \u00b7 K ${Math.round(m.K*cal)} \u00b7 Ca ${Math.round(m.Ca*cal)} \u00b7 Mg ${Math.round(m.Mg*cal)}${calnote}<br>
+   <span style="color:#c0392b">Não use o ppm total da calda para dosar — a conversão EC\u2192ppm muda com o fator do medidor (500/640/700). Dose pelo EC em µS/cm.</span></div>`;}
+ document.getElementById('doseOut').innerHTML=out;
+ let t=`<table><tr><th>Fase</th><th>PP</th><th>NitCa</th><th>MKP</th><th>MgSO4</th><th>EC µS/cm</th></tr>`;
+ PHASES.forEach(x=>{const el=x.fl?'água':`${Math.round(x.ecLo*1000)}\u2013${Math.round(x.ecHi*1000)}`;t+=`<tr class="${x.k===k?'hl':''}"><td style="text-align:left">${x.l}</td><td>${(x.pp*v/10*cal).toFixed(2)}</td><td>${(x.cn*v/10*cal).toFixed(2)}</td><td>${(x.mkp*v/10*cal).toFixed(2)}</td><td>${(x.mg*v/10*cal).toFixed(2)}</td><td>${el}</td></tr>`;});
+ t+=`</table><p class="small">Gramas para ${v} L \u00b7 EC-alvo em µS/cm${cal!==1?' \u00b7 calibrado \u00d7'+cal.toFixed(2):''}.</p>`;
  document.getElementById('doseTable').innerHTML=t;
 }
+function corrigir(){
+ const V=parseFloat(document.getElementById('c-vol').value);
+ const ec=parseFloat(document.getElementById('c-ec').value);
+ const ph=parseFloat(document.getElementById('c-ph').value);
+ const pf=PHASES.find(x=>x.k===document.getElementById('c-fase').value);
+ const mid=Math.round((pf.ecLo+pf.ecHi)/2*1000);
+ const ect=parseFloat(document.getElementById('c-ect').value)||mid;
+ const alvo=6.3;const o=document.getElementById('corrOut');
+ if(!(V>0)){o.innerHTML='<div class="rec">Informe o volume atual (L).</div>';return;}
+ let html='';let Vf=V;
+ if(ec>0){
+  if(ec<=ect+50){html+=`<div class="rec"><b>Água:</b> EC ${Math.round(ec)} já está no alvo (~${Math.round(ect)}) — não precisa diluir.${ec<ect-150?' Se quiser subir, adicione um pouco mais de adubo.':''}</div>`;}
+  else{Vf=V*ec/ect;html+=`<div class="rec"><b>Água a adicionar: ~${(Vf-V).toFixed(1)} L</b><br>Baixa a EC de ${Math.round(ec)} para ~${Math.round(ect)} µS/cm (volume final ~${Vf.toFixed(1)} L). Adicione, misture e meça de novo.</div>`;}
+ }
+ if(ph>0){
+  if(ph>=6.0&&ph<=6.5){html+=`<div class="rec"><b>pH:</b> ${ph.toFixed(1)} está na faixa (6,0\u20136,5). Nada a fazer.</div>`;}
+  else if(ph<6.0){const g=Vf*(alvo-ph)*0.02;
+   html+=`<div class="rec warnbox"><b>Subir pH \u2014 Hidróxido de potássio (escamas): ~${g.toFixed(2)} g</b> (dose inicial p/ ~${Vf.toFixed(1)} L).<br>\u26a0 Cáustico e a calda tem tampão de fosfato: vá aos poucos. Dissolva a escama num pouco de água à parte, junte ~metade, misture, meça, repita até 6,0\u20136,5. Nunca a escama seca direto. Luvas/óculos.</div>`;}
+  else{const ml=Vf*(ph-alvo)*0.1;
+   html+=`<div class="rec warnbox"><b>Baixar pH \u2014 Ácido fosfórico: ~${ml.toFixed(1)} mL</b> (dose inicial p/ ~${Vf.toFixed(1)} L, para um "pH Down" diluído).<br>\u26a0 Se o seu ácido for concentrado (85%), comece com 2\u20133 gotas. Vá aos poucos: adicione, misture, meça, repita até 6,0\u20136,5. Adicione o ácido NA água. Luvas/óculos.</div>`;}
+ }
+ if(ec>0){
+  const cur=mem.cal||1;const nc=cur*(mid/ec);
+  if(Math.abs(nc-cur)/cur>0.05){
+   const dir=nc<cur?'reduzir':'aumentar';
+   let pv=`<table style="margin-top:6px"><tr><th>Produto (por 10 L)</th><th>agora</th><th>sugerido</th></tr>`;
+   [['Plant Prod','pp'],['Nitrato Cálcio','cn'],['MKP','mkp'],['Sulf. Mg','mg']].forEach(a=>{pv+=`<tr><td style="text-align:left">${a[0]}</td><td>${(pf[a[1]]*cur).toFixed(2)}</td><td>${(pf[a[1]]*nc).toFixed(2)}</td></tr>`;});
+   pv+=`</table>`;
+   html+=`<div class="rec"><b>Calibração da tabela</b><br>Sua receita de <b>${pf.l}</b> rendeu EC ${Math.round(ec)} (alvo ~${mid}). Sugiro <b>${dir}</b> as gramas para <b>\u00d7${nc.toFixed(2)}</b> do original (vale para todas as fases):${pv}
+   <button class="btn mini" onclick="aplicarCal(${nc.toFixed(4)})">Aplicar à tabela</button> <span class="small">só muda após confirmar</span></div>`;
+  }
+ }
+ if(!html)html='<div class="rec">Preencha EC e/ou pH atuais.</div>';
+ o.innerHTML=html;
+}
+function aplicarCal(c){if(!confirm('Aplicar a calibração \u00d7'+Number(c).toFixed(2)+' a TODA a tabela de dosagem? As gramas de todas as fases serão ajustadas.'))return;mem.cal=Number(c);save();renderDose();alert('Tabela calibrada \u00d7'+Number(c).toFixed(2)+'. Veja as novas gramas na calculadora (aba Adubar).');}
+function resetCal(){if(!confirm('Voltar a tabela para as gramas originais (remover calibração)?'))return;mem.cal=1;save();renderDose();}
 
 // ---- selects ----
 function fillSel(id,arr,val){const s=document.getElementById(id);s.innerHTML='';arr.forEach(o=>{const op=document.createElement('option');op.value=(typeof o==='object')?o.v:o;op.textContent=(typeof o==='object')?o.l:(o||'—');s.appendChild(op);});if(val!=null)s.value=val;}
 function refreshSelects(){
  fillSel('dphase',PHASES.map(p=>({v:p.k,l:p.l})),'vegpleno');
  fillSel('f-phase',PHASES.map(p=>({v:p.k,l:p.l})),'vegpleno');
+ fillSel('c-fase',PHASES.map(p=>({v:p.k,l:p.l})),'vegpleno');
  fillSel('f-pot',mem.pots);
  fillSel('h-filter',['(todos)'].concat(mem.pots));
- fillSel('f-n',CATS);fillSel('f-p',CATS);fillSel('f-k',CATS);
 }
 
 // ---- save entry ----
@@ -261,7 +339,7 @@ function renderHist(){
  let h=es.length?'':'<p class="note">Nenhum registro ainda.</p>';
  es.forEach(e=>{h+=`<div class="hist"><div class="top"><b>${fmt(e.date)} · ${e.pot}</b>
    <span>${e.alert?`<span class="badge b-${e.alert}">${e.alert}</span>`:''} <button class="del" onclick="delEntry(${e.id})">excluir</button></span></div>
-   <div class="meta">${phaseLabel(e.phase)} · ent pH ${e.phIn||'—'}/EC ${e.ecIn||'—'} · saída pH ${e.phOut||'—'}/EC ${e.ecOut||'—'} · N/P/K ${e.nOut||'—'}/${e.pOut||'—'}/${e.kOut||'—'}${e.obs?(' · '+e.obs):''}</div>
+   <div class="meta">${phaseLabel(e.phase)} · ent pH ${e.phIn||'—'}/EC ${e.ecIn||'—'} · saída pH ${e.phOut||'—'}/EC ${e.ecOut||'—'} · N/P/K(ppm) ${e.nOut||'—'}/${e.pOut||'—'}/${e.kOut||'—'}${e.obs?(' · '+e.obs):''}</div>
    <div class="rec">${e.rec||''}</div></div>`;});
  document.getElementById('hist').innerHTML=h;
 }
@@ -280,8 +358,25 @@ function exportData(){const blob=new Blob([JSON.stringify(mem,null,2)],{type:'ap
 function importData(ev){const f=ev.target.files[0];if(!f)return;const r=new FileReader();
  r.onload=()=>{try{const d=JSON.parse(r.result);if(d.pots&&d.entries){mem=d;save();refreshSelects();alert('Importado!');go('pan');}else alert('Arquivo inválido.');}catch(e){alert('Erro ao ler.');}};r.readAsText(f);}
 
+function checkUpdate(){
+ const o=document.getElementById('updOut');o.innerHTML='<p class="small">Verificando…</p>';
+ fetch('version.json?t='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(d=>{
+  if(parseFloat(d.version)>parseFloat(APP_VERSION)){
+   const ch=(d.changes||[]).map(c=>'<li>'+c+'</li>').join('');
+   o.innerHTML=`<div class="rec"><b>Nova versão disponível: v${d.version}</b> ${d.date?('· '+d.date):''}<br>O que mudou:<ul style="margin:6px 0 6px 18px">${ch}</ul>
+    <button class="btn mini" onclick="doUpdate('${d.version}')">Atualizar agora</button></div>`;
+  }else{
+   o.innerHTML=`<div class="rec">Você já está na versão mais recente (v${APP_VERSION}).</div>`;
+  }
+ }).catch(()=>{o.innerHTML='<div class="rec">Não foi possível verificar (offline ou app aberto localmente). Abra o app pela internet e tente de novo.</div>';});
+}
+function doUpdate(v){if(!confirm('Atualizar o app para a v'+v+' agora?'))return;location.replace(location.pathname.split('?')[0]+'?v='+encodeURIComponent(v)+'_'+Date.now());}
+
 // ---- init ----
 load();refreshSelects();
+document.getElementById('verTag').textContent='v'+APP_VERSION;
+document.getElementById('curVer').textContent='v'+APP_VERSION;
+document.getElementById('curDate').textContent=APP_DATE;
 document.getElementById('f-date').value=new Date().toISOString().slice(0,10);
 renderDose();
 </script>
