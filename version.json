@@ -1,10 +1,10 @@
 {
- "version": "1.0001",
+ "version": "1.0002",
  "date": "2026-07-03",
  "changes": [
-  "Primeira versão numerada.",
-  "Correção de calda: água, KOH (subir pH) e ácido fosfórico (baixar pH).",
-  "Calibração da tabela pela EC medida.",
-  "EC em µS/cm; verificação de atualizações."
+  "Nova aba Jardim: cadastro completo de vasos e lista com as infos de cada um.",
+  "Cadastro de vaso: nome, estirpe/genética, semente ou clone, fotoperíodo ou automática, substrato, volume e data de início.",
+  "Idade do vaso calculada até hoje (meses, semanas e dias + total).",
+  "Editar e remover vasos direto no Jardim."
  ]
 }

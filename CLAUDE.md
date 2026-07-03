@@ -14,10 +14,11 @@ Este arquivo serve de handoff/contexto: coloque-o na raiz do repositório para o
 ## Arquitetura
 - **Single-file**: todo CSS e JS embutidos em `cultivo.html`. Sem build, sem libs externas (funciona offline).
 - **Persistência**: `localStorage`, chave `cultivo_v1`, objeto `mem = {pots:[], entries:[], cal:1}`.
-  - `pots`: lista de nomes de vasos (string).
+  - `pots`: lista de vasos, cada um um objeto `{name, strain, origin:'semente'|'clone', type:'foto'|'auto', substrate, volume, start}` (`start` = data de início ISO `YYYY-MM-DD`). A identidade do vaso é o `name` (os `entries` referenciam pelo nome; renomear no Jardim propaga aos registros). `migratePots()` converte vasos antigos (que eram só strings) para objetos automaticamente no load/import.
   - `entries`: registros de rega (ver estrutura abaixo).
   - `cal`: fator de calibração da tabela de dosagem (1 = original).
-- **UI em abas** (nav inferior): Adubar, Registrar, Painel, Histórico, Mais.
+- **UI em abas** (nav inferior): Adubar, Registrar, Painel, Jardim, Histórico, Mais.
+  - **Jardim**: cadastro completo de vaso (nome, estirpe/genética, semente ou clone, fotoperíodo ou automática, substrato, volume, data de início) + lista dos vasos com a idade calculada até hoje. `ageOf(startISO)` devolve `{months, weeks, days, totalDays, totalWeeks}`; `ageLabel()` formata "X meses, Y semanas e Z dias · N dias no total". Suporta editar/remover. Substituiu o antigo card "Vasos" da aba Mais.
 - **Idioma**: PT-BR. **EC sempre em µS/cm** (não mS/cm).
 
 ## Domínio / agronomia (regras que o app implementa)
