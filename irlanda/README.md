@@ -20,6 +20,10 @@ App de celular (PWA, offline-first, tema escuro) com o roteiro dos 21 dias na Ir
 
 Modelos: Opus 5 (padrão), Sonnet 5 (mais rápido), Haiku 4.5 (mais barato). "Pesquisar na web" deixa o Claude conferir horários e notícias em sites irlandeses.
 
+## Línguas
+
+O botão **PT / EN / GA** no cabeçalho (ou ⚙️ → língua) troca a interface entre Português do Brasil, English e Gaeilge, e o Claude passa a responder na língua escolhida. O conteúdo do roteiro (os textos dos dias, alternativas, pendências, etiqueta…) fica em português até você tocar em **"Show this day in English"** / **"Traduzir com o Claude"**: o Claude traduz aquele dia ou aquela seção e a tradução fica guardada no aparelho (não precisa pedir de novo). Os textos da interface estão em `i18n.js`.
+
 ## O que o app faz
 
 - **Hoje** — o que fazer agora (com contagem para o próximo), a lista do dia com ✓ feito, lembretes com hora, o que ficou para depois, avisos, etiqueta do dia e o que mais rola no país.
@@ -34,7 +38,10 @@ Modelos: Opus 5 (padrão), Sonnet 5 (mais rápido), Haiku 4.5 (mais barato). "Pe
 | Arquivo | O que é |
 |---|---|
 | `index.html` | casca do app: HTML + CSS |
-| `app.js` | toda a lógica (estado, telas, fluxos, prompt do Claude) |
+| `app.js` | toda a lógica (estado, telas, fluxos, prompt do Claude, tradução do conteúdo) |
+| `i18n.js` | textos da interface em pt-BR, en e ga |
+| `irlanda-local.html` | **gerado** — arquivo único para abrir do aparelho sem servidor (`build/make-local.js`) |
+| `artifact.html` | **gerado** — a página no formato do claude.ai (`build/make-artifact.js`) |
 | `claude.js` | cliente da API da Anthropic (stream, web search, erros) |
 | `data.js` | **gerado** — plano + enriquecimento + textos para o Claude |
 | `sw.js` | service worker (cache versionado, offline) |

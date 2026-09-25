@@ -1,9 +1,9 @@
 /* Service worker — o app inteiro fica no aparelho e abre sem rede.
    A versão vem de VERSION (o build troca a linha abaixo). */
-const VERSION = '1.0.0';
+const VERSION = '1.1.0';
 const CACHE = 'irl-' + VERSION;
 const SHELL = [
-  './', './index.html', './app.js', './claude.js', './data.js', './manifest.webmanifest',
+  './', './index.html', './i18n.js', './app.js', './claude.js', './data.js', './manifest.webmanifest',
   './icons/icon-192.png', './icons/icon-512.png', './icons/maskable-512.png', './icons/apple-touch-icon.png',
   './maps/nat.svg', './maps/con.svg', './maps/wc.svg',
 ];

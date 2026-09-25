@@ -91,10 +91,10 @@
         else if (ev.type === 'content_block_start') {
           const cb = ev.content_block || {};
           blocks[ev.index] = cb.type;
-          if (cb.type === 'server_tool_use') onEvent({ type: 'status', text: 'pesquisando na web…' });
-          else if (cb.type === 'web_search_tool_result') onEvent({ type: 'status', text: 'lendo os resultados…' });
-          else if (cb.type === 'text') onEvent({ type: 'status', text: '' });
-          else if (cb.type === 'thinking') onEvent({ type: 'status', text: 'pensando…' });
+          if (cb.type === 'server_tool_use') onEvent({ type: 'status', code: 'search' });
+          else if (cb.type === 'web_search_tool_result') onEvent({ type: 'status', code: 'read' });
+          else if (cb.type === 'text') onEvent({ type: 'status', code: '' });
+          else if (cb.type === 'thinking') onEvent({ type: 'status', code: 'think' });
         }
         else if (ev.type === 'content_block_delta') {
           const d = ev.delta || {};
@@ -163,7 +163,7 @@
     return (e && e.message) || 'Erro ao falar com o Claude.';
   }
   async function sendSample(opts) { // {sample, turns, signal, onEvent, tier}
-    opts.onEvent({ type: 'status', text: 'pensando…' });
+    opts.onEvent({ type: 'status', code: 'think' });
     const r = await opts.sample(opts.turns, { cache: false, signal: opts.signal, modelTier: opts.tier || 'default', onText: ({ text }) => opts.onEvent({ type: 'text', text, whole: true }) });
     const out = { stopReason: r.truncated ? 'max_tokens' : 'end_turn', model: 'claude.ai · ' + (r.modelTierApplied || 'default'), usage: null, complete: true };
     opts.onEvent(Object.assign({ type: 'done' }, out));
