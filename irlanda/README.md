@@ -2,7 +2,9 @@
 
 App de celular (PWA, offline-first, tema escuro) com o roteiro dos 21 dias na Irlanda e no Porto, 25/09–15/10/2026, e o Claude embutido para replanejar na estrada.
 
-**Endereço ao vivo (GitHub Pages):** https://lucascabralcd.github.io/cultivo/irlanda/
+**Endereço ao vivo (GitHub Pages):** https://lucascabralcd.github.io/cultivo/irlanda/ (publica quando esta pasta chegar à branch `main`)
+
+**Versão claude.ai, sem instalar nada:** https://claude.ai/artifact/85xFYoSAqyxFnc5Ce6ZXFk — a mesma página, logado na sua conta; o Claude responde pela própria conta (sem chave da API, sem pesquisa na web, precisa de rede). O estado (feitos, notas) fica no navegador e não passa para a versão instalada.
 
 ## Instalar no Android (2 minutos)
 
