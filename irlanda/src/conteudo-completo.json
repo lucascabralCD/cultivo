@@ -1,0 +1,1639 @@
+{
+ "_leia": "Dump integral de v7/data.py + v7/data_op.py em 24/09/2026. Texto em HTML leve (<b>, <i>). Fonte de verdade do conteúdo do roteiro. plano.json é a versão já normalizada para o app (dias + pendências).",
+ "DAYS": [
+  {
+   "idx": 0,
+   "dt": "25/09",
+   "wd": "sex"
+  },
+  {
+   "idx": 1,
+   "dt": "26/09",
+   "wd": "sáb"
+  },
+  {
+   "idx": 2,
+   "dt": "27/09",
+   "wd": "dom"
+  },
+  {
+   "idx": 3,
+   "dt": "28/09",
+   "wd": "seg"
+  },
+  {
+   "idx": 4,
+   "dt": "29/09",
+   "wd": "ter"
+  },
+  {
+   "idx": 5,
+   "dt": "30/09",
+   "wd": "qua"
+  },
+  {
+   "idx": 6,
+   "dt": "01/10",
+   "wd": "qui"
+  },
+  {
+   "idx": 7,
+   "dt": "02/10",
+   "wd": "sex"
+  },
+  {
+   "idx": 8,
+   "dt": "03/10",
+   "wd": "sáb"
+  },
+  {
+   "idx": 9,
+   "dt": "04/10",
+   "wd": "dom"
+  },
+  {
+   "idx": 10,
+   "dt": "05/10",
+   "wd": "seg"
+  },
+  {
+   "idx": 11,
+   "dt": "06/10",
+   "wd": "ter"
+  },
+  {
+   "idx": 12,
+   "dt": "07/10",
+   "wd": "qua"
+  },
+  {
+   "idx": 13,
+   "dt": "08/10",
+   "wd": "qui"
+  },
+  {
+   "idx": 14,
+   "dt": "09/10",
+   "wd": "sex"
+  },
+  {
+   "idx": 15,
+   "dt": "10/10",
+   "wd": "sáb"
+  },
+  {
+   "idx": 16,
+   "dt": "11/10",
+   "wd": "dom"
+  },
+  {
+   "idx": 17,
+   "dt": "12/10",
+   "wd": "seg"
+  },
+  {
+   "idx": 18,
+   "dt": "13/10",
+   "wd": "ter"
+  },
+  {
+   "idx": 19,
+   "dt": "14/10",
+   "wd": "qua"
+  },
+  {
+   "idx": 20,
+   "dt": "15/10",
+   "wd": "qui"
+  }
+ ],
+ "BANDS": [
+  {
+   "faixa": "Compromissos fixos",
+   "itens": [
+    {
+     "de": 0,
+     "ate": 2,
+     "rotulo": "Dublin com a Priscila",
+     "tipo": "fix",
+     "texto": "25–27/09 em Dublin, com a Priscila. Base: Tyrconnell Road, Inchicore."
+    },
+    {
+     "de": 3,
+     "ate": 3,
+     "rotulo": "dia livre",
+     "tipo": "fix",
+     "texto": "Seg 28/09 — o único dia inteiro livre em Dublin: Kilmainham Gaol, Collins Barracks, Open Gate, Cobblestone."
+    },
+    {
+     "de": 4,
+     "ate": 6,
+     "rotulo": "estágio (tarde + noite)",
+     "tipo": "fix",
+     "texto": "29/09, 30/09 e 01/10 — estágio no restaurante à tarde e à noite. Só as manhãs são suas."
+    },
+    {
+     "de": 7,
+     "ate": 8,
+     "rotulo": "Galway com a Priscila e o Richie",
+     "tipo": "fix",
+     "texto": "Sex 02 e sáb 03/10 em Galway, com os dois. Eles voltam para Dublin no domingo."
+    },
+    {
+     "de": 15,
+     "ate": 16,
+     "rotulo": "Dublin com eles",
+     "tipo": "fix",
+     "texto": "Sáb 10 — Cork → Dublin de carro e o dia com eles (Howth ou Wicklow). Dom 11 — churrasco na casa dos pais do Richie. Dorme em Inchicore nas duas noites."
+    },
+    {
+     "de": 17,
+     "ate": 19,
+     "rotulo": "Porto",
+     "tipo": "porto",
+     "texto": "Comprado: FR7072 seg 12/10 19:35 → Porto 22:00 e FR7079 qua 14/10 17:55 → Dublin 20:20. €136,34 pagos."
+    },
+    {
+     "de": 20,
+     "ate": 20,
+     "rotulo": "voo pra casa 09:15",
+     "tipo": "fix",
+     "texto": "Qui 15/10 — AF1617 09:15. Check-in fecha 08:35. Dublin Express 782 de Heuston às 05:35."
+    }
+   ]
+  },
+  {
+   "faixa": "★ Carro e montanha",
+   "itens": [
+    {
+     "de": 7,
+     "ate": 17,
+     "rotulo": "carro alugado — sex 2 → seg 12",
+     "tipo": "soft",
+     "texto": "Aluguel em Dublin na sexta 2 com a Priscila e o Richie; eles voltam de trem no domingo 4 e o carro fica com você até a devolução no aeroporto de Dublin, segunda 12 ~16:00. ~1.500 km."
+    },
+    {
+     "de": 2,
+     "ate": 2,
+     "rotulo": "montanhas de Dublin",
+     "tipo": "s1",
+     "texto": "Dom 27/09 — travessia Marlay Park → Fairy Castle → Three Rock → Tibradden → Cruagh → Hell Fire Club: ~25 km, ~900 m, 7–8 h. Luas + S8 na ida, 15B na volta. Sugestão do Richie."
+    },
+    {
+     "de": 10,
+     "ate": 11,
+     "rotulo": "Inishbofin — pernoite",
+     "tipo": "hot",
+     "texto": "Seg 05 → ter 06/10 — carro até Cleggan (89 km), balsa 11:30, noite no Day's Bar B&B, balsa 09:00 de terça. Com o Richie, se ele conseguir. “My favourite place in the country.”"
+    },
+    {
+     "de": 12,
+     "ate": 12,
+     "rotulo": "Cliffs · bus 350",
+     "tipo": "s1",
+     "texto": "Qua 07/10 — Bus Éireann 350 do Galway Bus Station 07:00 → Cliffs 08:54 (€9,45 Leap), ingresso €8 online no horário da manhã, almoço em Doolin, volta 14:21 ou 16:08."
+    },
+    {
+     "de": 14,
+     "ate": 14,
+     "rotulo": "Beara + Healy Pass",
+     "tipo": "hot",
+     "texto": "Sex 09/10 — GoCar na estação Kent → Glengarriff → Castletownbere (caranguejo) → Healy Pass → Kenmare → Cork, ~280 km. Galgos em Curraheen às 19:35."
+    }
+   ]
+  },
+  {
+   "faixa": "★ Feira de Ballinasloe",
+   "itens": [
+    {
+     "de": 9,
+     "ate": 9,
+     "rotulo": "DOMINGO — sozinho",
+     "tipo": "hot",
+     "texto": "Dom 04/10 — o dia de negócio de cavalos no Fair Green, sem os amigos (eles não recomendam; você decidiu ir de dia e voltar cedo). Citylink 763, 60 min. A segunda-feira na feira caiu para dar lugar à ilha."
+    },
+    {
+     "de": 10,
+     "ate": 10,
+     "rotulo": "seg (fora)",
+     "tipo": "soft",
+     "texto": "Seg 05/10 é o segundo dia de negócio — mas você estará na balsa para Inishbofin."
+    },
+    {
+     "de": 11,
+     "ate": 16,
+     "rotulo": "festival de família — dá pra pular",
+     "tipo": "soft",
+     "texto": "07–11/10 vira festival de vila: show de cães, tratores antigos, motoqueiro acrobata, country'n'Irish no palco. O domingo 11 tem a feira tradicional de ovelhas."
+    }
+   ]
+  },
+  {
+   "faixa": "★ Cork Folk Festival",
+   "itens": [
+    {
+     "de": 13,
+     "ate": 14,
+     "rotulo": "47ª edição — pano de fundo de pub",
+     "tipo": "hot",
+     "texto": "08–11/10/2026, confirmado pelo site do festival. Sessões grátis no Sin É (18:00–24:00), An Spailpín (21:30), Corner House; Folk on the Coal Quay ao ar livre no sábado; Trad in the Fort no domingo. Do programa pago, o Richie marcou uma coisa só: o Céilí Mór."
+    }
+   ]
+  },
+  {
+   "faixa": "Corridas",
+   "itens": [
+    {
+     "de": 0,
+     "ate": 1,
+     "rotulo": "Listowel",
+     "tipo": "s1",
+     "texto": "Listowel Harvest Festival 20–26/09 — uma vila inteira de porre por sete dias. Sex 25 = Ladies Day, sáb 26 = dia local. €20–25."
+    },
+    {
+     "de": 9,
+     "ate": 10,
+     "rotulo": "Killarney",
+     "tipo": "s1",
+     "texto": "Killarney Racecourse, 04–05/10."
+    },
+    {
+     "de": 11,
+     "ate": 11,
+     "rotulo": "corrida",
+     "tipo": "hot",
+     "texto": "★ Galway Races em Ballybrit, ter 06/10: 7 páreos de obstáculo, portões 12:30, 1º páreo 14:20, ~€15. Richie: “Ballybrit on a Tuesday.”"
+    }
+   ]
+  },
+  {
+   "faixa": "GAA — o jogo do povo",
+   "itens": [
+    {
+     "de": 7,
+     "ate": 9,
+     "rotulo": "semis hurling (Cork)",
+     "tipo": "s2",
+     "texto": "02–04/10: semifinais do hurling do condado de Cork, em campos de clube no interior. Ingresso só online, €10–15."
+    },
+    {
+     "de": 14,
+     "ate": 16,
+     "rotulo": "semis futebol (Cork)",
+     "tipo": "s2",
+     "texto": "09–11/10: semifinais de futebol gaélico do condado de Cork, também em campos de clube — a opção da tarde de sábado 10."
+    },
+    {
+     "de": 15,
+     "ate": 16,
+     "rotulo": "final de hurling — 10 OU 11",
+     "tipo": "hot",
+     "texto": "A data cravada sai em tipperary.gaa.ie depois das semifinais (sáb 26 e dom 27/09). <b>Se cair no sábado 10</b>, entra como parada na estrada Cork → Dublin: desvio de +11 min e €0 de pedágio. <b>Se cair no domingo 11</b> (o histórico diz que sim: as seis últimas foram todas no domingo), ela cai e o churrasco fica. Decisão em 30/09."
+    },
+    {
+     "de": 16,
+     "ate": 16,
+     "rotulo": "★ CHURRASCO",
+     "tipo": "hot",
+     "texto": "Dom 11/10 — churrasco na casa dos pais do Richie, em Dublin. Dia inteiro, sem dirigir. É o ponto alto do fim da viagem e não depende de calendário nenhum."
+    }
+   ]
+  },
+  {
+   "faixa": "Galgos, €10",
+   "itens": [
+    {
+     "de": 0,
+     "ate": 1,
+     "rotulo": "galgo",
+     "tipo": "dot",
+     "texto": "Curraheen Park (Cork) e Galway correm sexta e sábado. Portões 18:30, 1º páreo ~19:35–19:50, €10 na porta."
+    },
+    {
+     "de": 7,
+     "ate": 8,
+     "rotulo": "galgo",
+     "tipo": "dot",
+     "texto": "Sex 02 e sáb 03/10 — galgos em Cork (Curraheen) e Galway."
+    },
+    {
+     "de": 14,
+     "ate": 14,
+     "rotulo": "galgo",
+     "tipo": "dot",
+     "texto": "Sex 09/10 — galgos em Curraheen Park depois de Beara. Richie: “The dogs.”"
+    }
+   ]
+  },
+  {
+   "faixa": "The Welcome Inn (Cork)",
+   "itens": [
+    {
+     "de": 5,
+     "ate": 5,
+     "rotulo": "folk",
+     "tipo": "dot2",
+     "texto": "Qua 30/09 — Fireside Folk 21:30, grátis."
+    },
+    {
+     "de": 6,
+     "ate": 6,
+     "rotulo": "banjos",
+     "tipo": "dot2",
+     "texto": "Qui 01/10 — Ballads & Banjos 21:30, grátis."
+    },
+    {
+     "de": 12,
+     "ate": 12,
+     "rotulo": "folk",
+     "tipo": "dot2",
+     "texto": "Qua 07/10 — Fireside Folk 21:30, grátis."
+    },
+    {
+     "de": 13,
+     "ate": 13,
+     "rotulo": "banjos",
+     "tipo": "dot2",
+     "texto": "Qui 08/10 — Ballads & Banjos 21:30, grátis. Último early house da Irlanda: abre às 07:00 todos os dias, desde 1845. Não serve comida."
+    },
+    {
+     "de": 19,
+     "ate": 19,
+     "rotulo": "folk",
+     "tipo": "dot2",
+     "texto": "Qua 14/10 — Fireside Folk 21:30, grátis."
+    }
+   ]
+  },
+  {
+   "faixa": "Feiras de gado (marts)",
+   "itens": [
+    {
+     "de": 3,
+     "ate": 3,
+     "rotulo": "mart",
+     "tipo": "mart",
+     "texto": "Seg — Bandon Mart, gado às 11:00, bezerros 10:30."
+    },
+    {
+     "de": 5,
+     "ate": 5,
+     "rotulo": "mart",
+     "tipo": "mart",
+     "texto": "Qua — Ballinasloe Mart, venda de gado às 11:00."
+    },
+    {
+     "de": 8,
+     "ate": 8,
+     "rotulo": "mart",
+     "tipo": "mart",
+     "texto": "Sáb — Macroom (11:30) e Ballinasloe (weanlings, 11:00)."
+    },
+    {
+     "de": 10,
+     "ate": 10,
+     "rotulo": "mart",
+     "tipo": "mart",
+     "texto": "Seg — Bandon Mart. (Mas você estará em Ballinasloe.)"
+    },
+    {
+     "de": 12,
+     "ate": 12,
+     "rotulo": "mart",
+     "tipo": "mart",
+     "texto": "Qua 07/10 — Ballinasloe Mart, gado às 11:00. Era o plano B do dia de carro; Inishbofin ganhou."
+    },
+    {
+     "de": 14,
+     "ate": 14,
+     "rotulo": "mart",
+     "tipo": "mart",
+     "texto": "Sex 09/10 — Skibbereen Mart, dois ringues às 11:00. Saiu do plano (Richie: “leave the men to it”); volta só como plano de chuva."
+    },
+    {
+     "de": 15,
+     "ate": 15,
+     "rotulo": "mart",
+     "tipo": "mart",
+     "texto": "Sáb 10/10 — Macroom Mart, 10:30/11:30."
+    },
+    {
+     "de": 17,
+     "ate": 17,
+     "rotulo": "mart",
+     "tipo": "mart",
+     "texto": "Seg 12/10 — Bandon Mart."
+    }
+   ]
+  },
+  {
+   "faixa": "Comida",
+   "itens": [
+    {
+     "de": 0,
+     "ate": 2,
+     "rotulo": "Galway Oyster",
+     "tipo": "s4",
+     "texto": "25–27/09. A marquise com ingresso é exatamente a armadilha que você odeia; a rua e os pubs cheios, não."
+    },
+    {
+     "de": 7,
+     "ate": 9,
+     "rotulo": "★ Dingle Food Festival",
+     "tipo": "s4",
+     "texto": "02–04/10, confirmado. Taste Trail: €20 = livro de 6 tickets, €3 por prova, 60–70 casas. Sáb e dom 13:00–17:00. Comitê de voluntários locais, sem fins lucrativos."
+    },
+    {
+     "de": 7,
+     "ate": 9,
+     "rotulo": "Bia Bó Finne (Inishbofin)",
+     "tipo": "s4",
+     "texto": "02–04/10 — o festival de comida de Inishbofin é no fim de semana anterior à sua visita de quarta."
+    }
+   ]
+  },
+  {
+   "faixa": "Outros festivais",
+   "itens": [
+    {
+     "de": 0,
+     "ate": 5,
+     "rotulo": "Lisdoonvarna (fecha 30/09)",
+     "tipo": "s4",
+     "texto": "Festival de casamenteiros, 01–30/09/2026. O último fim de semana é 25–27/09 — exatamente o da Priscila. Música country'n'Irish e jive, não trad."
+    },
+    {
+     "de": 9,
+     "ate": 9,
+     "rotulo": "Misleór",
+     "tipo": "s3",
+     "texto": "04/10 — o Misleór, festival de culturas nômades do Galway Traveller Movement, vai à feira de Ballinasloe. Essa é a porta de entrada respeitosa."
+    },
+    {
+     "de": 0,
+     "ate": 2,
+     "rotulo": "Misleór (Galway city)",
+     "tipo": "s3",
+     "texto": "24–27/09, Galway City. Teatro com elenco Traveller, painéis, oficinas de funilaria, música."
+    },
+    {
+     "de": 0,
+     "ate": 2,
+     "rotulo": "Clifden Arts",
+     "tipo": "s4",
+     "texto": "Termina 27/09. O festival de artes comunitário mais antigo da Irlanda, em Connemara."
+    }
+   ]
+  }
+ ],
+ "DUBLIN": [
+  {
+   "wd": "SEX",
+   "dt": "25/09",
+   "titulo": "Chegada — Leap Card, o bairro e o primeiro pub",
+   "base": "Dublin",
+   "blocos": [
+    {
+     "rotulo": "11:15",
+     "texto": "Pousa em Dublin no EI0521. Luas ou Dublin Express 782 até Heuston, e Inchicore é a parada seguinte."
+    },
+    {
+     "rotulo": "tarde",
+     "texto": "Sem heroísmo no dia de fuso: Leap Card, compra de despensa, e o bairro a pé — Tyrconnell Road, Emmet Road, o canal em Suir Road. Se as pernas pedirem, os <b>Jardins do Memorial de Guerra</b> ficam a 20 minutos e fecham só ao anoitecer."
+    },
+    {
+     "rotulo": "onde comer",
+     "texto": "<b>Greenville Deli, 5A Tyrconnell Road</b>, a 200 metros da porta — seg–sáb 08:00–16:00, domingo 09:00–15:00. É deli moderno, não é a caçarola que você queria, mas é o que abre no seu quarteirão. À noite, a cozinha do <b>Black Lion, 207A Emmet Road</b> — pub documentado desde 1734, o mais antigo de Inchicore — serve seg–sex 15:00–21:00, dois pratos por €17."
+    },
+    {
+     "rotulo": "noite",
+     "texto": "<b>Slatt's, 126A Tyrconnell Park</b> — a uns 150 metros da sua porta. Pub de conjunto habitacional, bar e lounge com entradas separadas que não se comunicam, <b>sem televisão</b>, Guinness €5,40."
+    },
+    {
+     "rotulo": "rodapé",
+     "texto": "Nesse fim de semana existe o <b>Féile Frank Harte</b> no Teachers' Club (canto tradicional sem instrumento, €25 o concerto avulso). Você já disse que esse formato não é a sua praia — fica aqui só como rodapé."
+    }
+   ],
+   "tags": [
+    "com a Priscila"
+   ],
+   "nota": ""
+  },
+  {
+   "wd": "SÁB",
+   "dt": "26/09",
+   "titulo": "Festival de História — no seu quarteirão",
+   "base": "Dublin",
+   "blocos": [
+    {
+     "rotulo": "★ o dia",
+     "texto": "<b>Dublin Festival of History, 26/09 a 11/10, com o fim de semana de abertura no Richmond Barracks, em Inchicore</b> — dez minutos a pé da sua cama, tudo grátis. ⚠️ <b>Em 17/09 já havia 13 dos 34 eventos do fim de semana esgotados</b>, e dos quatro do Richmond Barracks <b>três estão lotados</b>: sobrou uma oficina de escrita às 15:00 (18+, 15 lugares) — que bate de frente com o Bohemians. <b>Os eventos são grátis mas exigem reserva; não há entrada de última hora.</b> Veja o que sobrou em dublinfestivalofhistory.ie/events."
+    },
+    {
+     "rotulo": "o que salva o dia",
+     "texto": "O <b>prédio do Richmond Barracks é entrada livre, sem reserva, seg–sáb 10:00–17:00</b>. Você vê a exposição e o jardim de manhã, sem ingresso nenhum, e o festival passa a ser bônus."
+    },
+    {
+     "rotulo": "15:00",
+     "texto": "<b>Bohemians × Bohemians Praha 1905</b> no Dalymount Park, Phibsborough. Portões 13:00. <b>€20 adulto, €15 estudante/idoso.</b> Assento não numerado e a arquibancada Des Kelly mistura sentado e em pé — chegue cedo se quiser a geral. É um amistoso histórico entre os dois Bohemians."
+    },
+    {
+     "rotulo": "onde comer",
+     "texto": "No Richmond Barracks eu <b>não</b> consigo confirmar que o café interno ainda funciona (era o “The Mess” — ligue 01 524 2532). O que funciona de verdade e fica a cinco minutos de lá é o <b>Loaf Café, Kilmainham Square, Unit 2, Inchicore Road</b> — <b>todo dia 08:00–16:00</b>, empresa social, comida simples e barata, bem em frente à Kilmainham Gaol (01 516 8294). <b>Indo pro Dalymount:</b> pare em Stoneybatter e coma no <b>Walsh's, 26 Stoneybatter</b>, ou no <b>Frank Ryan's, Queen Street</b>. Compre também o farnel de amanhã: na montanha não há nada."
+    },
+    {
+     "rotulo": "noite",
+     "texto": "<b>Old Royal Oak, 11 Kilmainham Lane</b> — uma sala só, snug de verdade com passa-copos, aquecedor a gás dos anos 70, na mesma família desde 1837. Ou o Slatt's. Cedo: amanhã são 25 km."
+    }
+   ],
+   "tags": [
+    "com a Priscila",
+    "grátis"
+   ],
+   "nota": ""
+  },
+  {
+   "wd": "DOM",
+   "dt": "27/09",
+   "titulo": "★ O dia duro — a travessia das montanhas de Dublin",
+   "base": "Dublin · montanha",
+   "blocos": [
+    {
+     "rotulo": "★ o dia",
+     "texto": "Sugestão do Richie (<i>“Dublin mountains is good”</i>), e ela cabe exatamente aqui: <b>Marlay Park → Fairy Castle (536 m) → Three Rock → Tibradden → Cruagh → Hell Fire Club</b>. ~25 km, ~900 m de subida, 7 a 8 horas, pela Dublin Mountains Way (marcação amarela). Se a Priscila topar, é o programa do dia; se o tempo virar ou as pernas reclamarem, a versão curta volta a Marlay Park depois de Tibradden: ~20 km, ~650 m, 5–6 h."
+    },
+    {
+     "rotulo": "08:08",
+     "texto": "Luas vermelha de Blackhorse → Tallaght (21 min), ônibus <b>S8</b> Tallaght → Marlay Park (08:47 → 09:11). Alternativa: qualquer ônibus até o centro e o <b>16</b> da O'Connell St até Marlay Park, ~30 min."
+    },
+    {
+     "rotulo": "09:15",
+     "texto": "Marlay Park (portão sul) → Kilmashogue Lane → Wicklow Way até a sela de Two Rock → <b>Fairy Castle</b>, o ponto mais alto da travessia · ida e volta a <b>Three Rock</b> (as antenas) · oeste pela DMW sobre <b>Tibradden</b> (o cairn) e desce por Tibradden Wood · atravessa para <b>Cruagh Wood</b> e sai na R116 (sem calçada: colete refletivo) · <b>Hell Fire Club</b>, Montpelier Hill, 383 m · desce pela Killakee Road até Stocking Avenue."
+    },
+    {
+     "rotulo": "~16:45",
+     "texto": "Volta: <b>15B</b> em Stocking Hill → Merrion Square (~55 min; 16:47, 17:07, 17:27, 17:47…) ou <b>S8</b> em Ballyboden St Enda's → Luas de Tallaght. Pôr do sol 19:12."
+    },
+    {
+     "rotulo": "onde comer",
+     "texto": "Não há nada nos cumes: leve farnel comprado no sábado. Café da manhã no caminho é balcão de Centra em Tallaght ou em Marlay. Na volta, o jantar da recompensa: <b>Walsh's, 26 Stoneybatter</b> ou <b>Frank Ryan's, Queen Street</b>, e o Cobblestone ao lado se as pernas deixarem."
+    },
+    {
+     "rotulo": "noite",
+     "texto": "<b>Cobblestone, Smithfield</b> — sessão às 19:00 e 21:30; vá pela cerveja, a música é o fundo. O dia justifica dormir cedo."
+    }
+   ],
+   "tags": [
+    "grátis",
+    "★"
+   ],
+   "nota": "⚠️ Nenhuma trilha fechada em Ticknock, Kilmashogue, Tibradden, Cruagh ou Hell Fire em 12/09 (só trechos de mountain bike). A Coillte fecha as florestas em alerta vermelho de vento. A fase A do BusConnects pode mexer na família do 15 neste outono, sem data publicada — confira no TFI Live na semana. O encerramento do Festival of History no Richmond Barracks cai deste domingo; o sábado já te dá o festival."
+  },
+  {
+   "wd": "SEG",
+   "dt": "28/09",
+   "titulo": "O único dia inteiro livre — e é o dia que carrega a semana",
+   "base": "Dublin",
+   "blocos": [
+    {
+     "rotulo": "⚠️ atenção",
+     "texto": "Segunda é o pior dia de museu em Dublin. <b>O IMMA fecha às segundas</b> e <b>o Chester Beatty está fechado até 31/12/2026</b> por causa da presidência da UE. Os museus nacionais só abrem às 13:00. Mas é o único dia em que a noite é sua, então a noite é que manda aqui."
+    },
+    {
+     "rotulo": "⛔ 17/09",
+     "texto": "<b>A Kilmainham Gaol está esgotada — e não é só o dia 28.</b> Verifiquei o calendário do sistema de vendas: <b>todas as datas liberadas estão lotadas</b>, de 17/09 a 15/10. O calendário marca “daySoldOut”, não “não liberado” — 16/10 em diante é que ainda não abriu. É lotação crônica, não azar do seu dia. Não existe venda no portão, nem revenda (ingresso de terceiro é recusado na entrada)."
+    },
+    {
+     "rotulo": "a única porta",
+     "texto": "<b>As devoluções entram online todo dia entre 09:15 e 09:30</b>, hora irlandesa (política publicada no próprio sistema). São ~8 minutos de janela. Tente três manhãs seguidas enquanto estiver em Dublin: 28/09 é a melhor data, mas qualquer manhã de 26/09 a 01/10 serve, já que o Richie quer ir também. kilmainhamgaol.admit-one.eu"
+    },
+    {
+     "rotulo": "08:00 · plano firme",
+     "texto": "Sem a cadeia, a manhã de segunda é toda grátis e sem reserva: ⭐ <b>Jardins do Memorial de Guerra</b>, Islandbridge, abrem <b>08:00 de segunda a sexta</b> — Lutyens, fontes de granito, ninguém. ~22 min a pé pela South Circular."
+    },
+    {
+     "rotulo": "11:00",
+     "texto": "⭐ <b>Tour grátis dos terrenos do Royal Hospital Kilmainham</b> — guia no local <b>todo dia às 11:00, 13:00 e 15:00</b> até novembro, sem reserva. Emenda com <b>Bully's Acre</b>, o cemitério de pobre e de cólera fechado em 1832, dentro dos mesmos terrenos, entrada pela avenida oeste. ⚠️ O IMMA fecha às segundas — é só o terreno."
+    },
+    {
+     "rotulo": "13:00",
+     "texto": "<b>Museu Nacional — Artes Decorativas e História, no Collins Barracks.</b> ✅ Grátis, <b>sem reserva</b>, segunda 13:00–17:00 (ter–sáb abre 10:00), parada Museum do Luas. Militar, industrial, social — é o que mais combina com você dos museus nacionais, e é o único grande que nunca esgota."
+    },
+    {
+     "rotulo": "16:00",
+     "texto": "<b>Guinness Open Gate Brewery</b>, 53 James's Street — a cervejaria experimental de verdade, não o Storehouse. ✅ <b>Confirmado: sem reserva, sem couvert, entra quem chega.</b> Segunda 13:00–21:00, última mesa 20:00. ⚠️ <b>Fecha terça E quarta e nunca abre antes das 13:00</b> — como as quintas são de estágio, <b>hoje é a única chance na viagem inteira</b> (e a segunda 12/10 é o repescão)."
+    },
+    {
+     "rotulo": "onde comer",
+     "texto": "De manhã, ao lado da cadeia: <b>Loaf Café, Kilmainham Square</b> (08:00–16:00, todo dia). No caminho para o Open Gate: ⭐ <b>Mannings Bakery, 39–40 Thomas Street</b> — padaria de trabalho das Liberties, aberta até as 19:00. Se quiser sentar e comer prato: <b>The Patriot's Inn, 760 South Circular Road</b>, ao lado do Royal Hospital, cozinha 12:00–21:30 — ⚠️ <b>o coddle NÃO está no cardápio atual</b> que consegui ler; ligue antes: 01 679 9595. Na noite de Smithfield, jante no <b>Walsh's, 26 Stoneybatter</b>."
+    },
+    {
+     "rotulo": "19:15",
+     "texto": "<b>Cobblestone, Smithfield: aula de dança de conjunto para iniciantes, €12</b> (a de 20:20 é €14). Sem par e sem experiência. Emenda na <b>sessão bilíngue das 21:00</b>, tocada mais devagar, em irlandês. ⚠️ O calendário publicado da aula é 07/10 a 04/11 — confirme em info@louise.ie antes de ir."
+    },
+    {
+     "rotulo": "plano B da noite",
+     "texto": "<b>Devitt's, 78 Camden Street Lower</b> — trad no andar de cima <b>de segunda a quinta, das 18:30 até fechar, sem couvert</b>. Cozinha: café da manhã 10:00–12:00, almoço 12:00–14:30, à la carte 14:30–21:00."
+    }
+   ],
+   "tags": [
+    "€8 + €12"
+   ],
+   "nota": "Esta é a última noite livre até 02/10. O que não couber aqui, não cabe em lugar nenhum da semana."
+  },
+  {
+   "wd": "TER",
+   "dt": "29/09",
+   "titulo": "Manhã leve — o jardim de Lutyens e o Collins Barracks",
+   "base": "Dublin · manhã",
+   "blocos": [
+    {
+     "rotulo": "a regra do dia",
+     "texto": "Estágio à tarde e à noite. Você tem de <b>08:00 a ~12:30</b>, e o plano abaixo cabe nisso com folga, sem correr e sem gastar quase nada."
+    },
+    {
+     "rotulo": "08:00",
+     "texto": "⭐ <b>Jardins do Memorial de Guerra, em Islandbridge — abrem às 08:00 de segunda a sexta, grátis.</b> É a única coisa séria que abre no horário em que a sua manhã começa. Projeto de <b>Edwin Lutyens</b>: fontes de granito, os dois pavilhões de livros e o gramado descendo para o Liffey. Às oito da manhã não tem ninguém. ~22 minutos a pé de Tyrconnell Road pela South Circular."
+    },
+    {
+     "rotulo": "09:45",
+     "texto": "Volta por Kilmainham. Se quiser esticar dez minutos: ⭐ <b>Bully's Acre</b>, dentro dos terrenos do Royal Hospital, entrada pela avenida oeste. Cemitério de pobre e de cólera, fechado em 1832, provavelmente em cima de um mosteiro do século VII. Grátis, sem bilheteria e sem ninguém."
+    },
+    {
+     "rotulo": "10:00",
+     "texto": "<b>Museu Nacional — Collins Barracks. Ter–sáb 10:00–17:00, grátis.</b> Luas de Goldenbridge até a parada Museum, seis paradas, ~11 minutos. Uma hora e meia ali é a dose certa. Você volta pra casa de Luas em 15 minutos."
+    },
+    {
+     "rotulo": "onde comer",
+     "texto": "⭐ <b>Loaf Café, Kilmainham Square, Unit 2, Inchicore Road (D08 Y447) — todo dia 08:00–16:00.</b> Fica exatamente entre os jardins e a Luas, é empresa social, prato quente e sanduíche a preço de bairro. Alternativa a 200 m da cama: <b>Greenville Deli, 5A Tyrconnell Road, 08:00</b>. E a resposta honesta sobre o café da manhã de trabalhador em Inchicore: <b>ele hoje é o breakfast roll do balcão quente do Centra ou do Spar da Emmet Road</b> — uns €4, e nenhuma dessas lojas publica horário."
+    },
+    {
+     "rotulo": "se não quiser museu",
+     "texto": "O caminho de sirga do <b>Grand Canal</b>, subindo de Suir Road até Portobello e voltando — ~5 km plano, garça, eclusa e nenhuma atração. É a manhã de perna cansada — e depois da travessia de domingo, ela pode ser necessária."
+    }
+   ],
+   "tags": [
+    "grátis"
+   ],
+   "nota": "⚠️ Não tente o IMMA agora: <b>o Great Hall e a Capela estão fechados o ano inteiro de 2026</b> por causa da presidência da UE. E o <b>Ryan's de Parkgate Street só abre às 15:00 de segunda a quarta</b>."
+  },
+  {
+   "wd": "QUA",
+   "dt": "30/09",
+   "titulo": "★ Manhã leve — 14 Henrietta Street às 10:00",
+   "base": "Dublin · manhã",
+   "blocos": [
+    {
+     "rotulo": "★ o achado",
+     "texto": "<b>14 Henrietta Street abre quarta a domingo, com visitas de hora em hora das 10:00 às 16:00.</b> Uma casa georgiana onde chegaram a morar dezessete famílias, contada pelas pessoas que viveram nela. É o museu mais bem encaixado no seu gosto em Dublin inteira, e não é armadilha nenhuma."
+    },
+    {
+     "rotulo": "preço",
+     "texto": "<b>€12 adulto</b> (€10 concessão), <b>75 minutos</b>, só com visita guiada e <b>só com reserva</b> — a capacidade é pequena e esgota. Reserve em <b>14henriettastreet.ticketsolve.com</b> ou 01 524 0383. Chegue 10 minutos antes."
+    },
+    {
+     "rotulo": "09:05",
+     "texto": "Luas da Suir Road até Four Courts, ~14 min, e 8 minutos a pé subindo a Bolton Street. Porta a porta são uns 35–40 minutos. <b>Pegue a das 10:00, não a das 11:00</b> — a das 11:00 termina 12:15 e te deixa sem margem."
+    },
+    {
+     "rotulo": "11:20",
+     "texto": "A visita termina ~11:15. A 10 minutos a pé está o <b>Moore Street Market</b>, que <b>abre 11:00, de quarta a sábado</b> — o último mercado de rua de Dublin, hoje tomado por quitandeiro e por balcão africano e asiático, e sem uma única barraca de artesanato."
+    },
+    {
+     "rotulo": "onde comer",
+     "texto": "Café da manhã antes de sair: <b>Greenville Deli, 5A Tyrconnell Road, 08:00</b>, ou o breakfast roll da Emmet Road. Perto do museu: ⭐ <b>Kingfisher, 166–168 Parnell Street</b> — ⚠️ <b>abre ao meio-dia</b>, então só serve se o seu turno começar depois das 13:00; peixe com batata e fritada irlandesa o dia todo. Voltando de Luas, salte em James's e leve alguma coisa da ⭐ <b>Mannings Bakery, 39–40 Thomas Street</b>."
+    },
+    {
+     "rotulo": "12:00",
+     "texto": "Luas de Jervis ou Four Courts direto para Goldenbridge. Em casa 12:25."
+    }
+   ],
+   "tags": [
+    "€12",
+    "★"
+   ],
+   "nota": "⚠️ Duas armadilhas de quarta-feira: <b>o IMMA só abre 11:30 na quarta</b>, e a <b>Guinness Open Gate fecha terça e quarta</b>. Nenhum dos dois cabe hoje."
+  },
+  {
+   "wd": "QUI",
+   "dt": "01/10",
+   "titulo": "Manhã leve — o Magazine Fort, que reabriu em julho",
+   "base": "Dublin · manhã",
+   "blocos": [
+    {
+     "rotulo": "⛔ 17/09",
+     "texto": "<b>O Magazine Fort esgotou.</b> O bloco de 1 a 14 de outubro <b>já foi publicado no Eventbrite e está marcado “Sold out”</b> (o de 15–30/09 também). São 12 lugares por dia numa visita diária — era previsível. O forte de 1735 reabriu em julho depois de décadas em ruína e virou o passeio mais disputado do parque."
+    },
+    {
+     "rotulo": "se quiser insistir",
+     "texto": "Vale <b>um olhar manual no Eventbrite</b> (eventbrite.ie, “Magazine Fort Guided Tours October 1st–14th”): a página mostra esgotado no nível da série e eu não consegui ler linha por linha, então pode haver uma vaga solta no dia 1. E desistência acontece. Mas <b>não organize a manhã em volta disso</b>."
+    },
+    {
+     "rotulo": "⚠️ o problema",
+     "texto": "<b>O OPW publica as datas em blocos de quinze dias.</b> O bloco de outubro deve entrar por volta do dia 25/09. Com 12 lugares e uma visita por dia, isso voa. <b>E a duração não está publicada em lugar nenhum</b> — se for 75 minutos, termina 12:15 e fica apertado contra o seu turno. Ligue 01 677 0095 e pergunte as duas coisas. ⚠️ Ignore a página do heritageireland.ie: ela está desatualizada."
+    },
+    {
+     "rotulo": "09:20",
+     "texto": "Saia a pé pela South Circular, entre pelo portão de Islandbridge e suba a Military Road — ~30 minutos, e você passa dentro dos <b>Jardins do Memorial de Guerra</b> de novo, que abrem às 08:00. O ponto de encontro é o portão principal do forte."
+    },
+    {
+     "rotulo": "10:00 · o plano firme",
+     "texto": "⭐ <b>Richmond Barracks, Inchicore — quinta 10:00–17:00, sete minutos a pé da sua cama, entrada livre e sem reserva.</b> Foi ali que os líderes de 1916 foram julgados sumariamente antes de serem fuzilados em Kilmainham — e é a coisa mais próxima da cadeia que você vai conseguir ver. Hoje é biblioteca e centro cultural do município, com jardim. ⚠️ O preço não está publicado em lugar nenhum (tudo indica grátis) e o café “The Mess” não é mencionado no site atual: 01 524 2532."
+    },
+    {
+     "rotulo": "plano C",
+     "texto": "Volta ao <b>14 Henrietta Street às 10:00</b> — a quinta também tem visita de hora em hora. Ou o <b>tour grátis dos terrenos do Royal Hospital Kilmainham</b>, guia no local todo dia às 11:00, 13:00 e 15:00 até novembro."
+    },
+    {
+     "rotulo": "onde comer",
+     "texto": "No parque, os dois cafés abrem <b>09:30</b> e são os únicos: <b>Phoenix Park Tea Rooms</b>, na Chesterfield Avenue ao lado do zoológico (prédio vitoriano de 1896, sopa e comida quente, 01 671 9376) e <b>Phoenix Park Café</b>, no Centro de Visitantes em Ashtown (01 255 4445). Descendo pelo portão de Parkgate, <b>Nancy Hands, 30–32 Parkgate Street</b> faz ensopado de carne com Guinness e chowder — ⚠️ <b>mas só a partir das 12:00</b>."
+    },
+    {
+     "rotulo": "12:15",
+     "texto": "Volta pela Military Road ou de ônibus 25/26 de Parkgate até Heuston, e Luas até Goldenbridge."
+    }
+   ],
+   "tags": [
+    "grátis",
+    "★"
+   ],
+   "nota": "Amanhã cedo você viaja para Galway. Deixe a mala pronta hoje."
+  }
+ ],
+ "ROT": [
+  {
+   "wd": "SEX",
+   "dt": "02/10",
+   "titulo": "Dublin → Galway, com a Priscila e o Richie",
+   "base": "Galway",
+   "blocos": [
+    {
+     "rotulo": "09:00",
+     "texto": "<b>Retirada do carro alugado em Dublin</b> — o Richie não tem carro, então vocês alugam um e ele fica com você até segunda 12. Saída pela N4 (sem a M50) → M4 → M6: Galway em ~2h30, pedágios €3,60 + €2,30. Chegando: Spanish Arch, Claddagh, o Long Walk, o Museu da Cidade (grátis). É o fim de semana deles; o programa é o que vocês três combinarem."
+    },
+    {
+     "rotulo": "19:50",
+     "texto": "Se topar: <b>galgos no Galway Greyhound Stadium</b>, College Road — sexta é noite de corrida, portões 18:30, €10. ⚠️ Confirme no 061 448080."
+    },
+    {
+     "rotulo": "noite",
+     "texto": "<b>Tigh Neachtain</b> (17 Cross Street) ou <b>Tigh Cóilí</b> (Mainguard Street). Se houver sessão no canto, é fundo."
+    }
+   ],
+   "tags": [
+    "com a Priscila e o Richie"
+   ],
+   "nota": ""
+  },
+  {
+   "wd": "SÁB",
+   "dt": "03/10",
+   "titulo": "Galway com eles",
+   "base": "Galway",
+   "blocos": [
+    {
+     "rotulo": "09:30",
+     "texto": "<b>Galway Market</b>, Church Lane, ao lado da igreja de St Nicholas (1320): The Oyster Man abre ostra na hora, Gannet Fishmongers, padarias, quase tudo abaixo de €10."
+    },
+    {
+     "rotulo": "tarde",
+     "texto": "Salthill a pé pela promenade (chute no muro no fim, como manda a tradição), ou o que eles quiserem mostrar — eles conhecem Galway melhor que qualquer lista."
+    },
+    {
+     "rotulo": "21:00",
+     "texto": "<b>Áras na nGael</b>, 45 Dominick Street — clube em língua irlandesa atrás de um arco de pedra, sessão de sábado, 25 anos de casa e zero turista. Pergunte ao Richie se ele topa: é o tipo de sala que ele conhece."
+    }
+   ],
+   "tags": [
+    "com a Priscila e o Richie"
+   ],
+   "nota": "Combine hoje as duas coisas do Richie: se ele vai à ilha na segunda (e de carro), e onde moram os pais dele — o churrasco de domingo 11 depende disso."
+  },
+  {
+   "wd": "DOM",
+   "dt": "04/10",
+   "titulo": "★ Ballinasloe — o dia solitário na feira",
+   "base": "Galway → Ballinasloe",
+   "blocos": [
+    {
+     "rotulo": "por quê",
+     "texto": "A Priscila e o Richie voltam para Dublin hoje, e não recomendam a feira: para o irlandês de classe média ela é “unusual” — é um encontro de Travellers, com fama de áspera. Você escolheu ir mesmo assim, sozinho, porque é exatamente a coisa que você chamou de bagaceira: a feira de cavalos mais antiga da Europa, 80 mil pessoas numa vila de 6.600, negócio em dinheiro com aperto de mão. Vá de dia, respeite as regras, e volte antes do escurecer."
+    },
+    {
+     "rotulo": "10:00",
+     "texto": "<b>Citylink 763</b> do Galway Coach Station → Ballinasloe, <b>60 minutos exatos</b>. Há também trem (41–46 min). <b>Deixe o carro em Galway</b>: as ruas da vila fecham de sábado 20:00 a segunda 21:00, o estacionamento oficial é no arrabalde, e dia de feira é dia de pinta."
+    },
+    {
+     "rotulo": "11:30",
+     "texto": "<b>Fair Green, rua Society.</b> Cavalos, pôneis, jennets, burros, cavalos de tração — negociados sem leiloeiro e sem ringue. Fique no meio, não na beira, e não comente preço."
+    },
+    {
+     "rotulo": "o dia",
+     "texto": "O <b>Misleór</b> — festival de culturas nômades dirigido pelo Galway Traveller Movement — leva programação à feira. É a porta de entrada respeitosa."
+    },
+    {
+     "rotulo": "⚠️ Richie",
+     "texto": "<i>“Don't say travellers!”</i> — a palavra não sai da sua boca no Fair Green, nem para elogiar, nem para perguntar. Etiqueta completa na seção 09. E sobre segurança, o veredito dele: <i>“Grand. Nobody will bother him.”</i>"
+    },
+    {
+     "rotulo": "16:25",
+     "texto": "Citylink de volta (16:25 ou 18:25 → Galway em 60 min). A noite da feira fica para quem é de lá. Em Galway, Tigh Neachtain e cama cedo: amanhã a balsa é às 11:30."
+    }
+   ],
+   "tags": [
+    "grátis",
+    "★"
+   ],
+   "nota": "Se na véspera, ouvindo o Richie pessoalmente, você mudar de ideia: o domingo vira Galway com calma — mercado de domingo, Salthill, e a mala pronta para a ilha."
+  },
+  {
+   "wd": "SEG",
+   "dt": "05/10",
+   "titulo": "★ Inishbofin — a noite na ilha sem luz na rua",
+   "base": "Galway → Cleggan → Inishbofin",
+   "blocos": [
+    {
+     "rotulo": "★ o dia",
+     "texto": "<i>“My favourite place in the country”</i> (Richie). <i>“Uma grande fazenda em forma de ilha, bem simples, à noite não tem iluminação na rua, tudo bem local. Ou gosta ou odeia”</i> (Priscila). Pelo que você me disse sobre o que gosta, você gosta. ~200 moradores, um pub, penhascos, focas, e o forte de Cromwell na boca do porto. <b>O Richie pode ir junto</b> — de segunda para terça é o plano dele."
+    },
+    {
+     "rotulo": "09:00",
+     "texto": "<b>O carro alugado</b>, Galway → N59 (Oughterard, Clifden) → <b>cais de Cleggan</b>: 89 km, ~1h45. Estacionamento privado na entrada da vila, ~€4/dia (pernoite cobrado por dia; não deixe no cais). Sem o aluguel, o plano B era um GoCar de dois dias (~€165)."
+    },
+    {
+     "rotulo": "11:30",
+     "texto": "<b>Balsa Island Discovery, Cleggan 11:30 → Inishbofin 12:00. €25 ida e volta.</b> ⚠️ <b>A saída das 11:30 de outubro ainda não está no sistema online</b> (só a das 18:45): <b>reserve por telefone, 095 37228, seg–sex 10:00–18:00, ou SMS 087 180 0586</b> — e pergunte também pela balsa das 09:00 de terça, que é a que salva Ballybrit."
+    },
+    {
+     "rotulo": "tarde",
+     "texto": "<b>Westquarter Loop</b>: 8,1 km, 80 m de subida, 2 a 2,5 h, começa e termina no New Pier, setas roxas — penhascos, a praia de Trá Gheal, focas. Depois o porto, Cromwell's Barracks visto do cais, e nada mais: é uma ilha de ficar."
+    },
+    {
+     "rotulo": "onde comer",
+     "texto": "⭐ <b>The Beach — Day's Bar &amp; B&B</b>: o pub da ilha, comida até tarde, <b>lagosta, caranguejo, cavala e pollock pescados ali</b>. Jante e durma no mesmo lugar."
+    },
+    {
+     "rotulo": "dormir",
+     "texto": "<b>Day's Bar &amp; B&B (The Beach)</b>, 4 quartos, +353 95 45829, info@thebeach.ie — preço não publicado, reserve por telefone. Alternativas: <b>Lapwing House B&B</b> (aberto o ano todo, +353 95 45996) e o <b>Inishbofin Island Hostel</b> (quarto privado €70, cama em dormitório €25, +353 95 45855). ⚠️ O Doonmore fechou a temporada em 27/09 e o Inishbofin House Hotel não abre reservas para outubro."
+    }
+   ],
+   "tags": [
+    "~€25 + cama",
+    "★"
+   ],
+   "nota": "⚠️ Se a balsa de outubro tiver só a saída das 18:45, o dia inverte: Galway com calma, saída 16:30, balsa 18:45 → 19:15, jantar no Day's. Isso se resolve no telefonema desta semana."
+  },
+  {
+   "wd": "TER",
+   "dt": "06/10",
+   "titulo": "Balsa das 09:00 → Ballybrit às 14:20",
+   "base": "Inishbofin → Galway",
+   "blocos": [
+    {
+     "rotulo": "09:00",
+     "texto": "<b>Balsa Inishbofin → Cleggan 09:00 → 09:30.</b> Se der tempo e vontade, a <b>Sky Road</b> (8 km até Clifden + o circuito de 16 km, 45 minutos) antes da N59. Galway por volta das 11:30–12:00; carro estacionado na hospedagem."
+    },
+    {
+     "rotulo": "12:30",
+     "texto": "Ônibus <b>409</b> de Eyre Square → Ballybrit Crescent, <b>17 min</b>, de 10 em 10 minutos, ou o shuttle de €8 do Skeff. Ballybrit tem estacionamento grátis, mas quem estaciona não bebe. Portões 12:30."
+    },
+    {
+     "rotulo": "14:20",
+     "texto": "<b>Galway Races, card de obstáculos</b> — 7 páreos, último às 17:20, ~€15. Não há ônibus especial em outubro — sinal de que a multidão de turista não vem. Richie: <i>“Ballybrit on a Tuesday.”</i>"
+    },
+    {
+     "rotulo": "noite",
+     "texto": "<b>The Crane Bar</b>, Sea Road, andar de cima: se houver sessão, é o fundo da sua cerveja. Ou o Tigh Cóilí."
+    }
+   ],
+   "tags": [
+    "~€15",
+    "★"
+   ],
+   "nota": "⚠️ Tudo depende de a balsa das 09:00 rodar em outubro. Se só houver a das 17:00, Ballybrit cai e a terça vira o segundo dia na ilha — o que, pelo que a Priscila descreveu, não é castigo nenhum."
+  },
+  {
+   "wd": "QUA",
+   "dt": "07/10",
+   "titulo": "★ Cliffs of Moher pela costa do Burren — de carro, ou de ônibus",
+   "base": "Galway → Burren → Doolin → Cliffs → Galway",
+   "blocos": [
+    {
+     "rotulo": "por quê",
+     "texto": "A Priscila recomendou (“lindíssimo”), e pela sua régua é o caso clássico do turístico que entrega: 214 metros de falésia caindo no Atlântico. <b>Com o carro alugado, o dia vira a estrada do Burren</b>: Kinvara (castelo de Dunguaire), Ballyvaughan, o farol de Black Head, Fanore, Doolin, os Cliffs (estacionamento incluído no ingresso), Lisdoonvarna e volta — ~200 km de calcário, mar e nenhuma cidade. Chegue nos Cliffs antes das 11:00: ingresso a €8 e falésia vazia. O ônibus 350 abaixo continua valendo se você preferir não dirigir."
+    },
+    {
+     "rotulo": "07:00",
+     "texto": "<b>Bus Éireann 350 sai do Galway BUS STATION, ao lado da estação Ceannt — não do Coach Station.</b> 07:00 → Doolin 08:40 → <b>Cliffs 08:54</b>. €9,45 com Leap/TFI Go (€13,50 em dinheiro). Ir cedo é a jogada: às nove da manhã as falésias são suas; a partir das onze chegam os ônibus de tour. Alternativa: 09:00 → 10:58."
+    },
+    {
+     "rotulo": "09:00",
+     "texto": "<b>Cliffs of Moher Experience</b>, outubro 08:00–19:00. Ingresso online: <b>€8 no horário da manhã (08–11)</b>, €12 no pico (11–16), €15 na porta. Torre O'Brien e 800 m de trilha pavimentada. ⚠️ <b>A trilha costeira de Doolin até os Cliffs está fechada</b> (só o trecho Doolin → Surfers Path abre) — não dá para entrar a pé por fora."
+    },
+    {
+     "rotulo": "10:48",
+     "texto": "Ônibus Cliffs → <b>Doolin</b> 10:59 (€2,60), ou o 12:05. Doolin é a vila dos pubs de sessão: <b>Gus O'Connor's</b> (Fisher St, 065 707 4168), <b>McGann's</b> (Roadford, 065 707 4133) e <b>McDermott's</b> (Roadford, comida 11:45–21:00). Sessão só à noite em outubro — de dia é almoço, pinta e o porto."
+    },
+    {
+     "rotulo": "onde comer",
+     "texto": "Almoço num dos três pubs de Doolin — chowder, peixe do dia, Guinness stew — todos servem o dia inteiro. No centro de visitantes dos Cliffs há café, mas é a comida de balcão de armadilha; coma em Doolin. À noite, a última de Galway: <b>Tigh Neachtain</b>."
+    },
+    {
+     "rotulo": "14:21",
+     "texto": "Volta: Doolin → Galway 14:21 → 16:14, ou 16:08 → 18:02 (o último é 23:15 → 00:50). Noite de despedida de Galway e mala pronta: amanhã o ônibus para Cork sai cedo."
+    }
+   ],
+   "tags": [
+    "~€27",
+    "★"
+   ],
+   "nota": "Se a sessão de Doolin te tentar: o 18:33 → 20:13 e o 20:10 → 21:42 ainda te trazem de volta. Mas o 51 para Cork sai cedo na quinta."
+  },
+  {
+   "wd": "QUI",
+   "dt": "08/10",
+   "titulo": "Galway → Cork. Mercado, o jantar do Goldie e noite de pub",
+   "base": "Cork",
+   "blocos": [
+    {
+     "rotulo": "manhã",
+     "texto": "<b>De carro: Galway → Cork pela M18/M20 em ~2h45</b> (túnel de Limerick €2,30), chegando para o almoço com meio dia a mais de Cork. Sem carro seria o Bus Éireann 51, direto, 4h a 4h30. Estacionamento noturno em Cork: pergunte à hospedagem — o centro cobra €10–20 a noite."
+    },
+    {
+     "rotulo": "13:00",
+     "texto": "<b>English Market</b> (seg–sáb 08:00–18:00) e o <b>Coal Quay</b>. Almoço no Farmgate, dentro do mercado, no mezanino — a última porta do país que serve tripe and drisheen."
+    },
+    {
+     "rotulo": "19:30",
+     "texto": "⭐ <b>Goldie, 128 Oliver Plunkett Street</b> — o único jantar caro da viagem, movido para hoje porque o sábado agora é em Dublin. 28 lugares, qua–sáb, <b>reserve: 021 239 8720</b>. Aishling Moore, peixe de barco de um dia de Ballycotton, principais €23–35. O Richie, sem saber da lista, escolheu o mesmo."
+    },
+    {
+     "rotulo": "noite",
+     "texto": "Depois do jantar, pub sem programa: <b>Sin É, rua Coburg 8</b> (sessão rolando no canto até meia-noite na semana do festival) e o <b>Welcome Inn, Parnell Place 24</b>, de 1845, o último early house da Irlanda."
+    }
+   ],
+   "tags": [
+    "~€60 o jantar"
+   ],
+   "nota": ""
+  },
+  {
+   "wd": "SEX",
+   "dt": "09/10",
+   "titulo": "★ O dia de carro — Beara, o Healy Pass e o caranguejo de Castletownbere",
+   "base": "Cork → Beara → Cork",
+   "blocos": [
+    {
+     "rotulo": "por quê",
+     "texto": "O Richie disse duas coisas: <i>“leave the men to it”</i> sobre o mart, e <i>“some of the best crab/shellfish in the country”</i> sobre Castletownbere. O mart saiu, e a sexta virou o dia de natureza de Cork — pela península de Beara, com o almoço de marisco no meio. Sobre os galgos, o Richie: “pode ser legal, principalmente porque é na sexta”."
+    },
+    {
+     "rotulo": "08:00",
+     "texto": "<b>O carro alugado</b> (sem ele seria um GoCar da estação Kent, ~€125). Cork → N22 → Macroom → R584 por Ballingeary e o Pass of Keimaneigh → <b>Glengarriff</b> (93 km) → R572 pela costa da baía de Bantry → <b>Castletownbere</b> (34 km). Chegada ~11:00: o segundo maior porto pesqueiro de peixe branco da Irlanda, e ainda porto de trabalho."
+    },
+    {
+     "rotulo": "onde comer",
+     "texto": "⭐ <b>Breen's Lobster Bar, The Square</b> — peixe e marisco desembarcados ali: sanduíche aberto de caranguejo, gratinado de caranguejo, salada de caranguejo. Sex 12:00–17:00 e 17:30–21:30 (horário de fonte não oficial: <b>027 70031</b>). ⭐ <b>MacCarthy's Bar, The Square</b> — bar que ainda é mercearia, das irmãs MacCarthy, seg–sáb 09:30–23:30 (027 70014); o sanduíche de caranguejo é lenda de guia, confirme no balcão e leve dinheiro. <b>Lynch's on the Pier</b> para peixe com batata."
+    },
+    {
+     "rotulo": "13:30",
+     "texto": "<b>Healy Pass (R574)</b>: 27 km de Castletownbere até o topo pela estrada em ziguezague mais bonita do sul da Irlanda, na divisa de Cork com Kerry. Desce para <b>Lauragh</b>, segue por <b>Kenmare</b> (25 km; parada de café) e volta a Cork por Kilgarvan e a N22 (97 km). Total: <b>~280 km, 4h30 de direção pura — conte 5h30 a 6h com paradas</b>."
+    },
+    {
+     "rotulo": "18:30",
+     "texto": "Carro de volta ao estacionamento da hospedagem. Ônibus <b>205/208/219</b> sentido MTU/Bishopstown — para os galgos não se dirige."
+    },
+    {
+     "rotulo": "19:35",
+     "texto": "<b>Galgos em Curraheen Park, €10</b> — portões 18:30, 1º páreo 19:35. Richie: <i>“which would you actually bring a foreign mate to? The dogs.”</i> Tote na mão, aposta mínima, arquibancada coberta. Cama cedo: o trem de amanhã é às 07:00."
+    }
+   ],
+   "tags": [
+    "~€135",
+    "★"
+   ],
+   "nota": "⚠️ Saída às 08:00 é obrigatória: são 4h30 de estrada estreita, o sol se põe às 19:00 em Castletownbere, e os galgos não esperam. Plano de chuva: ônibus 237 às 09:00, mart de Skibbereen às 11:00 (sentado no fundo, almoço no restaurante do mart) e os mesmos galgos à noite."
+  },
+  {
+   "wd": "SÁB",
+   "dt": "10/10",
+   "titulo": "Cork → Dublin, e o quintal deles",
+   "base": "Cork → Dublin",
+   "blocos": [
+    {
+     "rotulo": "07:30",
+     "texto": "<b>Cork → Dublin pela M8/M7, ~2h45</b>, pedágios €2,30 + €2,30; em Dublin às 10:30. É <b>este carro que faz o dia deles acontecer</b>: o Richie não tem carro, e Wicklow sem carro não existe."
+    },
+    {
+     "rotulo": "o dia",
+     "texto": "Com a Priscila e o Richie, no carro, o que eles propuseram: <b>Howth</b> (a trilha dos penhascos é um loop de 7,8 km, ~2 h, e o peixe do porto), ou <b>Wicklow</b>: o Guinness Lake (Lough Tay) é privado e sem acesso — o mirante autorizado é o do <b>J.B. Malone, em Ballinastoe Woods, na R759</b> — e daí o Sally Gap. ⚠️ <b>A trilha de Bray a Greystones continua fechada</b> (Câmara de Wicklow, 02/09/2026): se for Bray, é o loop do Bray Head."
+    },
+    {
+     "rotulo": "⚡ se a final cair hoje",
+     "texto": "<b>Este é o único dia que a final pode tomar sem quebrar nada</b> — e ela nem custa desvio: Thurles fica praticamente em cima da estrada. Vira: sai de Cork às 09:00, <b>M8 até a saída 6 (Horse and Jockey), N62 até Thurles — 114 km, 81 min, €2,30</b>; almoço no Hayes Hotel; final intermediária ~12:30 e a sênior ~15:45; e às 17:30 você retoma a viagem, <b>saída 5 (Twomileborris) sentido norte, 149 km, 112 min, €2,30</b>, chegando a Dublin ~19:45. <b>Total do desvio: +8,5 km, +11 minutos e €0 de pedágio a mais.</b> Quem perde o dia é Wicklow, não o churrasco."
+    },
+    {
+     "rotulo": "onde comer",
+     "texto": "Em Howth: <b>Beshoff Bros, Harbour Road</b> — este é o Beshoff certo, não o da O'Connell Street — e o <b>The Bloody Stream</b>, o pub dentro do prédio da estação; o mercado de Howth roda no fim de semana. Em Wicklow, eles escolhem: é o quintal deles. <b>Se o dia virar Thurles:</b> almoço no <b>Hayes Hotel, Liberty Square</b> (0504 22122) — em dia de jogo servem carvery do meio-dia às 21:30."
+    },
+    {
+     "rotulo": "noite",
+     "texto": "Dublin. Cama em <b>Inchicore</b> — ⚠️ confirme com quem te hospeda que o quarto vale sábado e domingo. Última no <b>Slatt's</b>, que a essa altura já é o seu pub."
+    }
+   ],
+   "tags": [
+    "com eles"
+   ],
+   "nota": "Se você for comprar a carne do churrasco, hoje é o dia: os açougues de Dublin abrem no sábado de manhã e domingo fecha tudo."
+  },
+  {
+   "wd": "DOM",
+   "dt": "11/10",
+   "titulo": "★ Churrasco na casa dos pais do Richie",
+   "base": "Dublin",
+   "blocos": [
+    {
+     "rotulo": "★ o dia",
+     "texto": "O último dia irlandês inteiro, e o mais bem encaixado no que você veio buscar. Desde a primeira mensagem você disse que queria <b>conhecer pessoas e lugares de verdade, estudando como respeitá-los</b>. Um churrasco no quintal de uma família irlandesa, convidado por um amigo, é isso — e não é uma coisa que se compra ingresso. <b>Sem dirigir, sem trem, sem horário.</b>"
+    },
+    {
+     "rotulo": "⚠️ confirmar",
+     "texto": "<b>Onde moram os pais do Richie?</b> Eu montei o dia supondo Dublin ou arredores. Se for na estrada entre Cork e Dublin (Tipperary, Laois, Kildare), o churrasco pode virar a parada de sábado e o desenho fica ainda melhor — me diga e eu refaço. Se for no oeste, a gente conversa, porque aí ele brigaria com a semana de Galway."
+    },
+    {
+     "rotulo": "★ a oferta",
+     "texto": "<b>Ofereça fazer a carne.</b> Churrasco irlandês é hambúrguer e salsicha na grelha; churrasco brasileiro é peça inteira, sal e tempo. Oferecer-se para assar é o melhor movimento social disponível na viagem inteira — e é a única coisa que você sabe fazer que ninguém ali sabe. Pergunte ao Richie antes: em casa de irlandês, quem manda na grelha é o pai."
+    },
+    {
+     "rotulo": "a picanha",
+     "texto": "Existe na Irlanda, mas não com esse nome no balcão: peça <b>“picanha”</b> e, se não entenderem, <b>“rump cap”</b> ou <b>“top sirloin cap”</b> — açougue bom corta, supermercado não tem. <b>Compre no sábado</b>, em Dublin, ou encomende na quinta no <b>English Market de Cork</b> (Tom Durcan, Coughlan's, O'Mahony) e traga na geladeira de isopor — você está de carro. ⚠️ Peça para <b>não</b> tirar a capa de gordura: é o corte inteiro que importa."
+    },
+    {
+     "rotulo": "o que cabe na mala",
+     "texto": "Duas coisas que a Irlanda não tem e pesam nada: <b>sal grosso</b> (o flocado de supermercado não serve) e <b>farinha para farofa</b>. Uma garrafa de cachaça cabe na franquia de 1 litro de destilado da UE, e limão e gelo se acham em qualquer Tesco. ⚠️ <b>Carne e laticínio do Brasil são proibidos de entrar na UE</b> — nada de linguiça e nada de queijo na mala, é confisco na alfândega."
+    },
+    {
+     "rotulo": "o tempo",
+     "texto": "Meados de outubro em Dublin: máxima de ~13 °C e chuva provável. Isso não cancela churrasco irlandês — eles assam debaixo de gazebo o ano inteiro, de casaco, e acham normal. Leve casaco e não comente o clima: comentar o clima é o esporte nacional e você não vai ganhar."
+    },
+    {
+     "rotulo": "o que levar",
+     "texto": "Cerveja para a casa é obrigação, não gentileza. Some algo brasileiro — cachaça, ou o próprio sal grosso como presente do churrasqueiro. E leve o nome certo: não é “barbecue”, é <b>churrasco</b>, e vale explicar a diferença enquanto assa."
+    },
+    {
+     "rotulo": "⚠️ e a final",
+     "texto": "Se a final ficar no domingo — que é o provável —, ela cai. Não dá para estar em Thurles e no quintal ao mesmo tempo, e o churrasco ganha. O histórico está na seção 11; a decisão sai em 30/09."
+    }
+   ],
+   "tags": [
+    "★ o ponto alto"
+   ],
+   "nota": "Se sobrar noite e você ainda quiser uma última irlandesa de verdade: <b>Old Royal Oak</b>, Kilmainham Lane, uma sala só, na mesma família desde 1837. Amanhã a mala vai para o Porto."
+  },
+  {
+   "wd": "SEG",
+   "dt": "12/10",
+   "titulo": "Dublin de manhã, Porto à noite",
+   "base": "Dublin → Porto",
+   "blocos": [
+    {
+     "rotulo": "manhã",
+     "texto": "Manhã livre em Inchicore, sem trem nenhum para pegar. Se a segunda 28 tiver falhado por qualquer motivo, hoje é a segunda chance da <b>Guinness Open Gate Brewery</b> (segunda 13:00–21:00, 53 James's Street) — de 13:00 às 15:30 cabe."
+    },
+    {
+     "rotulo": "onde comer",
+     "texto": "<b>Mannings Bakery, 39–40 Thomas Street</b> para a última padaria das Liberties, ou o <b>Kingfisher</b> da Parnell Street se estiver no centro. No aeroporto, coma antes de embarcar: a bordo da Ryanair não há nada que valha o preço."
+    },
+    {
+     "rotulo": "15:30",
+     "texto": "<b>Devolução do carro no Eastlands Car Hire Facility do aeroporto</b> (de Inchicore pela M50, €3,80 — o único pedágio da M50 da viagem). Tanque cheio. Shuttle grátis do pátio ao T1, ~5 min, a cada ~20 min. No T1 às 16:30, três horas antes; o portão da Ryanair fecha 19:05. Sem carro seria Luas + 782 de Heuston."
+    },
+    {
+     "rotulo": "19:35",
+     "texto": "<b>FR7072 Dublin → Porto, pousa 22:00.</b> Jante tarde: Cufra na Boavista ou Capa Negra II, que servem de madrugada."
+    }
+   ],
+   "tags": [
+    "€60,99 pago"
+   ],
+   "nota": ""
+  }
+ ],
+ "PORTO": [
+  {
+   "wd": "SEG",
+   "dt": "12/10",
+   "titulo": "Chega 22:00 — jantar tardio",
+   "base": "Porto",
+   "blocos": [
+    {
+     "rotulo": "22:00",
+     "texto": "FR7072 pousa. Metrô linha E (violeta) até Trindade, ~30 min. Compre o <b>Andante</b> na máquina."
+    },
+    {
+     "rotulo": "onde comer",
+     "texto": "Cozinha aberta de madrugada: <b>Cufra</b>, Av. da Boavista 2504 — o clássico portuense da madrugada, família, taxista, pedido às duas da manhã. Ou <b>Capa Negra II</b>, Rua do Campo Alegre 191, que é onde o lado universitário da cidade come francesinha."
+    },
+    {
+     "rotulo": "nota",
+     "texto": "Quase toda tasca fecha a cozinha às 22:00. Na noite de chegada é cervejaria ou nada."
+    }
+   ],
+   "tags": [],
+   "nota": ""
+  },
+  {
+   "wd": "TER",
+   "dt": "13/10",
+   "titulo": "O dia inteiro — o único",
+   "base": "Porto",
+   "blocos": [
+    {
+     "rotulo": "09:00",
+     "texto": "<b>Mercado do Bolhão</b> (fecha domingo, hoje abre). Vá cedo: o piso térreo ainda é banca de verdade com vendedor de verdade. Ao meio-dia o anel de cima vira praça de alimentação para turista."
+    },
+    {
+     "rotulo": "11:00",
+     "texto": "Metrô linha A até Matosinhos. <b>Mercado Municipal de Matosinhos</b> — esse é o mercado que não virou nada. Peixe e hortaliça, sem concessão."
+    },
+    {
+     "rotulo": "onde comer",
+     "texto": "⭐ <b>Rua Heróis de França</b>, a 200 metros do mercado de Matosinhos: uma rua inteira de grelhados onde o peixe foi comprado no mercado de manhã. <b>Salta o Muro</b> (nº 386) é o clássico barato; <b>O Gaveto</b> é a ponta cara. <b>Almoço, não jantar.</b> À noite, se não houver jogo: <b>Casa Aleixo</b>, Rua da Estação 216, ao lado da estação de Campanhã — a casa de tripas à moda do Porto que os portuenses citam (reserve). Barato e sem verniz: <b>Bufete Fase</b>, Rua de Santa Catarina 1147 — balcão apertado, sem cardápio em inglês, só dinheiro, e uma francesinha que muito portuense põe acima do Santiago."
+    },
+    {
+     "rotulo": "16:00",
+     "texto": "<b>Casa da Guitarra</b>, Av. Vímara Peres 49 — loja de guitarras que faz recitais pequenos de guitarra portuguesa. <b>O Porto não é cidade de fado</b> — quase tudo vendido como fado ali é jantar-espetáculo com fadista de Lisboa em rodízio."
+    },
+    {
+     "rotulo": "★ noite",
+     "texto": "<b>Verifique se o FC Porto joga em casa.</b> A 2ª rodada da fase de liga da Champions é <b>13 e 14 de outubro</b> e o Porto está na competição. Se for dia 13 no Dragão, é a melhor noite disponível. Ingressos em bilhetes.fcporto.pt."
+    },
+    {
+     "rotulo": "beber",
+     "texto": "<b>Café Piolho</b> (Praça Parada Leitão 45, de 1909, mesa de mármore e cadeira de plástico) e <b>Catraio</b> na Rua de Cedofeita 256 para cerveja portuguesa de verdade."
+    }
+   ],
+   "tags": [
+    "★ o dia cheio"
+   ],
+   "nota": "Boavista acabou de verdade: insolvência, queda até as distritais e ordem judicial de julho de 2026 para cessar atividade. Não existe jogo no Bessa."
+  },
+  {
+   "wd": "QUA",
+   "dt": "14/10",
+   "titulo": "Meio dia de Porto e o avião",
+   "base": "Porto → Dublin",
+   "blocos": [
+    {
+     "rotulo": "08:30",
+     "texto": "<b>Café com cheirinho</b> — a bica com um dedo de aguardente, ao balcão, entre 8 e 10 da manhã. É a bagaceira portuguesa literal. <b>Café Progresso</b>, Rua Actor João Guedes 5, o mais antigo do Porto ainda em funcionamento, ou a <b>Confeitaria do Bolhão</b> (1896)."
+    },
+    {
+     "rotulo": "11:00",
+     "texto": "<b>Afurada</b>, em Gaia — vila de pescadores que sobreviveu dentro da área metropolitana, com o <b>lavadouro público ainda em uso</b>. Vá pela balsa Flor do Gás. Sardinha na calçada."
+    },
+    {
+     "rotulo": "onde comer",
+     "texto": "Almoço rápido e barato antes do aeroporto: <b>Conga</b> (Rua do Bonjardim 314) para a bifana com molho, em pé, desde 1976; ou <b>Casa Guedes</b> na Praça dos Poveiros para a sande de pernil com queijo da Serra — <b>a sala antiga, não o rooftop ao lado</b>. Os dois saem por menos de €6."
+    },
+    {
+     "rotulo": "15:30",
+     "texto": "Sai do centro. Metrô linha E até o aeroporto, ~30 min. O portão da Ryanair fecha 30 minutos antes."
+    },
+    {
+     "rotulo": "17:55",
+     "texto": "FR7079 → Dublin 20:20. <b>A partir daqui, seção 08.</b>"
+    }
+   ],
+   "tags": [
+    "€66,99 pago"
+   ],
+   "nota": ""
+  }
+ ],
+ "EAT": {
+  "11/10": "O churrasco é a comida do dia — o que importa é o que você leva. <b>A carne compra-se no sábado</b> (domingo fecha tudo): açougue de Dublin, pedindo <b>picanha</b> / <b>rump cap</b> / <b>top sirloin cap</b>, com a capa de gordura inteira; ou encomendada na quinta no <b>English Market de Cork</b> (Tom Durcan, Coughlan's, O'Mahony) e trazida na geladeira de isopor, já que você está de carro. <b>Sal grosso e farinha de mandioca vêm do Brasil</b> — não existem lá no formato certo e pesam nada. ⚠️ <b>Carne e laticínio do Brasil não entram na UE.</b> Cerveja para a casa é obrigação. Se a final tomar o sábado, o almoço daquele dia é o <b>Hayes Hotel, Liberty Square, Thurles</b> (0504 22122), que em dia de jogo serve do meio-dia às 21:30.",
+  "02/10": "Chegando a Galway: ⭐ <b>GBC — Galway Bakery Company, 7 Williamsgate Street</b>, aberta desde <b>1936</b>, seg–sáb 08:00–16:30 e domingo 09:00–16:30 (091 563 087). É a última casa de comer velha, simples e sem modinha do centro. ⚠️ <b>O café do andar de cima do McCambridge's fechou</b>: sobrou o deli. Comida em pub: <b>Tigh Neachtain, 17 Cross Street, 11:00–16:00 todos os dias</b>. ⚠️ <b>O Tigh Cóilí e o Crane Bar não servem comida nenhuma.</b> Mas hoje quem escolhe são eles.",
+  "03/10": "⭐ <b>Galway Market</b>, Church Lane, sábado 08:00–18:00, quase tudo abaixo de €10: <b>The Oyster Man</b> abre ostra na hora, <b>Gannet Fishmongers</b>, <b>Coolfin Organic Bakery</b>. A ostra nativa está no auge em outubro: <b>McSwiggans, 3 Eyre Street, €19,50 a meia dúzia</b>. Barato: <b>Handsome Burger</b> (49 Dominick St Lower, €10,50) e <b>Xian Street Food</b> (7 Quay St, spice bag €8,75). Compre hoje o farnel de segunda: na ilha só há o Day's Bar.",
+  "04/10": "⚠️ <b>Domingo mata os cafés de Ballinasloe — o Bread Basket e o Kariba's fecham os dois.</b> Sobram dois endereços: ⭐ <b>Gibbons' Pillar House, 8 Society Street</b> — a rua do Fair Green — <b>comida das 09:00 às 21:00, sete dias</b> (090 964 3939); e o <b>Gullane's Hotel, Main Street</b>, <b>carvery 12:00–16:30, sem reserva</b> (090 964 2220). Na feira em si: peixe com batata e sonho açucarado frito na hora. ⚠️ O Hayden's Hotel fechou. Ninguém em Ballinasloe publica preço.",
+  "06/10": "Café da manhã no B&B da ilha, e a balsa das 09:00. Em Galway, antes de Ballybrit: <b>GBC, Williamsgate Street</b> (08:00–16:30) ou <b>Tigh Neachtain</b> (11:00–16:00) — dentro do hipódromo é bancada cara e fila. Depois da corrida, <b>o Crane Bar não serve comida</b>: jante antes no <b>Dela</b> (51 Dominick St Lower) ou no <b>Rúibín</b> (1 Dock Road, seg–sáb 12:00–23:00).",
+  "08/10": "Almoço dentro do English Market: ⭐ <b>Farmgate Café</b>, no mezanino — <b>a última porta do país que serve tripe and drisheen</b> (ter–sex 09:00–15:30; 021 427 8134). Para levar: <b>A. O'Reilly's</b>, o último fabricante de drisheen da Irlanda, €2 a porção. Jantar: <b>Goldie</b>, reservado. Antes do Sin É, se sobrar fome: ⭐ <b>The Long Valley, 10 Winthrop Street</b> (todo dia 10:00–00:30), o doorstep sandwich de spiced beef."
+ },
+ "CONFIRMADO": [
+  {
+   "titulo": "Voos Ryanair — <b>reserva D2T4SZ</b>",
+   "itens": [
+    "<b>Ida:</b> FR7072, seg 12/10, Dublin 19:35 → Porto 22:00",
+    "<b>Volta:</b> FR7079, qua 14/10, Porto 17:55 → Dublin 20:20",
+    "Pago: <b>€136,34</b> · MasterCard final 5548",
+    "Lembretes automáticos de check-in criados para 11/10 e 13/10 — chegam no seu celular"
+   ]
+  },
+  {
+   "titulo": "Voos Air France — <b>reserva Y4WCIU</b>",
+   "itens": [
+    "<b>Chegada:</b> EI0521, sex 25/09, Paris CDG 10:20 → Dublin 11:15",
+    "<b>Volta:</b> AF1617, qui 15/10, Dublin <b>09:15</b> → Paris, e daí Rio e Goiânia",
+    "⚠️ O check-in da Air France <b>fecha às 08:35</b>. É a trava que organiza os últimos três dias da viagem."
+   ]
+  },
+  {
+   "titulo": "Carro — o cenário novo: alugado de sexta 2 a segunda 12",
+   "itens": [
+    "A Priscila e o Richie <b>não têm carro</b>: vocês alugam um em Dublin na sexta 2, vão os três para Galway, eles voltam de trem no domingo e <b>o carro fica com você até a devolução no aeroporto de Dublin, segunda 12, antes do voo</b>. Dez dias e meio, ~1.500 km.",
+    "Os dois GoCar (Galway seg–ter e Cork sex) <b>saem do plano</b>; os ônibus para Galway e para Cork e o trem de sábado também. A seção 06 tem os preços, as locadoras e — o mais importante — a verdade sobre o seguro do seu cartão na Irlanda.",
+    "✅ <b>Mastercard Black do Brasil cobre a Irlanda</b> (guia de benefícios vigente: “em qualquer lugar do mundo”, até 60 dias). ⚠️ Mas <b>três locadoras irlandesas recusam ou dificultam cartão que não seja americano/canadense</b> — a escolha da locadora é o que decide se o seguro do cartão vale ou não.",
+    "✅ A CNH continua valendo perante a lei irlandesa; ⚠️ mas <b>Avis e o grupo Europcar exigem PID no balcão</b> para carteira brasileira. Tirar a PID esta semana no Detran-GO (~R$ 207, retirada presencial) é o que elimina o risco em qualquer balcão."
+   ]
+  },
+  {
+   "titulo": "Base em Dublin — e ela conta duas vezes",
+   "itens": [
+    "38–41 Tyrconnell Road, Inchicore, D08 TXV4 — de 25/09 a 01/10, <b>o fim de semana de 10 e 11/10</b> e a noite de 14 para 15/10.",
+    "Luas linha vermelha: parada <b>Goldenbridge</b> ou <b>Suir Road</b>. Smithfield 12 min, O'Connell St 18 min.",
+    "Ônibus <b>G1 e G2 param em Inchicore Village e rodam 24 horas</b> — é a sua volta pra casa de madrugada.",
+    "Leap Card: €2,00 por 90 minutos em ônibus + Luas + DART, teto de €6/dia e €24/semana. A bordo o ônibus só aceita moeda.",
+    "⚠️ <b>Confirme com quem te hospeda as três noites avulsas: 10, 11 e 14/10.</b> A seção 08 e o fim de semana com eles dependem disso."
+   ]
+  },
+  {
+   "titulo": "Estágio no restaurante — 29, 30/09 e 01/10",
+   "itens": [
+    "Tarde <b>e</b> noite ocupadas nos três dias. Sobra só a manhã, e é isso que a seção 04 usa.",
+    "Todos os planos de manhã terminam por volta das <b>12:15</b>, com o caminho de volta contado.",
+    "Se o seu turno começar mais tarde que 13:00, cada manhã ganha uma hora de folga — e aí o Magazine Fort deixa de ser apertado."
+   ]
+  }
+ ],
+ "CARRO": [
+  {
+   "titulo": "O desenho",
+   "itens": [
+    "<b>Sexta 2/10, ~09:00, Dublin</b>: retirada (filial da cidade ou aeroporto), os três para Galway pela M4/M6 — 2h30, pedágios €3,60 + €2,30. Saindo de Inchicore pela N4 (Con Colbert Road) você <b>não passa pela M50</b> e não paga os €3,80 que a locadora cobra com taxa.",
+    "<b>Domingo 4</b>: eles voltam de trem (Ceannt → Heuston) ou Citylink; o carro fica em Galway. Para Ballinasloe você vai de Citylink mesmo: as ruas da vila fecham de sábado 20:00 a segunda 21:00 e o estacionamento oficial é no arrabalde.",
+    "<b>Segunda 5 → terça 6</b>: Cleggan e a ilha (carro no estacionamento privado, ~€4/dia). <b>Terça</b>: Ballybrit tem estacionamento grátis, mas quem estaciona não bebe — deixe o carro e vá de 409 ou do shuttle de €8 da Eyre Square.",
+    "<b>Quarta 7</b>: os Cliffs viram <b>a estrada do Burren</b> — Kinvara, Ballyvaughan, Black Head, Fanore, Doolin, Cliffs (estacionamento incluído no ingresso), Lisdoonvarna e volta: ~200 km. O ônibus 350 continua no dia como plano sem carro.",
+    "<b>Quinta 8</b>: Galway → Cork pela M18/M20 em ~2h45 (contra 4h30 de ônibus), pedágio do túnel de Limerick €2,30. <b>Sexta 9</b>: Beara com este carro. <b>Sábado 10</b>: Cork → Dublin pela M8 cedo (2h45, €4,60 de pedágio) e o dia de Wicklow ou Howth com eles — <b>é este carro que torna o plano deles possível</b>.",
+    "<b>Domingo 11</b>: Thurles de carro (1h45 pela M7/M8) ou de trem — se o Richie for e houver pinta, é trem. <b>Segunda 12, ~16:00</b>: devolução no <b>Eastlands Car Hire Facility</b> do aeroporto, shuttle grátis até o T1 (~5 min, a cada ~20 min) — conte 45 minutos da entrada do pátio ao check-in."
+   ]
+  },
+  {
+   "titulo": "Quanto custa, honestamente",
+   "itens": [
+    "<b>Carro:</b> €250 (Focus manual, 11 dias, carhire.ie, com CDW e franquia €1.800, taxa de one-way incluída) a ~€400 numa das grandes. <b>Combustível:</b> ~1.500 km ÷ 17 km/l × €1,87/l (gasolina, AA Ireland, set/2026; diesel €1,94) ≈ <b>€165</b>. <b>Pedágios:</b> ~€25. <b>Estacionamento:</b> Galway e Cork à noite, ~€10–20/noite — pergunte à hospedagem antes de reservar a cama.",
+    "<b>Seguro:</b> zero se o cartão cobrir e a locadora aceitar (caução bloqueada: €1.800–5.000 conforme a locadora); ou <b>€23–35/dia</b> pelo zero de franquia da própria locadora (€253–385 em 11 dias) se não.",
+    "<b>Total realista: €440 (com o cartão) a €800 (com o seguro da locadora).</b> O plano anterior sem carro custava ~€400 em GoCar, ônibus e trens — e não dava carro nenhum ao fim de semana deles nem ao sábado em Wicklow. Dividido com a Priscila e o Richie nos dias em que estão dentro, o carro sai mais barato que a alternativa.",
+    "Motorista adicional (a Priscila ou o Richie na sexta e no sábado): €11–12 por dia. Só se alguém além de você for dirigir."
+   ]
+  },
+  {
+   "titulo": "O seguro do cartão, sem ilusão",
+   "itens": [
+    "✅ <b>A Mastercard Black do Brasil cobre a Irlanda.</b> O guia de benefícios em vigor diz “em qualquer lugar do mundo”, até 60 dias, com as condições de sempre: recusar o CDW da locadora, alugar e pagar a caução com o cartão, contrato no seu nome. (A Visa exclui a Irlanda nominalmente; a Mastercard não.)",
+    "⚠️ <b>A locadora é quem decide se você consegue usar isso.</b> Europcar, Irish Car Rentals e carhire.ie <b>recusam cartão que não seja americano ou canadense</b>. Avis/Budget e Sixt aceitam com <b>carta do emissor, em inglês, datada, com seu nome e a frase “Republic of Ireland”</b> — e bloqueiam <b>€5.000</b> no cartão mais uma taxa de €30–40. A Hertz nem pede carta: você fica com o CDW da tarifa (franquia €2.000–3.500 bloqueada) e não compra o SuperCover; se bater, ela cobra a franquia e você recupera do cartão.",
+    "❓ <b>A pergunta que decide tudo</b>, para fazer à Mastercard antes de reservar: <i>“o seguro cobre a franquia quando o CDW básico vem incluído na tarifa e não pode ser recusado?”</i> Se sim, a Hertz (sem carta, caução menor) é o caminho mais simples. Se a resposta for “só com recusa total do CDW”, é Sixt com a carta.",
+    "Cartão <b>físico, no seu nome, com limite livre para a caução</b> — €5.000 bloqueados durante 11 dias em cima do resto da viagem. Confira o limite antes de sair do Brasil."
+   ]
+  },
+  {
+   "titulo": "A carteira",
+   "itens": [
+    "<b>Lei irlandesa:</b> a CNH vale sozinha (S.I. 384/1992: “domestic driving licence <i>or</i> international driving permit”). <b>Contrato de locadora:</b> Avis e o grupo Europcar pedem PID para carteira sem tradução em inglês; Hertz e Enterprise “recomendam”; a Sixt se contradiz entre a página de termos e a de marketing.",
+    "<b>Tire a PID esta semana</b>: go.gov.br → “Solicitar Permissão Internacional para Dirigir”, Detran-GO, ~R$ 207, retirada presencial. Custa pouco e elimina o único risco que pode te deixar a pé no balcão.",
+    "Leve a <b>CNH física</b>: a s.40 do Road Traffic Act obriga a apresentá-la a um Garda. Foto no celular não vale. Carteira há mais de 2 anos (Hertz/Avis exigem), e a Sixt pede 4.",
+    "Estradas locais “L” a 60 km/h desde 2025; na R336 de Connemara a velocidade segura é 40. Nunca troque de faixa dentro da rotatória. Do Eyre Square, a N59 até Moycullen são 25 km retos para calibrar a mão inglesa antes de Cleggan."
+   ]
+  }
+ ],
+ "RICHIE": [
+  {
+   "titulo": "Galway antes de Cork",
+   "texto": "“Go Galway… then down to Cork.” O desenho está certo — e ele acrescentou Inishbofin, “my favourite place in the country”."
+  },
+  {
+   "titulo": "Feira de Ballinasloe",
+   "texto": "“Grand.” Dia a proteger: <b>domingo</b>. Segurança: “nobody will bother him”. E a regra de ouro: <b>“Don't say travellers!”</b>"
+  },
+  {
+   "titulo": "Noites de Cork",
+   "texto": "An Spailpín Fánach. Jantar: “Goldies”. Do festival inteiro, uma coisa só: <b>o Céilí Mór, €10</b>."
+  },
+  {
+   "titulo": "Levar um amigo de fora",
+   "texto": "<b>Os galgos</b> — e <b>Ballybrit numa terça</b>. Os dois já estavam no plano."
+  },
+  {
+   "titulo": "Mart de Skibbereen",
+   "texto": "“No. Leave the men to it.” Saiu do plano principal; sobrevive só como dia de chuva."
+  },
+  {
+   "titulo": "Dia de carro",
+   "texto": "Connemara — mas com Inishbofin no meio. E um dia duro de montanha: <b>“Dublin mountains is good.”</b>"
+  },
+  {
+   "titulo": "Uma noite em West Cork",
+   "texto": "<b>Castletownbere</b> — “some of the best crab/shellfish in the country”. Virou o almoço da sexta 9."
+  },
+  {
+   "titulo": "Quanto você vai se queimar",
+   "texto": "“He'll buy a round out of turn. He'll survive.” Pints devidos ao Richie pelo questionário: <b>5</b>."
+  },
+  {
+   "titulo": "O fim de semana final, em 18/09",
+   "texto": "Churrasco na casa dos pais do Richie <b>fixado no domingo 11</b>, e a final de hurling rebaixada a bônus: ela só acontece se cair no sábado 10, quando Thurles custa +11 minutos na estrada Cork → Dublin. Motivo: a ida-e-volta de domingo era puxada, o histórico diz que a final cai no domingo (seis de seis), e três das últimas seis foram para replay — plano nenhum deve ficar refém de uma data que ainda não existe."
+  },
+  {
+   "titulo": "E a Priscila, em 13/09",
+   "texto": "Galway com eles sexta e sábado; Cliffs of Moher (“lindíssimo”); Inishbofin com pernoite (“ou gosta ou odeia”); o último fim de semana em Dublin com eles; e Kilmainham Gaol com o Richie. Sobre Ballinasloe: “unusual, não recomenda” — você decidiu ir mesmo assim, sozinho, no domingo."
+  }
+ ],
+ "ULTIMA": [
+  {
+   "titulo": "★ A pé até Heuston + Dublin Express 782",
+   "custo": "€10",
+   "classe": "rec",
+   "texto": "<b>É a recomendação, e é quase de graça.</b> Você acorda em Inchicore, sai de Tyrconnell Road <b>às 04:50 a pé</b> e faz os <b>28 a 32 minutos plano</b> até a estação Heuston pela South Circular → Con Colbert Road → ponte Sean Heuston. O <b>Dublin Express 782 sai de Heuston às 05:35 e chega no Terminal 1 às 06:21</b>. Passagem <b>€10</b>, mais barata comprando no app. O check-in da Air France fecha às 08:35: você chega com <b>2 h 14 de folga</b>. E se perder esse, o <b>seguinte é 06:05 → 06:57</b>, que ainda te deixa 1 h 38 de sobra.",
+   "aviso": "⚠️ <b>Os horários publicados não batem entre si.</b> O bustimes.org lista Heuston às 03:35 / 04:05 / 04:35 / 05:05 / 05:35 / 06:05; o PDF do próprio dublinexpress.ie lista 03:28 / 03:58 / 04:28 / 04:58 / 05:28 / 06:02 — provavelmente a coluna do George's Quay, uma parada antes. <b>Confira no app na noite anterior</b> e, na dúvida, esteja no ponto às 05:20."
+  },
+  {
+   "titulo": "Táxi só até Heuston, e o 782 igual",
+   "custo": "~€22",
+   "classe": "ok",
+   "texto": "Se não quiser andar meia hora no escuro com a mala: <b>agende um FreeNow na véspera para 05:05 na porta</b>. São ~€10 a €13 até Heuston já com a tarifa noturna, e daí em diante é exatamente o plano de cima — 782 das 05:35, T1 às 06:21.",
+   "aviso": "⚠️ <b>Agende na véspera, pelo aplicativo.</b> Táxi chamado na hora, às cinco da manhã, em Inchicore, não é coisa garantida."
+  },
+  {
+   "titulo": "Táxi porta a porta até o Terminal 1",
+   "custo": "€40–50",
+   "classe": "ok",
+   "texto": "A tarifa premium vale <b>das 20:00 às 08:00</b>: €5,40 de bandeirada, €1,81 por quilômetro e €3 de reserva, em cerca de 13 km. Saia às <b>05:45</b> e você desembarca no terminal por volta das 06:15 — dorme uma hora a mais e não pensa em mais nada.",
+   "aviso": "É o dobro do preço e o que ele compra é uma hora de sono. Ainda assim: <b>agende na véspera</b>."
+  },
+  {
+   "titulo": "❌ O que NÃO fazer",
+   "custo": "—",
+   "classe": "neutro",
+   "texto": "<b>O Luas não vai ao aeroporto.</b> Nenhuma linha, nunca foi — e o primeiro bonde da linha vermelha só sai por volta das 06:05 de qualquer jeito. E o combo <b>G1/G2 até a cidade + ônibus 41 ou Aircoach</b> fecha no papel, mas a baldeação não tem horário publicado e sobram uns 20 minutos de folga no total. Não use.",
+   "aviso": "O ônibus 41 sozinho é ótimo <b>se você já estiver no centro</b>: roda 24 horas por €2 com Leap Card, sai do Irish Life na Abbey Street Lower às 05:00 e chega 05:32. Mas você vai estar em Inchicore."
+  },
+  {
+   "titulo": "E antes disso: a volta do aeroporto, quarta à noite",
+   "custo": "€10",
+   "classe": "neutro",
+   "texto": "Você pousa de Porto às <b>20:20 de quarta</b>, sem pressa nenhuma. <b>Dublin Express 782 do aeroporto até Heuston, €10</b> (o último sai 00:35), e de Heuston a <b>Luas vermelha para Goldenbridge</b>, duas paradas, último bonde por volta de 00:30, mais 9 minutos a pé. Em casa por volta das <b>22:15</b>. Se preferir não pensar: o <b>G1/G2 roda 24 horas</b> e para em Inchicore Village.",
+   "aviso": "⚠️ <b>Confirme com antecedência que a cama de Tyrconnell Road está disponível nessa noite.</b> Se cair, o plano volta a ser albergue no centro (~€22, com cancelamento grátis) mais o 782 da manhã."
+  }
+ ],
+ "BOOK": [
+  {
+   "id": "b00",
+   "quando": "⛔ PERDIDO",
+   "titulo": "Kilmainham Gaol e Magazine Fort",
+   "texto": "Os dois <b>esgotaram em todas as datas da sua janela</b>. Não há o que reservar. Kilmainham: tente as devoluções online entre <b>09:15 e 09:30</b> em qualquer manhã de Dublin. Magazine Fort: um olhar manual no Eventbrite, sem contar com isso. Os substitutos já estão nos dias 28/09 e 01/10 — e são grátis e sem reserva."
+  },
+  {
+   "id": "b01",
+   "quando": "✅ DECIDE LÁ",
+   "titulo": "Quase tudo, e você está certo",
+   "texto": "Ballinasloe (grátis), <b>Ballybrit</b> (€20 no portão contra €15 antecipado), <b>galgos de Curraheen</b> (~€10 na porta), <b>Cliffs of Moher</b> (€15 no portão contra €8 online antes das 11:00), <b>Collins Barracks</b> e <b>Richmond Barracks</b> (grátis, entra quem chega), <b>Guinness Open Gate</b> (sem reserva, sem couvert), mercados, pubs, o Céilí Mór, a semifinal de futebol gaélico (ingresso sai na semana) e a <b>final de hurling</b> (só entra à venda na semana do jogo). Esperar custa no máximo €5 a €7 por item — e compra informação melhor."
+  },
+  {
+   "id": "b02",
+   "quando": "🔴 NÃO ESPERA",
+   "titulo": "Camas em Galway: 2–4 e 6–7/10",
+   "texto": "É o único item onde esperar pode custar a viagem: a feira de Ballinasloe esvazia a região de quarto na semana de 4 a 11. Athlone é o plano B. Combine com a Priscila se sexta e sábado são no mesmo lugar que eles."
+  },
+  {
+   "id": "b03",
+   "quando": "🔴 NÃO ESPERA",
+   "titulo": "Cama em Inishbofin, noite de 5/10",
+   "texto": "Ilha de 200 moradores. O <b>Day's Bar &amp; B&B tem quatro quartos</b> (+353 95 45829); alternativas são o Lapwing House (+353 95 45996) e o hostel (+353 95 45855, privado €70). O Doonmore fechou a temporada e o Inishbofin House Hotel não abre outubro. Para dois, se o Richie for."
+  },
+  {
+   "id": "b04",
+   "quando": "🔴 NÃO ESPERA",
+   "titulo": "A balsa de Inishbofin — o telefonema",
+   "texto": "<b>095 37228</b> (seg–sex 10:00–18:00) ou SMS <b>087 180 0586</b>. Confirmar e reservar a <b>saída de segunda 5/10 às 11:30</b> e a <b>volta de terça 6/10 às 09:00</b> — nenhuma das duas está no sistema online para outubro, e a das 09:00 é a que salva Ballybrit. €25 ida e volta. Uma operadora só."
+  },
+  {
+   "id": "b05",
+   "quando": "🔴 NÃO ESPERA",
+   "titulo": "Camas em Cork: 8 e 9/10",
+   "texto": "Duas noites na semana do Folk Festival. Perto de South Main Street / Coburg Street, e <b>pergunte sobre estacionamento</b> — agora você chega de carro."
+  },
+  {
+   "id": "b06",
+   "quando": "🔴 NÃO ESPERA",
+   "titulo": "As três noites em Inchicore: 10, 11 e 14/10",
+   "texto": "Não é reserva, é pedido: confirmar com quem te hospeda. O fim de semana com a Priscila e o Richie e a madrugada da quinta 15 dependem disso."
+  },
+  {
+   "id": "b07",
+   "quando": "🟠 ESTA SEMANA",
+   "titulo": "O carro — preço sobe perto da data",
+   "texto": "Sex 2/10 ~09:00 Dublin → seg 12/10 ~15:30 Aeroporto de Dublin, manual compacto. <b>Reserve com pagamento na retirada e cancelamento grátis</b> — isso trava o preço sem te comprometer. Referência: Focus manual, 11 dias, €250 na carhire.ie com franquia €1.800. Compare Sixt, Hertz e Enterprise depois da resposta da Mastercard."
+  },
+  {
+   "id": "b08",
+   "quando": "🟠 ESTA SEMANA",
+   "titulo": "Mastercard: a carta e a pergunta",
+   "texto": "Ligue no número atrás do cartão. <b>A pergunta:</b> “o seguro de veículo alugado cobre a franquia quando o CDW básico vem incluído na tarifa e não pode ser recusado?” <b>O pedido:</b> carta de cobertura em inglês, datada, com seu nome, os 4 últimos dígitos e a frase “Republic of Ireland”. A Sixt e a Avis exigem a carta; o banco leva dias para emitir — por isso é esta semana e não lá."
+  },
+  {
+   "id": "b09",
+   "quando": "🟠 ESTA SEMANA",
+   "titulo": "PID no Detran-GO",
+   "texto": "go.gov.br → “Solicitar Permissão Internacional para Dirigir”, ~R$ 207, <b>retirada presencial</b>. Avis e o grupo Europcar exigem para CNH brasileira. É o único item que <b>não dá</b> para resolver na Irlanda — você embarca dia 25."
+  },
+  {
+   "id": "b10",
+   "quando": "🟡 SE QUISER",
+   "titulo": "14 Henrietta Street, qua 30/09 às 10:00",
+   "texto": "€12, ainda com datas abertas — a única visita guiada da sua lista que <b>não</b> esgotou. Quarta e quinta são os dias quietos e a casa aceita quem chega, mas a capacidade é pequena. Se quiser garantir, é um clique: 14henriettastreet.ticketsolve.com. Se não, chegue às 09:50 e arrisque."
+  },
+  {
+   "id": "b11",
+   "quando": "🟡 SE QUISER",
+   "titulo": "Goldie, qui 8/10",
+   "texto": "28 lugares, 021 239 8720. Em Cork, na semana do Folk Festival, um jantar de 28 lugares numa quinta é o tipo de coisa que enche. Dois minutos de telefone."
+  },
+  {
+   "id": "b12",
+   "quando": "🟡 SE QUISER",
+   "titulo": "A carne do churrasco — comprar no sábado 10",
+   "texto": "Domingo fecha tudo na Irlanda. Açougue de Dublin no sábado de manhã, pedindo <b>picanha</b> (ou “rump cap” / “top sirloin cap”), capa de gordura inteira. Ou encomendar na quinta 8 no <b>English Market de Cork</b> e trazer na geladeira de isopor — você está de carro. <b>Sal grosso e farinha de mandioca vêm do Brasil</b>; carne e laticínio, <b>não</b> — é confisco na alfândega da UE."
+  },
+  {
+   "id": "b13",
+   "quando": "⚪ NA SEMANA",
+   "titulo": "Hurling (só se for sábado), semifinal de Cork, Magazine Fort",
+   "texto": "A <b>final de hurling virou bônus</b>: ela só entra no roteiro se cair no <b>sábado 10</b>, e aí é parada na estrada Cork → Dublin. Ingresso só à venda na semana do jogo (Future Ticketing, ~€20–25) e a data cravada sai em tipperary.gaa.ie depois das semifinais de 26 e 27/09 — <b>lembrete automático já marcado para 30/09</b>. A semifinal de futebol gaélico de Cork sai na segunda ou terça antes (gaacork.ie). E o Eventbrite do Magazine Fort, para o caso de desistência."
+  }
+ ],
+ "DOUBTS": [
+  {
+   "titulo": "Os museus de Dublin — verificado em 17/09",
+   "texto": "<b>Kilmainham Gaol: esgotada em 100% das datas liberadas</b> (17/09 a 15/10). O calendário do sistema distingue “esgotado” de “não liberado”, e tudo dentro da janela de 28 dias está esgotado — então não é o seu dia, é a atração. Sem venda no portão, sem revenda. Única porta: devoluções online 09:15–09:30. <b>Magazine Fort: bloco de outubro publicado e esgotado</b> (12 lugares/dia). ⚠️ Não consegui ler o Eventbrite linha por linha — pode haver vaga solta no dia 1; vale um olhar manual. <b>Dublin Festival of History: 13 de 34 eventos do fim de semana já esgotados</b>, e três dos quatro do Richmond Barracks. <b>14 Henrietta Street ainda tem datas</b>, mas o estoque real é JavaScript e não consegui ler: 01 524 0383. Tudo o mais da sua lista entra sem reserva."
+  },
+  {
+   "titulo": "O seguro do cartão — o que está confirmado e o que não está",
+   "texto": "<b>Confirmado no guia de benefícios da Mastercard Black (versão set/2025, vigente):</b> cobertura “em qualquer lugar do mundo”, até 60 dias, colisão, roubo, vandalismo, fenômenos da natureza; condições: recusar o CDW da locadora, alugar e pagar a caução com o cartão, contrato no seu nome. Irlanda, Israel e Jamaica <b>não aparecem</b> em lista de exclusão nenhuma. <b>Não confirmado:</b> se a apólice cobre a <i>franquia</i> quando o CDW básico vem embutido na tarifa e não pode ser recusado (o modelo Hertz/Sixt), e o prazo de aviso de sinistro. É a pergunta do telefonema."
+  },
+  {
+   "titulo": "As locadoras e o cartão brasileiro",
+   "texto": "<b>Europcar, Irish Car Rentals e carhire.ie:</b> só aceitam dispensa de CDW com cartão americano ou canadense, carta do emissor citando “Republic of Ireland” e caução de €5.000 — cartão brasileiro não entra. <b>Avis/Budget:</b> aceitam “prova de cobertura de terceiro”, caução €5.000 + €30 de taxa; o texto de marketing fala em cartões americanos/canadenses — confirme por e-mail. <b>Sixt:</b> aceita carta do provedor citando a Irlanda e o veículo, caução €5.000 + €39,73. <b>Enterprise:</b> deixa recusar o CDW e você assume o valor integral; não publica caução nem exigência de carta. <b>Hertz:</b> CDW com franquia (€2.000 Polo, €2.500 Golf/Focus, €3.500 Octavia) e SuperCover opcional; sem SuperCover, bloqueia a franquia e cobra dela em caso de dano — você recupera do cartão depois."
+  },
+  {
+   "titulo": "Cotações de aluguel",
+   "texto": "A única locadora que cota sem JavaScript hoje é o grupo carhire.ie / Irish Car Rentals (Thrifty): <b>Ford Focus manual, 11 dias, €215,27 + €35 de one-way cidade → aeroporto = €250,27</b>, com CDW e roubo incluídos e franquia €1.800; aeroporto → aeroporto €217,47. Enterprise, Sixt, Avis, Europcar e os brokers só cotam com navegador — os valores deles ficam para você conferir no app antes de fechar. Outubro é baixa temporada: espere €25–45/dia num compacto manual."
+  },
+  {
+   "titulo": "Inishbofin — as balsas de outubro",
+   "texto": "A operadora é uma só e os horários de setembro são 11:30/18:45 de ida e 09:00/17:00 de volta. <b>Para outubro só as saídas das 18:45 e 17:00 estão à venda online</b>, e o site não publica tabela de outubro. Se a das 11:30 de segunda e a das 09:00 de terça rodarem, o plano fecha; se não, a segunda vira saída às 18:45 e a terça perde Ballybrit. Resolve-se com um telefonema: 095 37228."
+  },
+  {
+   "titulo": "Inishbofin — cama e Richie",
+   "texto": "O Day's Bar B&B não publica preço nem disponibilidade legível; o Inishbofin House Hotel aparece fechado para outubro; o Doonmore fechou em 27/09. E o Richie “vai ver se consegue ir”: se for, é de carro dele e são duas camas; se não, GoCar de dois dias (~€165). Duas incógnitas que se resolvem no mesmo dia: pergunte a ele e ligue para o Day's."
+  },
+  {
+   "titulo": "Cliffs of Moher — entrada e ônibus",
+   "texto": "O 350 está confirmado no feed oficial (16/09/2026 a 27/01/2027) e sai do <b>Bus Station ao lado da Ceannt, não do Coach Station</b>. O ingresso online é €8 até as 11:00, €12 depois, €15 na porta; não há regra publicada para quem chega de ônibus, então compre. A trilha costeira de Doolin até os Cliffs está fechada — só o trecho até o Surfers Path abre."
+  },
+  {
+   "titulo": "Ballinasloe — a opinião deles",
+   "texto": "A Priscila e o Richie não recomendam. O Richie tinha dito “grand” no questionário. As duas coisas cabem juntas: é uma feira de Travellers, com fama áspera, que um irlandês não recomendaria a uma amiga estrangeira — e é exatamente o que você pediu. Você decidiu ir de dia, sozinho, e voltar cedo. Se ouvir o Richie ao vivo no sábado e mudar de ideia, o domingo vira Galway."
+  },
+  {
+   "titulo": "Trens de domingo 11/10",
+   "texto": "Horários e tarifas vêm do feed oficial e do sistema de vendas da Irish Rail em 14/09, sem obras carregadas ainda. Reconfira alterações de serviço em irishrail.ie uma semana antes. As passagens Low (€14,99) valem só para o trem escolhido."
+  },
+  {
+   "titulo": "Beara — horários de comida e tempo de direção",
+   "texto": "Breen's (sex 12:00–17:00 e 17:30–21:30) e Murphy's vêm de avaliações de julho–agosto de 2026, não do site. O cardápio do MacCarthy's é imagem. <b>Ligue 027 70031 / 027 70014 na quinta 8.</b> Os 280 km e 4h30 são cálculo de rede viária; conte 6h."
+  },
+  {
+   "titulo": "Montanhas de Dublin — os ônibus",
+   "texto": "S8, 16, 15B e 44 rodam sob esses nomes no feed da NTA. A fase A do BusConnects está prevista para “outono de 2026, sujeito a financiamento”, sem data, e pode mexer na família do 15. Confira no TFI Live na semana. A trilha de Bray a Greystones está fechada (2/9/2026) — isso é para o sábado 10 com eles."
+  },
+  {
+   "titulo": "Magazine Fort — a reserva ainda não existe",
+   "texto": "Visita grátis das 11:00, diária, <b>12 lugares</b>, mas o OPW publica no Eventbrite em blocos de quinze dias e o de outubro ainda não estava no ar. <b>A duração da visita não está publicada em fonte alguma</b>. Ligue 01 677 0095."
+  },
+  {
+   "titulo": "Richmond Barracks — preço e café",
+   "texto": "Nem o site oficial nem a Câmara publicam preço de entrada (tudo indica grátis), e o café “The Mess” não é mencionado no site atual. Ligue 01 524 2532."
+  },
+  {
+   "titulo": "Coddle no Patriot's Inn",
+   "texto": "<b>O coddle não aparece no cardápio atual que consegui ler.</b> Ligue 01 679 9595 antes de ir por causa do prato."
+  },
+  {
+   "titulo": "O café da manhã tradicional de Dublin",
+   "texto": "Constatação, não dúvida: <b>a caçarola de operário de Dublin praticamente se extinguiu.</b> O que substituiu foi o balcão quente de deli e o breakfast roll. Não inventei um endereço para preencher a lacuna."
+  },
+  {
+   "titulo": "Final de hurling — por que ela virou bônus",
+   "texto": "Três fatos, verificados em 17–18/09. <b>Um:</b> as <b>seis últimas finais sênior de hurling de Tipperary foram todas no domingo</b> — 2020, 2021, 2022, 2023, 2024 e 2025, nenhuma no sábado. <b>Dois:</b> <b>três dessas seis foram para replay</b> (2021, 2022, 2023), sempre cerca de duas semanas depois — se a de 10–11/10 empatar, o jogo que decide cai por volta de 24–25/10, quando você já está em casa. <b>Três:</b> a data ainda não existe. As semifinais são <b>sáb 26 e dom 27/09</b>, no Semple Stadium, e a final deve ser anunciada na semana seguinte. O único sinal a favor do sábado é que o próprio conselho do condado passou a usar sábado nessa fase. Por isso o churrasco é o plano e a final é o bônus — e não o contrário."
+  },
+  {
+   "titulo": "Thurles de carro — os números",
+   "texto": "Cork → Thurles: <b>114 km, 81 min</b>, saindo da M8 na <b>saída 6 (Horse and Jockey)</b> pela N62. Thurles → Dublin: <b>149 km, 112 min</b>, entrando pela <b>saída 5 (Twomileborris)</b>, que é só de entrada no sentido norte. Direto Cork → Dublin: 255 km, 182 min. <b>O desvio custa +8,5 km, +11 minutos e nada de pedágio</b> (€2,30 + €2,30 nos dois casos). Números de roteador aberto, não oficiais: some 20–30 min de trânsito em dia de jogo. ⚠️ A Câmara de Tipperary publicou em 2025 uma página sobre fechar a saída 6 no sentido norte e eu não consegui abrir — se estiver fechada, o desvio é pela saída 7 (Cashel) e a R660. <b>Estacionamento:</b> rede de estacionamentos com fiscal pela cidade (St Patrick's College na Cathedral Street e os da Liberty Square são os mais perto); ⚠️ a Garda multa quem estaciona nas ruas residenciais atrás da arquibancada velha."
+  },
+  {
+   "titulo": "Clube de canto — caiu",
+   "texto": "Com o domingo 11 virando churrasco em Dublin, a única ida sentada que sobrava (An Spailpín, domingo 11 em Cork) morre de vez. A música fica como você pediu: pano de fundo de pub, sem programa marcado."
+  },
+  {
+   "titulo": "Aula de dança no Cobblestone em 28/09",
+   "texto": "O calendário publicado do termo de outono é 07/10 a 04/11. Confirme em info@louise.ie. <b>Essa é a sua única noite de Cobblestone em Dublin</b> — vale o telefonema."
+  },
+  {
+   "titulo": "Preço de Ballybrit",
+   "texto": "€15 é o preço publicado de 2025; a página do card de 06/10/2026 ainda não foi atualizada."
+  },
+  {
+   "titulo": "Jogo do FC Porto em 13 ou 14/10",
+   "texto": "A 2ª rodada da fase de liga da Champions é 13–14/10 e o Porto está na competição. Confira em bilhetes.fcporto.pt."
+  },
+  {
+   "titulo": "Um erro meu, corrigido",
+   "texto": "Eu havia citado um “Slattery's de Rialto” como early house perto de Inchicore. <b>Não existe.</b> O que existe é o <b>Slatt's, na Tyrconnell Park, a 150 metros da sua porta</b>. E o early house de verdade ao seu alcance é <b>o Galway Hooker, dentro da estação Heuston</b>, que abre às 07:00 todo dia — mas não serve comida."
+  }
+ ],
+ "ETIQUETTE": [
+  {
+   "titulo": "Travellers — a palavra e o assunto (Ballinasloe)",
+   "itens": [
+    "<b>Richie, sem rodeio: “Don't say travellers!”</b> A palavra não sai da sua boca no Fair Green — nem para elogiar, nem para perguntar, nem para explicar o que você leu. Você é um brasileiro vendo cavalos; é isso que se conversa.",
+    "<b>Nunca</b> “tinker”, “knacker”, “gypsy”, “itinerant”. São insultos, alguns criminosos. E não pergunte a ninguém se é Traveller.",
+    "Cavalo se olha; não se toca e não se avalia em voz alta. Negócio é entre duas pessoas — quem está de fora não comenta preço.",
+    "Se perguntarem de onde você é, responda com prazer e pergunte de volta sobre o cavalo. Fim de conversa boa: “fair play to you”.",
+    "Leia antes: <a href='https://www.paveepoint.ie/traveller-factsheets/'>paveepoint.ie/traveller-factsheets</a>. Dez minutos que evitam a única gafe grave disponível na viagem."
+   ]
+  },
+  {
+   "titulo": "Câmera",
+   "itens": [
+    "<b>Gente não é paisagem.</b> Sem foto de pessoas, crianças ou negócios de cavalo sem pedir — e na feira, pedir já é intromissão. Fotografe o campo, não o negócio.",
+    "Sessão de pub: <b>nunca filme</b>. O músico que te viu filmar não volta a tocar solto. Bingo e mart: câmera no bolso a noite inteira.",
+    "No clube de canto, o celular fica guardado do começo ao fim. No estádio, foto do jogo é normal; foto das famílias na arquibancada, não."
+   ]
+  },
+  {
+   "titulo": "Segurança na feira",
+   "itens": [
+    "80 mil pessoas numa vila de 6.600. Carteira no bolso da frente, notas pequenas, o celular só sai para o ônibus. Richie: “Grand — nobody will bother him.”",
+    "Fique fora do caminho dos cavalos e dos condutores: quem está segurando um animal tem prioridade absoluta. Não passe por trás de cavalo nenhum.",
+    "Beba devagar de dia: o fim de tarde é quando o Fair Green fica áspero. O último Citylink é 00:25; não seja o último a sair do pub.",
+    "Sulky racing é proibido desde 2015 — se vir corrida improvisada na rua, é a hora de se afastar, não de olhar."
+   ]
+  },
+  {
+   "titulo": "Clube de canto (o mais rígido de todos)",
+   "itens": [
+    "Silêncio absoluto durante o canto — a única situação em pub irlandês onde falar por cima é ofensa real. Coro só se a sala entrar. Aplauso no fim.",
+    "<b>Não leve violão.</b> Clube de canto é à capela, sem instrumento. Isso é diferente de uma <i>session</i> instrumental.",
+    "Nome na lista com o organizador. Se cantar, cante algo brasileiro sem acompanhamento — Richie disse “grand”. Uma música, não três.",
+    "Chegue antes de começar e não saia no meio de uma canção. Pinta na mão é normal; o balcão espera a canção acabar."
+   ]
+  },
+  {
+   "titulo": "Bingo",
+   "itens": [
+    "Chegue 20–30 minutos antes. As pessoas <b>têm</b> seus lugares. Pergunte “is anyone sitting here?” e, se disserem que é da Mary, levante.",
+    "Compre o <i>book</i> na mesa da entrada (€10–20) e um <b>dabber</b> (€1,50–3). Caneta não serve. Não peça emprestado o dabber de estranho. Leve dinheiro em notas pequenas.",
+    "Depois do <i>eyes down</i>, silêncio total. Celular no silencioso e guardado.",
+    "Quando completar, grite <b>“Check!”</b> (alguns dizem “House!”), pare de marcar e levante o cartão. Se errar, “sorry, false call” — acontece o tempo todo.",
+    "Você vai ser notado: sala majoritariamente feminina e acima de 60. A frase que resolve tudo é “I'm from Brazil, I'm travelling, I've never played bingo and I wanted to try it”.",
+    "Nada de fotografar o salão. Compre o book, entre na rifa e ajude a empilhar as cadeiras no fim."
+   ]
+  },
+  {
+   "titulo": "Mart de gado (só no plano de chuva)",
+   "itens": [
+    "O Richie foi claro: “No. Leave the men to it.” Por isso o mart saiu do plano principal. Se for no plano de chuva, vá ao escritório primeiro e diga: <b>“I'm just here to look, I'm not buying.”</b>",
+    "Bota que você não se importe em estragar. Sente no fundo da arquibancada do ringue, nunca na beira.",
+    "<b>Nunca levante a mão, acene com a cabeça ou segure o olhar do leiloeiro.</b> Não entre nos currais nem bloqueie os corredores.",
+    "A cantina no andar de cima é onde se conversa — não à beira do ringue. Um jantar do mart sai por ~€8–12."
+   ]
+  },
+  {
+   "titulo": "Jogo do GAA",
+   "itens": [
+    "Sem código de vestimenta. Mas <b>não vista camisa de condado</b> (o azul-e-ouro de Tipperary, o vermelho de Cork): final de clube é paróquia contra paróquia e a camisa te marca como turista. Roupa neutra é o certo.",
+    "“I've no dog in this fight, I'm just here for the match” é resposta perfeitamente normal e costuma render vinte minutos de conversa sobre as duas paróquias.",
+    "Chegue cedo: a final intermediária antes entra no mesmo ingresso e costuma ser tão boa quanto. Não se vende álcool dentro. <b>O Semple Stadium não aceita dinheiro</b> — só cartão nos portões e balcões.",
+    "Jogadores são amadores: o açougueiro e o professor da cidade. Elogiar o jogo no pub depois é o jeito de entrar na conversa."
+   ]
+  },
+  {
+   "titulo": "Pubs",
+   "itens": [
+    "<b>A rodada é obrigação — e tem vez.</b> Richie: “He'll buy a round out of turn. He'll survive.” Quem chega numa mesa oferece a rodada; depois espera a sua vez chegar de novo.",
+    "Sessão não é show: sem pedidos, sem palmas no meio do conjunto de tunes, sem filmar. Você bebe e conversa baixo; a música é o fundo.",
+    "Assuntos pesados que não são papo de balcão: o Norte, a Igreja, a Fome, política sobre Travellers. Corrida de galgo divide a Irlanda desde o RTÉ Investigates de 2019 — não é papo leve.",
+    "Não se dá gorjeta no balcão. Peça no balcão, não na mesa. “Grand” resolve 80% das perguntas e “sound” é o elogio máximo."
+   ]
+  }
+ ]
+}
