@@ -144,7 +144,7 @@
     if (ph === 'antes') s = 'Faltam ' + daysUntil(DAYS[0].d) + ' dias. ';
     else if (ph === 'durante') s = 'Dia ' + (todayIndex() + 1) + ' de 21. ';
     else s = 'Viagem encerrada. ';
-    s += 'Tudo fica salvo neste aparelho. ' + (np.sim ? '⚠️ Simulando ' + np.iso + ' ' + np.hm + '. ' : '') + 'v' + APP_VERSION;
+    s += (IN_ARTIFACT ? 'Versão claude.ai (precisa de rede). App completo: lucascabralcd.github.io/cultivo/irlanda/ · ' : 'Tudo fica salvo neste aparelho. ') + (np.sim ? '⚠️ Simulando ' + np.iso + ' ' + np.hm + '. ' : '') + 'v' + APP_VERSION;
     f.textContent = s;
   }
   V.forEach((k) => { document.getElementById('t-' + k).onclick = () => { if (k === 'dias' && view !== 'dias') cur = todayIndex(); go(k); }; });
@@ -539,17 +539,18 @@
   /* ---------- CONFIG ---------- */
   function sheetCfg() {
     const m = S.cfg.model;
-    openSheet('<h3>Configurações</h3><div class="sub">a chave fica só neste aparelho e vai direto para a Anthropic</div>'
-      + '<div class="field"><label>chave da API da Anthropic</label><input class="in" id="cf-key" type="password" autocomplete="off" placeholder="sk-ant-…" value="' + esc(S.key || '') + '"><div class="hint">Crie em <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">console.anthropic.com → API keys</a>. Precisa ter créditos na conta (Billing).</div></div>'
-      + '<div class="field"><label>modelo</label><div class="seg" id="cf-model">' + ClaudeAPI.MODELS.map((x) => '<button data-m="' + x.id + '" class="' + (x.id === m ? 'on' : '') + '">' + esc(x.name.replace('Claude ', '')) + '</button>').join('') + '</div><div class="hint" id="cf-model-sub">' + esc(ClaudeAPI.modelInfo(m).sub) + '</div></div>'
+    openSheet('<h3>Configurações</h3><div class="sub">' + (IN_ARTIFACT ? 'nesta versão o Claude vem da sua conta do claude.ai' : 'a chave fica só neste aparelho e vai direto para a Anthropic') + '</div>'
+      + (IN_ARTIFACT ? '<div class="field"><div class="card"><p>Sem chave, sem modelo para escolher e sem pesquisa na web aqui. A versão completa (offline, instalável, com pesquisa na web) está em <b>lucascabralcd.github.io/cultivo/irlanda/</b>.</p></div></div><input id="cf-key" type="hidden" value="' + esc(S.key || '') + '"><div id="cf-model" hidden></div><div id="cf-search" hidden></div>'
+        : '<div class="field"><label>chave da API da Anthropic</label><input class="in" id="cf-key" type="password" autocomplete="off" placeholder="sk-ant-…" value="' + esc(S.key || '') + '"><div class="hint">Crie em <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">console.anthropic.com → API keys</a>. Precisa ter créditos na conta (Billing).</div></div>'
+        + '<div class="field"><label>modelo</label><div class="seg" id="cf-model">' + ClaudeAPI.MODELS.map((x) => '<button data-m="' + x.id + '" class="' + (x.id === m ? 'on' : '') + '">' + esc(x.name.replace('Claude ', '')) + '</button>').join('') + '</div><div class="hint" id="cf-model-sub">' + esc(ClaudeAPI.modelInfo(m).sub) + '</div></div>')
       + '<div class="field"><label>esforço (raciocínio)</label><div class="seg" id="cf-effort">' + ['low', 'medium', 'high'].map((x) => '<button data-e="' + x + '" class="' + (x === S.cfg.effort ? 'on' : '') + '">' + ({ low: 'rápido', medium: 'equilibrado', high: 'caprichado' }[x]) + '</button>').join('') + '</div></div>'
-      + '<div class="field"><div class="toggle"><div><b>Pesquisar na web</b><span>o Claude confere horários e notícias em sites irlandeses (mais lento, mais certo)</span></div><button class="sw' + (S.cfg.search ? ' on' : '') + '" id="cf-search" aria-label="pesquisar na web"></button></div></div>'
+      + (IN_ARTIFACT ? '' : '<div class="field"><div class="toggle"><div><b>Pesquisar na web</b><span>o Claude confere horários e notícias em sites irlandeses (mais lento, mais certo)</span></div><button class="sw' + (S.cfg.search ? ' on' : '') + '" id="cf-search" aria-label="pesquisar na web"></button></div></div>')
       + '<div class="field"><label>simular data e hora (para testar ou ver outro dia)</label><div class="row" style="margin-top:0"><select class="in" id="cf-simd" style="flex:1"><option value="">agora (relógio real)</option>' + DAYS.map((x) => '<option value="' + x.d + '"' + (S.misc.sim && S.misc.sim.d === x.d ? ' selected' : '') + '>' + x.dt + ' · ' + (WD[x.wd] || x.wd) + '</option>').join('') + '</select><input class="in hm" id="cf-simh" placeholder="09:00" maxlength="5" value="' + esc(S.misc.sim ? S.misc.sim.hm || '' : '') + '"></div></div>'
       + '<div class="btnrow"><button class="btn p" id="cf-ok">Salvar</button><button class="btn" id="cf-cancel">Cancelar</button></div>', (p) => {
         let model = m, effort = S.cfg.effort, search = !!S.cfg.search;
         p.querySelectorAll('#cf-model button').forEach((b) => { b.onclick = () => { model = b.dataset.m; p.querySelectorAll('#cf-model button').forEach((x) => x.classList.toggle('on', x.dataset.m === model)); p.querySelector('#cf-model-sub').textContent = ClaudeAPI.modelInfo(model).sub; }; });
         p.querySelectorAll('#cf-effort button').forEach((b) => { b.onclick = () => { effort = b.dataset.e; p.querySelectorAll('#cf-effort button').forEach((x) => x.classList.toggle('on', x.dataset.e === effort)); }; });
-        p.querySelector('#cf-search').onclick = (ev) => { search = !search; ev.currentTarget.classList.toggle('on', search); };
+        const sw = p.querySelector('#cf-search'); if (sw && !IN_ARTIFACT) sw.onclick = (ev) => { search = !search; ev.currentTarget.classList.toggle('on', search); };
         p.querySelector('#cf-cancel').onclick = closeSheet;
         p.querySelector('#cf-ok').onclick = () => {
           S.key = p.querySelector('#cf-key').value.trim(); S.cfg.model = model; S.cfg.effort = effort; S.cfg.search = search;
@@ -565,15 +566,34 @@
   let chatCtx = null; // {id, mode:'alt'|'new'|'ask'} — o item sobre o qual o pedido é
   let streaming = null; // {abort, el}
   let stableSystem = null;
+  // Modo claude.ai: quando a página roda como artifact no claude.ai, o Claude vem da conta do usuário (sem chave)
+  const IN_ARTIFACT = !!(window.claude && typeof window.claude.use === 'function');
+  let SAMPLE = null, sampleResolved = false;
+  function hasClaude() { return !!(SAMPLE || S.key); }
+  const HEAD = [
+    'Você é o Claude, o assistente de viagem do Lucas, e está no celular dele durante a viagem. Ele te chama de Claude, com afeto. Responda SEMPRE em português do Brasil, direto, sem formalidade, no tom dos documentos abaixo. Você conhece o plano inteiro; o Lucas está na rua, no pub ou na estrada, lendo no celular: seja curto, concreto, com nome de lugar, endereço, horário e preço quando existirem. Nunca reabra decisões já tomadas (seção 6). Respeite as regras dele: turístico que entrega SIM (Cliffs), só-foto NÃO (Temple Bar NUNCA); música é pano de fundo de pub, nenhum show pago, nada de música como programa; cerveja, natureza, história, gastronomia e gente de verdade antes de vida noturna; ele gosta de "cabaré e bagaceira" e do simples. Se não souber, diga. Se usar pesquisa na web, prefira sites irlandeses e oficiais e cite a fonte numa linha curta.',
+    '## Formato de resposta',
+    '- Markdown leve: negrito para o que importa, listas curtas. Sem tabelas largas. Sem despedidas.',
+    '- Quando você propuser atividades concretas que ele possa colocar no roteiro (uma alternativa, um restaurante, um passeio com hora), TERMINE a resposta com um bloco de código ```json contendo {"sugestoes":[{"d":"YYYY-MM-DD","t":"HH:MM" ou "","ti":"título curto ≤ 48 caracteres","b":"1 a 3 frases com endereço, horário, preço e por quê","maps":"texto de busca no Google Maps ou \\"\\""}]} — no máximo 4 sugestões, só o que realmente recomenda, sem repetir o que já está no plano do dia. Se a resposta não propõe atividade nenhuma, não inclua o bloco.',
+    '- Telefones no formato irlandês (01 524 0383, 095 37228) para virarem link.',
+  ];
+  function compactContext() { // versão enxuta (< 64 KiB) para o modo claude.ai, que não tem prompt de sistema nem memória
+    const ti = todayIndex();
+    const skel = DAYS.map((d) => `${WD[d.wd] || d.wd} ${d.dt}: ${strip(d.ti)} · base ${d.base}`).join('\n');
+    const full = (d) => d ? `### ${WDL[d.wd] || d.wd} ${d.dt} (${d.d}) — ${strip(d.ti)} · base ${d.base}\n${d.note ? 'Nota do dia: ' + strip(d.note) + '\n' : ''}` + d.ev.map((e) => `- [${e.id}] ${e.t || cleanLabel(e.h)} · ${e.ti} — ${strip(e.b)}`).join('\n') : '';
+    const days = [DAYS[ti], DAYS[ti + 1]]; if (chatCtx) { const cd = dayOfEvent(chatCtx.id); if (cd && !days.includes(cd)) days.push(cd); }
+    return HEAD.concat([
+      '## Quem é ele, o que está travado, as decisões (documento do projeto)', D.claude.brief,
+      '## Os 21 dias (resumo)', skel,
+      '## Os dias que importam agora, em detalhe (ids entre colchetes)', days.filter(Boolean).map(full).join('\n\n'),
+      '## Pendências', D.claude.book,
+      dynamicText(),
+    ]).join('\n\n');
+  }
   function stableText() {
     if (stableSystem) return stableSystem;
     const c = D.claude;
-    stableSystem = [
-      'Você é o Claude, o assistente de viagem do Lucas, e está no celular dele durante a viagem. Ele te chama de Claude, com afeto. Responda SEMPRE em português do Brasil, direto, sem formalidade, no tom dos documentos abaixo. Você conhece o plano inteiro; o Lucas está na rua, no pub ou na estrada, lendo no celular: seja curto, concreto, com nome de lugar, endereço, horário e preço quando existirem. Nunca reabra decisões já tomadas (seção 6). Respeite as regras dele: turístico que entrega SIM (Cliffs), só-foto NÃO (Temple Bar NUNCA); música é pano de fundo de pub, nenhum show pago, nada de música como programa; cerveja, natureza, história, gastronomia e gente de verdade antes de vida noturna; ele gosta de "cabaré e bagaceira" e do simples. Se não souber, diga. Se usar pesquisa na web, prefira sites irlandeses e oficiais e cite a fonte numa linha curta.',
-      '## Formato de resposta',
-      '- Markdown leve: negrito para o que importa, listas curtas. Sem tabelas largas. Sem despedidas.',
-      '- Quando você propuser atividades concretas que ele possa colocar no roteiro (uma alternativa, um restaurante, um passeio com hora), TERMINE a resposta com um bloco de código ```json contendo {"sugestoes":[{"d":"YYYY-MM-DD","t":"HH:MM" ou "","ti":"título curto ≤ 48 caracteres","b":"1 a 3 frases com endereço, horário, preço e por quê","maps":"texto de busca no Google Maps ou \\"\\""}]} — no máximo 4 sugestões, só o que realmente recomenda, sem repetir o que já está no plano do dia. Se a resposta não propõe atividade nenhuma, não inclua o bloco.',
-      '- Telefones no formato irlandês (01 524 0383, 095 37228) para virarem link.',
+    stableSystem = HEAD.concat([
       '## Quem é ele, o que está travado, as decisões (documento do projeto)', c.brief,
       '## O plano completo, dia a dia (ids entre colchetes; "do" = ação, "info" = contexto)', c.plan,
       '## Pendências e postura de reservas', c.book,
@@ -582,7 +602,7 @@
       '## O que mais acontece no país nessas datas', c.bands,
       '## O carro', c.carro,
       '## A última noite (15/10)', c.ultima,
-    ].join('\n\n');
+    ]).join('\n\n');
     return stableSystem;
   }
   function dynamicText() {
@@ -605,7 +625,9 @@
 
   function renderClaude() {
     const el = document.getElementById('v-claude'); const h = [];
-    if (!S.key) {
+    if (IN_ARTIFACT && !SAMPLE) {
+      h.push('<div class="sec"><div class="card cl"><span class="k" style="color:var(--claude)">Claude</span><h4 style="margin-top:4px">' + (sampleResolved ? 'O Claude não está disponível nesta página' : 'Conectando ao seu Claude…') + '</h4><p>' + (sampleResolved ? 'Abra pelo claude.ai logado na sua conta, ou instale a versão completa no celular: lucascabralcd.github.io/cultivo/irlanda/' : 'Esta versão usa a sua conta do claude.ai: na primeira pergunta ele pede permissão.') + '</p></div></div>');
+    } else if (!hasClaude()) {
       h.push('<div class="sec"><div class="card cl"><span class="k" style="color:var(--claude)">Claude</span><h4 style="margin-top:4px">Conecte o Claude</h4><p>Cole a sua chave da API da Anthropic para conversar sobre o roteiro daqui do celular. A chave fica só neste aparelho e as chamadas vão direto para a Anthropic.</p><ol style="padding-left:18px;margin:8px 0 0;color:var(--ink2);font-size:13.4px;line-height:1.55"><li>Abra <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">console.anthropic.com → API keys</a> e crie uma chave.</li><li>Confira que a conta tem créditos (Billing).</li><li>Cole aqui em Configurações.</li></ol><div class="btnrow"><button class="btn p" data-act="cfg">Abrir configurações</button></div></div></div>');
     }
     h.push('<div class="chat" id="chatlog">');
@@ -616,7 +638,7 @@
       + (chatCtx ? '<div class="ctxbar">' + (chatCtx.mode === 'alt' ? '💡' : chatCtx.mode === 'new' ? '✦' : '❓') + ' <span>sobre: <b>' + esc((baseEv(chatCtx.id) || {}).ti || '') + '</b></span><button data-act="ctxclear">tirar</button></div>' : '')
       + '<div class="quick">' + quickChips().map((q) => '<button class="act" data-act="askq" data-q="' + esc(q.q) + '">' + esc(q.l) + '</button>').join('') + '</div>'
       + '<div class="cbox"><textarea id="cin" rows="1" placeholder="' + (chatCtx && chatCtx.mode === 'new' ? 'O que você quer fazer no lugar?' : 'Pergunte ao Claude…') + '"></textarea><button class="send" id="csend" aria-label="enviar"' + (streaming ? '' : '') + '>' + (streaming ? ICON_X : '<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>') + '</button></div>'
-      + '<div class="ctools"><button class="act' + (S.cfg.search ? ' on' : '') + '" data-act="togglesearch">🔎 web ' + (S.cfg.search ? 'ligada' : 'desligada') + '</button><span class="k">' + esc(ClaudeAPI.modelInfo(S.cfg.model).name.replace('Claude ', '')) + ' · ' + esc(S.cfg.effort) + '</span>' + (S.chat.length ? '<button class="act" data-act="newchat" style="margin-left:auto">nova conversa</button>' : '') + '</div>'
+      + '<div class="ctools">' + (SAMPLE ? '<span class="k">pela sua conta do claude.ai · sem pesquisa na web</span>' : '<button class="act' + (S.cfg.search ? ' on' : '') + '" data-act="togglesearch">🔎 web ' + (S.cfg.search ? 'ligada' : 'desligada') + '</button><span class="k">' + esc(ClaudeAPI.modelInfo(S.cfg.model).name.replace('Claude ', '')) + ' · ' + esc(S.cfg.effort) + '</span>') + (S.chat.length ? '<button class="act" data-act="newchat" style="margin-left:auto">nova conversa</button>' : '') + '</div>'
       + '</div>');
     el.innerHTML = h.join('');
     el.querySelectorAll('.msg.a').forEach(linkify);
@@ -682,7 +704,7 @@
     if (streaming) return;
     const ta = document.getElementById('cin');
     const msg = (text || (ta ? ta.value : '') || '').trim(); if (!msg) return;
-    if (!S.key) { toast('Coloque a chave da API em Configurações'); sheetCfg(); return; }
+    if (!hasClaude()) { if (IN_ARTIFACT) { toast(sampleResolved ? 'O Claude não está disponível nesta página' : 'Ainda conectando ao Claude…'); return; } toast('Coloque a chave da API em Configurações'); sheetCfg(); return; }
     if (!navigator.onLine) { toast('Sem rede agora'); }
     if (ta) { ta.value = ''; ta.style.height = 'auto'; }
     S.chat.push({ role: 'user', text: msg, ts: Date.now() });
@@ -701,13 +723,21 @@
     let acc = '';
     const ai = S.chat.length - 1;
     const paint = () => { const node = document.querySelector('.msg.a[data-i="' + ai + '"]') || el; node.innerHTML = '<div class="who">Claude' + (a.model ? '<i>' + esc(shortModel(a.model)) + '</i>' : '') + (a.search ? '<i>🔎</i>' : '') + '</div>' + md(parseSug(acc).text); window.scrollTo({ top: document.body.scrollHeight, behavior: 'instant' }); };
+    const onEvent = (ev) => {
+      if (ev.type === 'text') { acc = ev.whole ? ev.text : acc + ev.text; a.text = acc; if (status.isConnected) status.hidden = true; paint(); }
+      else if (ev.type === 'status') { if (status.isConnected) { status.hidden = !ev.text; status.querySelector('span:last-child').textContent = ev.text; } }
+      else if (ev.type === 'done') { a.model = ev.model; }
+    };
     try {
-      const r = await ClaudeAPI.send({ key: S.key, model: S.cfg.model, effort: S.cfg.effort, search: !!S.cfg.search, system: systemBlocks(), messages, signal: ctrl.signal,
-        onEvent: (ev) => {
-          if (ev.type === 'text') { acc += ev.text; a.text = acc; if (status.isConnected) status.hidden = true; paint(); }
-          else if (ev.type === 'status') { if (status.isConnected) { status.hidden = !ev.text; status.querySelector('span:last-child').textContent = ev.text; } }
-          else if (ev.type === 'done') { a.model = ev.model; }
-        } });
+      let r;
+      if (SAMPLE) {
+        // modo claude.ai: sem prompt de sistema e sem memória — o contexto enxuto vai numa primeira vez de "user"
+        a.search = false;
+        const turns = [{ role: 'user', content: compactContext() }].concat(messages.slice(-8).map((m) => ({ role: m.role, content: String(m.content).slice(0, 4000) })));
+        r = await ClaudeAPI.sendSample({ sample: SAMPLE, turns, signal: ctrl.signal, onEvent, tier: S.cfg.effort === 'high' ? 'complex' : 'default' });
+      } else {
+        r = await ClaudeAPI.send({ key: S.key, model: S.cfg.model, effort: S.cfg.effort, search: !!S.cfg.search, system: systemBlocks(), messages, signal: ctrl.signal, onEvent });
+      }
       if (r) {
         if (r.stopReason === 'refusal') a.tail = 'O pedido foi recusado pelo filtro de segurança. Reformule.';
         else if (r.stopReason === 'max_tokens') a.tail = 'Resposta cortada por tamanho.';
@@ -715,7 +745,10 @@
         else if (!r.complete) a.tail = 'A conexão caiu no meio da resposta. Pergunte de novo.';
       }
     } catch (err) {
-      const f = ClaudeAPI.friendly(err); a.err = true; a.text = (acc ? acc + '\n\n' : '') + '⚠️ ' + f;
+      const f = SAMPLE ? ClaudeAPI.sampleFriendly(err) : ClaudeAPI.friendly(err);
+      if (SAMPLE && err && err.code === 'refused') acc = '';
+      if (SAMPLE && err && typeof err.text === 'string') acc = err.text;
+      a.err = true; a.text = (acc ? acc + '\n\n' : '') + '⚠️ ' + f;
     }
     if (status.isConnected) status.remove(); streaming = null; if (!a.text) { a.text = '_(sem resposta)_'; a.err = true; }
     save(); renderClaude();
@@ -761,20 +794,30 @@
     if (act === 'ctxclear') { chatCtx = null; renderClaude(); return; }
     if (act === 'togglesearch') { S.cfg.search = !S.cfg.search; save(); renderClaude(); return; }
     if (act === 'newchat') { S.chat = []; chatCtx = null; save(); renderClaude(); return; }
-    if (act === 'export') { const data = Object.assign({}, S, { key: undefined }); const blob = new Blob([JSON.stringify(data, null, 1)], { type: 'application/json' }); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'irlanda-backup-' + nowParts().iso + '.json'; document.body.appendChild(a); a.click(); a.remove(); return; }
+    if (act === 'export') {
+      const data = Object.assign({}, S, { key: undefined }); const json = JSON.stringify(data, null, 1);
+      if (IN_ARTIFACT) { // o visualizador do claude.ai não deixa a página baixar arquivos: mostra para copiar
+        openSheet('<h3>Backup</h3><div class="sub">copie e guarde este texto (Notas, e-mail…). A chave não vai junto.</div><textarea class="ta" id="bk-ta" style="margin-top:12px;min-height:180px;font-family:var(--mono);font-size:11px">' + esc(json) + '</textarea><div class="btnrow"><button class="btn p" id="bk-copy">Copiar</button></div>', (p) => { p.querySelector('#bk-copy').onclick = () => { const ta = p.querySelector('#bk-ta'); ta.select(); (navigator.clipboard && navigator.clipboard.writeText(json) || Promise.reject()).then(() => toast('Copiado'), () => toast('Selecione o texto e copie')); }; });
+        return;
+      }
+      const blob = new Blob([json], { type: 'application/json' }); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'irlanda-backup-' + nowParts().iso + '.json'; document.body.appendChild(a); a.click(); a.remove(); return;
+    }
     if (act === 'reset-all') { openSheet('<h3>Zerar tudo?</h3><div class="sub">apaga feitos, adiados, notas, itens seus e a conversa</div><div class="btnrow"><button class="btn no" id="rz-ok">Sim, zerar</button><button class="btn" id="rz-no">Cancelar</button></div>', (p) => { p.querySelector('#rz-no').onclick = closeSheet; p.querySelector('#rz-ok').onclick = () => { const key = S.key, cfg = S.cfg; S = JSON.parse(JSON.stringify(BLANK)); S.key = key; S.cfg = cfg; save(); closeSheet(); render(); toast('Zerado'); }; }); return; }
     if (act === 'install') { if (deferredInstall) { deferredInstall.prompt(); deferredInstall = null; } return; }
     if (act === 'update') { checkUpdate(true); return; }
   });
 
   /* ---------- rede / PWA ---------- */
-  function net() { const on = navigator.onLine; document.getElementById('netdot').classList.toggle('off', !on); document.getElementById('nettxt').textContent = on ? (S.key ? 'claude ok' : 'online') : 'offline'; }
+  function net() { const on = navigator.onLine; document.getElementById('netdot').classList.toggle('off', !on); document.getElementById('nettxt').textContent = on ? (hasClaude() ? 'claude ok' : 'online') : 'offline'; }
   window.addEventListener('online', net); window.addEventListener('offline', net); net();
   let deferredInstall = null;
   window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); deferredInstall = e; const b = document.getElementById('btn-install'); if (b) b.hidden = false; });
   let swReg = null;
   function checkUpdate(manual) { if (!swReg) { if (manual) toast('Sem service worker (abra pelo https)'); return; } swReg.update().then(() => { if (manual && !swReg.waiting && !swReg.installing) toast('Já está na versão mais nova'); }).catch(() => { if (manual) toast('Não consegui verificar'); }); }
-  if ('serviceWorker' in navigator) {
+  if (IN_ARTIFACT) {
+    window.claude.use('sample').then((fn) => { SAMPLE = (typeof fn === 'function') ? fn : null; sampleResolved = true; if (view === 'claude') renderClaude(); net(); }).catch(() => { sampleResolved = true; if (view === 'claude') renderClaude(); });
+  }
+  if ('serviceWorker' in navigator && !IN_ARTIFACT) {
     navigator.serviceWorker.register('sw.js').then((reg) => {
       swReg = reg;
       const onWaiting = () => { const f = document.getElementById('foot'); if (!document.getElementById('upd')) { const b = document.createElement('div'); b.className = 'banner'; b.id = 'upd'; b.innerHTML = 'Versão nova pronta.<button id="upd-go">recarregar</button>'; f.parentNode.insertBefore(b, f); document.getElementById('upd-go').onclick = () => { if (reg.waiting) reg.waiting.postMessage('skipWaiting'); }; } };
@@ -792,5 +835,5 @@
 
   /* ---------- boot ---------- */
   go('hoje');
-  if (!S.key && !S.misc.seenCfg) { S.misc.seenCfg = true; save(); setTimeout(() => toast('Para falar com o Claude, coloque a chave da API em ⚙️', 4000), 800); }
+  if (!S.key && !IN_ARTIFACT && !S.misc.seenCfg) { S.misc.seenCfg = true; save(); setTimeout(() => toast('Para falar com o Claude, coloque a chave da API em ⚙️', 4000), 800); }
 })();

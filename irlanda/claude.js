@@ -148,5 +148,27 @@
 
   function wait(ms) { return new Promise((r) => setTimeout(r, ms)); }
 
-  window.ClaudeAPI = { MODELS, modelInfo, send, friendly };
+  /* Modo claude.ai: a página publicada como artifact pergunta ao Claude pela conta do próprio usuário
+     (capacidade "sample"), sem chave da API. Sem memória: o contexto inteiro vai em cada chamada. */
+  function sampleFriendly(e) {
+    const c = e && e.code;
+    if (c === 'not_granted') return 'Você não permitiu que esta página use o seu Claude. Recarregue a página e aceite o pedido.';
+    if (c === 'rate_limited') return 'Limite de uso do seu Claude por agora. Espere um pouco e tente de novo.';
+    if (c === 'session_expired') return 'A sessão do claude.ai expirou. Entre de novo.';
+    if (c === 'refused') return 'O Claude recusou este pedido. Reformule.';
+    if (c === 'prompt_too_large') return 'Conversa grande demais para esta página. Comece uma conversa nova.';
+    if (c === 'cancelled') return 'Cancelado.';
+    if (c === 'sampling_disabled' || c === 'not_declared' || c === 'capability_disabled') return 'O Claude não está disponível nesta página. Use a versão instalada no celular.';
+    if (c === 'empty_completion') return 'O Claude não respondeu nada. Tente perguntar de outro jeito.';
+    return (e && e.message) || 'Erro ao falar com o Claude.';
+  }
+  async function sendSample(opts) { // {sample, turns, signal, onEvent, tier}
+    opts.onEvent({ type: 'status', text: 'pensando…' });
+    const r = await opts.sample(opts.turns, { cache: false, signal: opts.signal, modelTier: opts.tier || 'default', onText: ({ text }) => opts.onEvent({ type: 'text', text, whole: true }) });
+    const out = { stopReason: r.truncated ? 'max_tokens' : 'end_turn', model: 'claude.ai · ' + (r.modelTierApplied || 'default'), usage: null, complete: true };
+    opts.onEvent(Object.assign({ type: 'done' }, out));
+    return out;
+  }
+
+  window.ClaudeAPI = { MODELS, modelInfo, send, friendly, sendSample, sampleFriendly };
 })();
