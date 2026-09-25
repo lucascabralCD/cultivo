@@ -438,7 +438,7 @@
     return '';
   }
   function afterPanel(p) {
-    if (p === 'mapas') { ['nat', 'con', 'wc'].forEach((k) => { fetch('maps/' + k + '.svg').then((r) => r.text()).then((svg) => { const el = document.getElementById('map-' + k); if (el) el.innerHTML = svg; }).catch(() => { const el = document.getElementById('map-' + k); if (el) el.innerHTML = '<div class="empty">mapa indisponível sem rede</div>'; }); }); }
+    if (p === 'mapas') { ['nat', 'con', 'wc'].forEach((k) => { const put = (svg) => { const el = document.getElementById('map-' + k); if (el) el.innerHTML = svg; }; if (window.IRL_MAPS && window.IRL_MAPS[k]) { put(window.IRL_MAPS[k]); return; } fetch('maps/' + k + '.svg').then((r) => r.text()).then(put).catch(() => put('<div class="empty">mapa indisponível sem rede</div>')); }); }
     if (p === 'backup') { const f = document.getElementById('impfile'); if (f) f.onchange = () => { const file = f.files[0]; if (!file) return; const rd = new FileReader(); rd.onload = () => { try { const v = JSON.parse(rd.result); if (!v || typeof v !== 'object' || !v.ov) throw new Error('formato'); const key = S.key; S = sane(v); S.key = key; save(); toast('Backup restaurado'); render(); } catch (e) { toast('Arquivo inválido'); } }; rd.readAsText(file); }; }
     if (p === 'sobre' && deferredInstall) { const b = document.getElementById('btn-install'); if (b) b.hidden = false; }
   }
@@ -817,7 +817,7 @@
   if (IN_ARTIFACT) {
     window.claude.use('sample').then((fn) => { SAMPLE = (typeof fn === 'function') ? fn : null; sampleResolved = true; if (view === 'claude') renderClaude(); net(); }).catch(() => { sampleResolved = true; if (view === 'claude') renderClaude(); });
   }
-  if ('serviceWorker' in navigator && !IN_ARTIFACT) {
+  if ('serviceWorker' in navigator && !IN_ARTIFACT && location.protocol !== 'file:') {
     navigator.serviceWorker.register('sw.js').then((reg) => {
       swReg = reg;
       const onWaiting = () => { const f = document.getElementById('foot'); if (!document.getElementById('upd')) { const b = document.createElement('div'); b.className = 'banner'; b.id = 'upd'; b.innerHTML = 'Versão nova pronta.<button id="upd-go">recarregar</button>'; f.parentNode.insertBefore(b, f); document.getElementById('upd-go').onclick = () => { if (reg.waiting) reg.waiting.postMessage('skipWaiting'); }; } };
