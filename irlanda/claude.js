@@ -29,7 +29,7 @@
     const m = modelInfo(opts.model);
     const body = {
       model: m.id,
-      max_tokens: opts.maxTokens || 8000,
+      max_tokens: opts.maxTokens || 16000, // inclui o raciocínio (thinking) nos modelos que pensam; a resposta visível é bem menor
       stream: true,
       system: opts.system,
       messages: opts.messages,
@@ -71,7 +71,7 @@
   async function readStream(res, onEvent, signal) {
     const reader = res.body.getReader();
     const dec = new TextDecoder();
-    let buf = '', stopReason = null, model = null, usage = null;
+    let buf = '', stopReason = null, model = null, usage = null, complete = false;
     const blocks = {};
     while (true) {
       const { value, done } = await reader.read();
@@ -104,13 +104,14 @@
           if (ev.delta && ev.delta.stop_reason) stopReason = ev.delta.stop_reason;
           if (ev.usage) usage = Object.assign(usage || {}, ev.usage);
         }
+        else if (ev.type === 'message_stop') complete = true;
         else if (ev.type === 'error') {
-          const e = new Error((ev.error && ev.error.message) || 'erro no stream'); e.status = 0; throw e;
+          const e = new Error((ev.error && ev.error.message) || 'erro no stream'); e.status = 0; e.streamError = (ev.error && ev.error.type) || 'api_error'; throw e;
         }
       }
     }
-    onEvent({ type: 'done', stopReason, model, usage });
-    return { stopReason, model, usage };
+    onEvent({ type: 'done', stopReason, model, usage, complete });
+    return { stopReason, model, usage, complete };
   }
 
   /* opts: {key, model, effort, search, system:[blocks], messages:[...], signal, onEvent} */
@@ -127,11 +128,17 @@
         if (attempt < 2) { await wait(1200 * (attempt + 1)); continue; }
         throw err;
       }
-      if (res.ok) return readStream(res, opts.onEvent, opts.signal);
+      if (res.ok) {
+        // erro dentro do stream (ex.: overloaded) antes de qualquer texto: tenta de novo uma vez
+        let gotText = false;
+        const onEvent = (ev) => { if (ev.type === 'text') gotText = true; opts.onEvent(ev); };
+        try { return await readStream(res, onEvent, opts.signal); }
+        catch (err) { if (err.streamError && !gotText && attempt < 2) { await wait(1500 * (attempt + 1)); continue; } throw err; }
+      }
       const text = await res.text();
       const err = parseError(res.status, text);
       // Se a beta de fallback não for aceita nesta conta/modelo, tenta sem ela.
-      if (res.status === 400 && variant.fallbacks && /fallback|beta|unexpected|extra|unrecognized/i.test(err.message)) { variant = { fallbacks: false }; continue; }
+      if (res.status === 400 && betas.length && /fallback|beta|unexpected|extra|unrecognized/i.test(err.message)) { variant = { fallbacks: false }; continue; }
       if ((res.status === 529 || res.status >= 500) && attempt < 2) { await wait(1500 * (attempt + 1)); continue; }
       if (res.status === 429 && attempt < 1) { await wait(4000); continue; }
       throw err;

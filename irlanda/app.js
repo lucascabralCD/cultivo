@@ -18,8 +18,21 @@
   const LS = 'irl.app.v1';
   const BLANK = { ov: {}, ex: [], ck: {}, chat: [], cfg: { model: 'claude-opus-5', effort: 'medium', search: true }, key: '', misc: {} };
   let S = load();
+  function sane(v) { // aceita só o formato esperado (backup importado ou localStorage corrompido)
+    if (!v || typeof v !== 'object') throw new Error('formato');
+    const s = Object.assign({}, BLANK, v, { cfg: Object.assign({}, BLANK.cfg, (v.cfg && typeof v.cfg === 'object') ? v.cfg : {}), misc: (v.misc && typeof v.misc === 'object') ? v.misc : {} });
+    if (!s.ov || typeof s.ov !== 'object' || Array.isArray(s.ov)) s.ov = {};
+    if (!s.ck || typeof s.ck !== 'object' || Array.isArray(s.ck)) s.ck = {};
+    s.ex = (Array.isArray(s.ex) ? s.ex : []).filter((x) => x && typeof x === 'object' && x.id && x.d).map((x) => Object.assign({ t: null, h: '', ti: '', b: '', c: 'note', kind: 'do', src: 'me', maps: '', place: '', dur: 0, alts: [] }, x));
+    s.chat = (Array.isArray(s.chat) ? s.chat : []).filter((m) => m && (m.role === 'user' || m.role === 'assistant') && typeof m.text === 'string');
+    while (s.chat.length && s.chat[s.chat.length - 1].role === 'assistant' && !s.chat[s.chat.length - 1].text) s.chat.pop(); // app morreu no meio de um stream
+    if (typeof s.key !== 'string') s.key = '';
+    if (!ClaudeAPI.MODELS.some((m) => m.id === s.cfg.model)) s.cfg.model = BLANK.cfg.model;
+    if (!['low', 'medium', 'high'].includes(s.cfg.effort)) s.cfg.effort = 'medium';
+    return s;
+  }
   function load() {
-    try { const r = localStorage.getItem(LS); if (r) { const v = JSON.parse(r); return Object.assign({}, BLANK, v, { cfg: Object.assign({}, BLANK.cfg, v.cfg || {}), misc: v.misc || {} }); } } catch (e) { /* ignore */ }
+    try { const r = localStorage.getItem(LS); if (r) return sane(JSON.parse(r)); } catch (e) { /* ignore */ }
     return JSON.parse(JSON.stringify(BLANK));
   }
   function save() { try { localStorage.setItem(LS, JSON.stringify(S)); } catch (e) { toast('Não consegui salvar (memória cheia?)'); } }
@@ -426,7 +439,7 @@
   }
   function afterPanel(p) {
     if (p === 'mapas') { ['nat', 'con', 'wc'].forEach((k) => { fetch('maps/' + k + '.svg').then((r) => r.text()).then((svg) => { const el = document.getElementById('map-' + k); if (el) el.innerHTML = svg; }).catch(() => { const el = document.getElementById('map-' + k); if (el) el.innerHTML = '<div class="empty">mapa indisponível sem rede</div>'; }); }); }
-    if (p === 'backup') { const f = document.getElementById('impfile'); if (f) f.onchange = () => { const file = f.files[0]; if (!file) return; const rd = new FileReader(); rd.onload = () => { try { const v = JSON.parse(rd.result); if (!v || typeof v !== 'object' || !v.ov) throw new Error('formato'); const key = S.key; S = Object.assign({}, BLANK, v, { cfg: Object.assign({}, BLANK.cfg, v.cfg || {}), key }); save(); toast('Backup restaurado'); render(); } catch (e) { toast('Arquivo inválido'); } }; rd.readAsText(file); }; }
+    if (p === 'backup') { const f = document.getElementById('impfile'); if (f) f.onchange = () => { const file = f.files[0]; if (!file) return; const rd = new FileReader(); rd.onload = () => { try { const v = JSON.parse(rd.result); if (!v || typeof v !== 'object' || !v.ov) throw new Error('formato'); const key = S.key; S = sane(v); S.key = key; save(); toast('Backup restaurado'); render(); } catch (e) { toast('Arquivo inválido'); } }; rd.readAsText(file); }; }
     if (p === 'sobre' && deferredInstall) { const b = document.getElementById('btn-install'); if (b) b.hidden = false; }
   }
 
@@ -472,7 +485,7 @@
       + '</div>', (p) => {
         const done = (msg) => { o.s = null; o.res = null; save(); closeSheet(); render(); toast(msg); };
         p.querySelectorAll('[data-l]').forEach((b) => { b.onclick = () => { const l = b.dataset.l;
-          if (l.startsWith('+')) { o.t = addMin(o.t || e.t || nowParts().hm, +l.slice(1)); done('Adiado para ' + o.t); }
+          if (l.startsWith('+')) { const np = nowParts(); let base = o.t || e.t || np.hm; if (dayIndex(np.iso) === di && toMin(base) < np.min) base = np.hm; o.t = addMin(base, +l.slice(1)); done('Adiado para ' + o.t); }
           else if (l === 'at') { const v = p.querySelector('#lt-hm').value.trim(); const m = /^(\d{1,2}):?(\d{2})$/.exec(v); if (!m) { p.querySelector('#lt-hm').focus(); return; } o.t = String(+m[1]).padStart(2, '0') + ':' + m[2]; done('Hoje às ' + o.t); }
           else if (l === 'tomorrow') { o.d = tomorrow.d; done('Movido para ' + tomorrow.dt); }
           else if (l === 'pend') { o.s = 'later'; o.res = null; save(); closeSheet(); render(); toast('Ficou para depois'); }
@@ -615,7 +628,7 @@
     const log = document.getElementById('chatlog'); if (S.chat.length) setTimeout(() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'instant' }), 0);
   }
   function quickChips() {
-    const np = nowParts(); const h = np.min;
+    const np = nowParts(); const h = Math.floor(np.min / 60);
     const base = [
       { l: 'O que faço agora?', q: 'O que faço agora? Considere a hora, onde estou e o que já fiz hoje.' },
       { l: h >= 11 && h < 15 ? 'Onde almoço perto?' : h >= 17 ? 'Onde janto perto?' : 'Onde como perto?', q: 'Onde como agora, perto de onde estou no plano? Barato, autêntico, aberto neste horário. Dê 2 ou 3 opções com endereço.' },
@@ -630,7 +643,7 @@
   function msgHtml(m, i) {
     if (m.role === 'user') return '<div class="msg u">' + esc(m.text) + '</div>';
     const parsed = parseSug(m.text);
-    return '<div class="msg a' + (m.err ? ' err' : '') + '" data-i="' + i + '"><div class="who">Claude' + (m.model ? '<i>' + esc(shortModel(m.model)) + '</i>' : '') + (m.search ? '<i>🔎</i>' : '') + '</div>' + md(parsed.text) + (parsed.sug.length ? sugHtml(parsed.sug, i) : '') + '</div>';
+    return '<div class="msg a' + (m.err ? ' err' : '') + '" data-i="' + i + '"><div class="who">Claude' + (m.model ? '<i>' + esc(shortModel(m.model)) + '</i>' : '') + (m.search ? '<i>🔎</i>' : '') + '</div>' + md(parsed.text) + (parsed.sug.length ? sugHtml(parsed.sug, i) : '') + (m.tail ? '<div class="status" style="margin-top:8px">⚠️ ' + esc(m.tail) + '</div>' : '') + '</div>';
   }
   function shortModel(m) { return String(m).replace(/^claude-/, '').replace(/-\d{8}$/, ''); }
   function sugHtml(sug, mi) {
@@ -680,23 +693,31 @@
     const status = document.createElement('div'); status.className = 'status'; status.innerHTML = '<span class="sp"></span><span>conectando…</span>'; log.appendChild(status);
     const ctrl = new AbortController(); streaming = { abort: () => ctrl.abort() };
     const sendBtn = document.getElementById('csend'); if (sendBtn) sendBtn.innerHTML = ICON_X;
+    // histórico: só texto real (sem erros nem avisos de interface), as últimas 16 mensagens, começando por "user"
     const history = S.chat.slice(0, -1).filter((m) => m.text && !m.err).slice(-16).map((m) => ({ role: m.role, content: m.text }));
-    // garante alternância user/assistant
+    while (history.length && history[0].role !== 'user') history.shift();
     const messages = []; history.forEach((m) => { if (messages.length && messages[messages.length - 1].role === m.role) messages[messages.length - 1].content += '\n\n' + m.content; else messages.push(m); });
-    if (!messages.length || messages[0].role !== 'user') messages.unshift({ role: 'user', content: msg });
+    if (!messages.length || messages[messages.length - 1].role !== 'user') messages.push({ role: 'user', content: msg });
     let acc = '';
-    const paint = () => { el.innerHTML = '<div class="who">Claude' + (a.model ? '<i>' + esc(shortModel(a.model)) + '</i>' : '') + (a.search ? '<i>🔎</i>' : '') + '</div>' + md(parseSug(acc).text); window.scrollTo({ top: document.body.scrollHeight, behavior: 'instant' }); };
+    const ai = S.chat.length - 1;
+    const paint = () => { const node = document.querySelector('.msg.a[data-i="' + ai + '"]') || el; node.innerHTML = '<div class="who">Claude' + (a.model ? '<i>' + esc(shortModel(a.model)) + '</i>' : '') + (a.search ? '<i>🔎</i>' : '') + '</div>' + md(parseSug(acc).text); window.scrollTo({ top: document.body.scrollHeight, behavior: 'instant' }); };
     try {
-      await ClaudeAPI.send({ key: S.key, model: S.cfg.model, effort: S.cfg.effort, search: !!S.cfg.search, system: systemBlocks(), messages, signal: ctrl.signal,
+      const r = await ClaudeAPI.send({ key: S.key, model: S.cfg.model, effort: S.cfg.effort, search: !!S.cfg.search, system: systemBlocks(), messages, signal: ctrl.signal,
         onEvent: (ev) => {
-          if (ev.type === 'text') { acc += ev.text; a.text = acc; status.hidden = true; paint(); }
-          else if (ev.type === 'status') { status.hidden = !ev.text; status.querySelector('span:last-child').textContent = ev.text; }
-          else if (ev.type === 'done') { a.model = ev.model; if (ev.stopReason === 'refusal') { acc += (acc ? '\n\n' : '') + '_(o pedido foi recusado pelo filtro de segurança; reformule)_'; a.text = acc; } if (ev.stopReason === 'max_tokens') { acc += '\n\n_(resposta cortada por tamanho)_'; a.text = acc; } }
+          if (ev.type === 'text') { acc += ev.text; a.text = acc; if (status.isConnected) status.hidden = true; paint(); }
+          else if (ev.type === 'status') { if (status.isConnected) { status.hidden = !ev.text; status.querySelector('span:last-child').textContent = ev.text; } }
+          else if (ev.type === 'done') { a.model = ev.model; }
         } });
+      if (r) {
+        if (r.stopReason === 'refusal') a.tail = 'O pedido foi recusado pelo filtro de segurança. Reformule.';
+        else if (r.stopReason === 'max_tokens') a.tail = 'Resposta cortada por tamanho.';
+        else if (r.stopReason === 'pause_turn') a.tail = 'A pesquisa parou no meio. Mande "continue" para ele seguir.';
+        else if (!r.complete) a.tail = 'A conexão caiu no meio da resposta. Pergunte de novo.';
+      }
     } catch (err) {
       const f = ClaudeAPI.friendly(err); a.err = true; a.text = (acc ? acc + '\n\n' : '') + '⚠️ ' + f;
     }
-    status.remove(); streaming = null; if (!a.text) { a.text = '_(sem resposta)_'; a.err = true; }
+    if (status.isConnected) status.remove(); streaming = null; if (!a.text) { a.text = '_(sem resposta)_'; a.err = true; }
     save(); renderClaude();
   }
   function addSug(mi, j) {
@@ -761,8 +782,9 @@
       reg.addEventListener('updatefound', () => { const nw = reg.installing; if (!nw) return; nw.addEventListener('statechange', () => { if (nw.state === 'installed' && navigator.serviceWorker.controller) onWaiting(); }); });
       document.addEventListener('visibilitychange', () => { if (!document.hidden) reg.update().catch(() => {}); });
     }).catch(() => {});
-    let refreshing = false;
-    navigator.serviceWorker.addEventListener('controllerchange', () => { if (refreshing) return; refreshing = true; location.reload(); });
+    let refreshing = false; const hadController = !!navigator.serviceWorker.controller;
+    // na primeira instalação o SW assume a página sem precisar recarregar; só recarrega quando uma versão NOVA assume
+    navigator.serviceWorker.addEventListener('controllerchange', () => { if (refreshing || !hadController) return; refreshing = true; location.reload(); });
   }
 
   /* ---------- relógio ---------- */

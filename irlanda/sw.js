@@ -46,19 +46,17 @@ self.addEventListener('fetch', (e) => {
   }
 
   if (url.origin === self.location.origin) {
-    // arquivos do app: rede primeiro (para pegar versão nova), cache se estiver sem rede
+    // arquivos do app: a cópia local responde na hora (rede ruim não trava a abertura) e a rede atualiza em segundo plano.
+    // Versão nova de verdade chega pelo sw.js novo (VERSION diferente → cache novo → aviso "recarregar").
     e.respondWith((async () => {
       const c = await caches.open(CACHE);
-      try {
-        const r = await fetch(req);
-        if (r && r.ok) c.put(req, r.clone());
-        return r;
-      } catch (err) {
-        const hit = await c.match(req, { ignoreSearch: true });
-        if (hit) return hit;
-        if (req.mode === 'navigate') { const idx = await c.match('./index.html'); if (idx) return idx; }
-        return new Response('Sem rede e sem cópia local.', { status: 504, headers: { 'content-type': 'text/plain; charset=utf-8' } });
-      }
+      const hit = await c.match(req, { ignoreSearch: true });
+      const net = fetch(req).then((r) => { if (r && r.ok) c.put(req, r.clone()); return r; }).catch(() => null);
+      if (hit) { e.waitUntil(net); return hit; }
+      const r = await net;
+      if (r) return r;
+      if (req.mode === 'navigate') { const idx = await c.match('./index.html'); if (idx) return idx; }
+      return new Response('Sem rede e sem cópia local.', { status: 504, headers: { 'content-type': 'text/plain; charset=utf-8' } });
     })());
   }
 });
