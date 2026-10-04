@@ -1582,864 +1582,694 @@
    ]
   },
   {
+   "changes": [
+    "dia reescrito em 04/10: Cork de trem 5–8/10, sem carro; ids novos (k*), o plano antigo deste dia saiu inteiro"
+   ],
    "d": "2026-10-05",
-   "daylead": "Carro até Cleggan, balsa 11:30 e a noite em Inishbofin: um pub, focas, sem luz na rua. Ilha de ficar.",
+   "daylead": "Trem das 09:00, mala na hospedagem, mercado e Long Valley, a Cork da história a pé pelo rio e a primeira noite no pub do Richie.",
    "etiquette": [
-    7
+    7,
+    1
    ],
    "events": [
     {
-     "id": "2026-10-05.0.o-dia",
-     "ti": "Inishbofin: a ilha favorita do Richie",
-     "kind": "info",
-     "place": "Inishbofin",
-     "maps": "Inishbofin, Co. Galway",
-     "dur": 0,
-     "alts": []
-    },
-    {
-     "id": "2026-10-05.1.09-00",
-     "ti": "Carro: Galway → Cleggan pela N59, 1h45",
+     "id": "2026-10-05.k0.08-10",
+     "ti": "Luas até Heuston com a mala",
      "kind": "do",
-     "place": "Cais de Cleggan",
-     "maps": "Cleggan Pier, Cleggan, Co. Galway",
-     "dur": 105,
-     "alts": [
-      {
-       "ti": "Citylink 923: Galway 08:00 → Cleggan 09:50",
-       "b": "Se o carro cair, o ônibus <b>Citylink 923</b> sai de Galway às 08:00 e chega ao cais de Cleggan às 09:50, com folga para a balsa das 11:30. Na terça, o 923 das 11:10 de Cleggan chega a Galway 13:30 — apertado para Ballybrit, mas cabe.",
-       "src": "docs/roteiro-fontes-build.md (mapa Inishbofin, plano sem carro)",
-       "t": "08:00"
-      },
-      {
-       "ti": "Dia invertido: Galway com calma, saída 16:30",
-       "b": "Se a balsa de outubro só tiver a saída das 18:45, o dia inverte: manhã e almoço em Galway com calma (Tigh Neachtain serve comida 11:00–16:00), carro às 16:30, balsa 18:45 → 19:15 e jantar no Day's.",
-       "src": "days/2026-10-05.json note + extra_EAT.json 02/10",
-       "t": "16:30"
-      }
-     ]
-    },
-    {
-     "id": "2026-10-05.2.11-30",
-     "ti": "Balsa Cleggan 11:30 → Inishbofin, €25",
-     "kind": "do",
-     "place": "Island Discovery, cais de Cleggan",
-     "maps": "Cleggan Pier, Cleggan, Co. Galway",
+     "place": "Heuston Station",
+     "maps": "Heuston Station, Dublin",
      "dur": 30,
      "alts": [
       {
-       "ti": "Balsa das 18:45 (a única online em outubro)",
-       "b": "Se a das 11:30 não rodar, a saída garantida é a das <b>18:45 → 19:15</b>, à venda online. Jante no Day's ao chegar. Confirme pelo 095 37228 (seg–sex 10:00–18:00) ou SMS 087 180 0586.",
-       "src": "extra_DOUBTS.json 'Inishbofin — as balsas de outubro' + days/2026-10-05.json note",
-       "t": "18:45"
-      },
-      {
-       "ti": "Sky Road enquanto espera a balsa",
-       "b": "Com horas sobrando em Cleggan/Clifden: a <b>Sky Road</b>, 8 km até Clifden + circuito de 16 km, ~45 minutos, sentido horário pela Upper Road. Estrada estreita, sem acostamento.",
-       "src": "days/2026-10-06.json 09:00 + docs/adendo-noite-rotas-cenicas-carro.md",
-       "t": ""
-      },
-      {
-       "ti": "Almoço em Clifden: Mitchell's",
-       "b": "Se ficar preso na costa até a balsa da tarde: <b>Mitchell's, Clifden</b>, almoço 12–17h, casa familiar desde 1991 (horários publicados são de verão, confirme: +353 95 21867). Em Cleggan, o <b>Little Fish</b> está na lista de fish and chips do Irish Times.",
-       "src": "docs/onde-comer-cork-galway.md (Estrada da Connemara) + docs/dossie-pesquisa-irlanda-porto.md (fish and chips)",
-       "t": "12:00"
-      }
-     ]
-    },
-    {
-     "id": "2026-10-05.3.tarde",
-     "ti": "Westquarter Loop: 8 km, penhascos e focas",
-     "kind": "do",
-     "place": "New Pier, Inishbofin",
-     "maps": "New Pier, Inishbofin, Co. Galway",
-     "dur": 150,
-     "alts": [
-      {
-       "ti": "Só o porto e o forte de Cromwell do cais",
-       "b": "Chuva ou cansaço: fique no porto, veja o <b>Cromwell's Barracks</b> da boca do porto, visto do cais, e pare. É uma ilha de ficar, não de cumprir roteiro.",
-       "src": "days/2026-10-05.json tarde + o dia",
-       "t": ""
-      },
-      {
-       "ti": "Loop na terça de manhã, se a balsa das 09:00 cair",
-       "b": "Se só houver a balsa das 17:00 de terça, Ballybrit cai e a terça vira o segundo dia na ilha — o Westquarter Loop (2 a 2,5 h, setas roxas do New Pier) cabe na manhã seguinte.",
-       "src": "days/2026-10-06.json note + days/2026-10-05.json tarde",
-       "t": ""
-      },
-      {
-       "ti": "Tarde de pub no Day's Bar",
-       "b": "O único pub da ilha, <b>Day's Bar (The Beach)</b>, com comida até tarde. Se o tempo fechar, a tarde é balcão, não trilha.",
-       "src": "days/2026-10-05.json onde comer",
-       "t": ""
-      }
-     ]
-    },
-    {
-     "id": "2026-10-05.4.onde-comer",
-     "ti": "Jantar: Day's Bar, lagosta e cavala da ilha",
-     "kind": "do",
-     "place": "Day's Bar & B&B (The Beach), Inishbofin",
-     "maps": "Day's Bar, The Beach, Inishbofin, Co. Galway",
-     "dur": 60,
-     "alts": [
-      {
-       "ti": "Farnel comprado no sábado no Galway Market",
-       "b": "O plano já previa: <b>compre o farnel de segunda no sábado</b>, no Galway Market (Church Lane, 08:00–18:00) — na ilha só há o Day's Bar. Se o pub não estiver servindo, é isso que come.",
-       "src": "days/2026-10-03.json onde comer + extra_EAT.json 03/10",
-       "t": ""
-      },
-      {
-       "ti": "Almoço antes da balsa em Clifden (dia invertido)",
-       "b": "Se o dia inverter para a balsa das 18:45, almoce em terra: <b>Mitchell's, Clifden</b>, almoço 12–17h (+353 95 21867); ou <b>Little Fish, Cleggan</b>, fish and chips da lista do Irish Times.",
-       "src": "docs/onde-comer-cork-galway.md + docs/dossie-pesquisa-irlanda-porto.md",
-       "t": "12:00"
-      }
-     ]
-    },
-    {
-     "id": "2026-10-05.5.dormir",
-     "ti": "Dormir: Day's Bar & B&B, 4 quartos",
-     "kind": "do",
-     "place": "Day's Bar & B&B (The Beach), Inishbofin",
-     "maps": "Day's Bar & B&B, The Beach, Inishbofin, Co. Galway",
-     "dur": 0,
-     "alts": [
-      {
-       "ti": "Lapwing House B&B (aberto o ano todo)",
-       "b": "<b>Lapwing House B&B</b>, Inishbofin, aberto o ano inteiro, +353 95 45996. Para dois, se o Richie for.",
-       "src": "days/2026-10-05.json dormir + docs/richie-veredito-e-decisoes-12-09.md",
-       "t": ""
-      },
-      {
-       "ti": "Inishbofin Island Hostel: privado €70, dorm €25",
-       "b": "<b>Inishbofin Island Hostel</b>, quarto privado €70 ou cama em dormitório €25, +353 95 45855. O Doonmore fechou a temporada em 27/09 e o Inishbofin House Hotel não abre outubro — não conte com eles.",
-       "src": "days/2026-10-05.json dormir + extra_DOUBTS.json 'Inishbofin — cama e Richie'",
-       "t": ""
-      }
-     ]
-    }
-   ],
-   "changes": [
-    "2026-10-05.1.09-00: removida a alternativa 'GoCar GoExplore de dois dias (~€165)' — GoCar está na lista de 'coisas que saíram e não voltam' (handoff/CLAUDE.md, seção de regras) e extra_CARRO.json/roteiro-fontes-build.md dizem 'Com o carro alugado, não há GoCar'; o Citylink 923 já cobre o plano sem carro",
-    "2026-10-05.3.tarde: alternativa 'Loop na terça de manhã' — src completado com days/2026-10-05.json tarde, de onde vêm os dados do loop (2 a 2,5 h, setas roxas, New Pier); days/2026-10-06.json note só confirma a balsa das 17:00 e a queda de Ballybrit",
-    "etiquette: era [] — adicionado o índice 7 (Pubs: rodada, sessão como fundo, sem gorjeta no balcão), pertinente porque a noite inteira é no Day's Bar, possivelmente com o Richie"
-   ]
-  },
-  {
-   "d": "2026-10-06",
-   "daylead": "Balsa das 09:00, Sky Road se der tempo, e Ballybrit numa terça: 7 páreos de obstáculo e a pinta no Crane Bar à noite.",
-   "etiquette": [
-    7,
-    1
-   ],
-   "events": [
-    {
-     "id": "2026-10-06.0.09-00",
-     "ti": "Balsa 09:00 para Cleggan e volta a Galway",
-     "kind": "do",
-     "place": "Cais de Cleggan",
-     "maps": "Cleggan Pier, Cleggan, Co. Galway",
-     "dur": 180,
-     "alts": [
-      {
-       "ti": "Segundo dia na ilha, balsa das 17:00",
-       "b": "Se a balsa das 09:00 não rodar em outubro, a terça vira o segundo dia em Inishbofin e Ballybrit cai — pela Priscila, não é castigo nenhum. Repita o <b>Westquarter Loop</b> (8,1 km, 2 a 2,5 h, começa no New Pier) ou fique no porto e no Day's Bar, e volte na balsa das <b>17:00</b>.",
-       "src": "days/2026-10-06.json note + extra_DOUBTS.json #5 + days/2026-10-05.json tarde e onde comer",
-       "t": "17:00"
-      },
-      {
-       "ti": "Citylink 923 de Cleggan, 11:10 → Galway 13:30",
-       "b": "Se o carro der problema em Cleggan: o <b>Citylink 923</b> sai de Cleggan às 11:10 e chega a Galway às 13:30 — apertado para o 1º páreo das 14:20, mas cabe.",
-       "src": "docs/roteiro-fontes-build.md (mapa Inishbofin, nota do GoCar/Citylink)",
-       "t": "11:10"
-      },
-      {
-       "ti": "Loop Roundstone–Ballyconneely em vez da Sky Road",
-       "b": "Retorno alternativo a partir de Clifden: <b>R341 + Bog Road</b> por Roundstone e Ballyconneely, 36 km / 50 min, passando pelo porto de Roundstone e pelo <b>O'Dowd's</b> (desde 1840) — que só abre o bar às 12:00, então nesta manhã é só passar. Só se a Sky Road estiver fechada ou o tempo tapar a vista — e sem comprometer o 12:30 em Galway.",
-       "src": "docs/adendo-noite-rotas-cenicas-carro.md (retorno alternativo) + docs/onde-comer-cork-galway.md (O'Dowd's)",
-       "t": ""
-      }
-     ]
-    },
-    {
-     "id": "2026-10-06.1.12-30",
-     "ti": "Ônibus 409 de Eyre Square até Ballybrit",
-     "kind": "do",
-     "place": "Eyre Square",
-     "maps": "Eyre Square bus stop, Galway",
-     "dur": 17,
-     "alts": [
-      {
-       "ti": "Shuttle de €8 do Skeff, Eyre Square",
-       "b": "Se o 409 não aparecer ou estiver lotado: o <b>shuttle de €8</b> sai do Skeff, na própria Eyre Square, direto para o hipódromo.",
-       "src": "days/2026-10-06.json 12:30 + docs/richie-veredito-e-decisoes-12-09.md (Ballybrit: shuttle Eyre Sq €8)",
-       "t": "12:30"
-      },
-      {
-       "ti": "Ir de carro — estacionamento grátis, sem beber",
-       "b": "Ballybrit tem <b>estacionamento grátis</b>, mas quem estaciona não bebe. Só vale se a ideia for ver os páreos seco e guardar a pinta para o Crane Bar à noite.",
-       "src": "extra_CARRO.json (terça: Ballybrit)",
-       "t": ""
-      }
-     ]
-    },
-    {
-     "id": "2026-10-06.2.14-20",
-     "ti": "Galway Races em Ballybrit — 7 páreos",
-     "kind": "do",
-     "place": "Galway Racecourse, Ballybrit",
-     "maps": "Galway Racecourse, Ballybrit, Galway",
-     "dur": 180,
-     "alts": [
-      {
-       "ti": "Terça na ilha se a balsa das 09:00 falhar",
-       "b": "Sem a balsa da manhã, Ballybrit cai de vez: o dia vira o segundo em Inishbofin (penhascos, focas, Cromwell's Barracks visto do cais) e a volta é na balsa das 17:00. O October Racing Festival (24–26/10) é depois da viagem — não há segunda chance de corrida em Galway.",
-       "src": "days/2026-10-06.json note + days/2026-10-05.json tarde + docs/revisao-regioes-v7-bagaceira.md §3",
-       "t": "17:00"
-      },
-      {
-       "ti": "Galway a pé: Spanish Arch, Claddagh, Museu",
-       "b": "Chuva pesada ou cansaço da ilha: <b>Spanish Arch, Claddagh, o Long Walk e o Museu da Cidade (grátis)</b> — o roteiro de chegada da sexta, que com a Priscila e o Richie pode não ter saído inteiro.",
-       "src": "days/2026-10-02.json 09:00",
-       "t": ""
-      },
-      {
-       "ti": "Salthill pela promenade",
-       "b": "Tarde de ar livre sem corrida: <b>Salthill a pé pela promenade</b>, com o chute no muro no fim, como manda a tradição. Era a tarde de sábado que dependia do que os dois quisessem mostrar.",
-       "src": "days/2026-10-03.json tarde",
-       "t": ""
-      }
-     ]
-    },
-    {
-     "id": "2026-10-06.3.noite",
-     "ti": "Crane Bar, Sea Road — a pinta da noite",
-     "kind": "do",
-     "place": "The Crane Bar",
-     "maps": "The Crane Bar, Sea Road, Galway",
-     "dur": 90,
-     "alts": [
-      {
-       "ti": "Tigh Cóilí, Mainguard Street",
-       "b": "A segunda opção do próprio dia: <b>Tigh Cóilí</b>, Mainguard Street, sessão às 18:00 e 21:30 todos os dias do ano — se houver música no canto, é fundo. Não serve comida.",
-       "src": "days/2026-10-06.json noite + days/2026-10-02.json noite + docs/adendo-noite-rotas-cenicas-carro.md (Galway: horários fixos)",
-       "t": ""
-      },
-      {
-       "ti": "Garavan's, 46 William Street",
-       "b": "<b>Garavan's</b>, 46 William St — City Bar of the Year 2025, balcão de whiskey (flights de €15 a €100+) e snugs. Descrito na pesquisa como <i>a melhor sala única para beber sozinho</i>. Sem música como programa.",
-       "src": "docs/adendo-noite-rotas-cenicas-carro.md (Galway: balcão e whiskey)",
-       "t": ""
-      },
-      {
-       "ti": "Tigh Neachtain, 17 Cross Street",
-       "b": "<b>Tigh Neachtain</b>, 17 Cross Street: o pub velho de balcão comprido que fecha a noite de domingo e a de quarta no plano. Se a ilha e a corrida esgotaram, é pinta e cama cedo — amanhã é a estrada do Burren até os Cliffs, cedo (ou o 350 das 07:00, se não quiser dirigir).",
-       "src": "days/2026-10-04.json 16:25 + days/2026-10-07.json por quê, 07:00 e onde comer + docs/adendo-noite-rotas-cenicas-carro.md (balcão comprido)",
-       "t": ""
-      }
-     ]
-    },
-    {
-     "id": "2026-10-06.4.onde-comer",
-     "ti": "Comer: GBC antes, Dela ou Rúibín depois",
-     "kind": "do",
-     "place": "GBC — Galway Bakery Company",
-     "maps": "GBC Galway Bakery Company, 7 Williamsgate Street, Galway",
-     "dur": 60,
-     "alts": [
-      {
-       "ti": "McSwiggans, 3 Eyre Street — ostra nativa",
-       "b": "Antes do 409, a um passo da Eyre Square: <b>McSwiggans</b>, 3 Eyre Street, ostra nativa no auge de outubro (<b>€19,50 a meia dúzia</b>) e chowder €13,50, almoço seg–sex 12:00–15:30. Substitui GBC ou Neachtain se um dos dois estiver cheio.",
-       "src": "extra_EAT.json 03/10 + docs/onde-comer-cork-galway.md (ostras; €€)",
-       "t": "12:00"
-      },
-      {
-       "ti": "Handsome Burger, 49 Dominick St Lower",
-       "b": "Jantar barato e rápido no West End, na mesma rua do Dela e a poucos minutos do Crane Bar: <b>Handsome Burger</b>, €10,50, tido como o melhor hambúrguer da Irlanda.",
-       "src": "extra_EAT.json 03/10 + docs/onde-comer-cork-galway.md (€ até 15)",
-       "t": ""
-      },
-      {
-       "ti": "Ard Bia at Nimmo's, Spanish Arch",
-       "b": "Se o Dela e o Rúibín estiverem cheios: <b>Ard Bia at Nimmo's</b>, no Spanish Arch, jantar ter–dom 18:00–21:00 (irlandês com toque norte-africano). Dá tempo de jantar e seguir para o Crane Bar depois.",
-       "src": "docs/onde-comer-cork-galway.md (€€ 15–35)",
-       "t": "18:00"
-      }
-     ]
-    }
-   ],
-   "changes": [
-    "2026-10-06.0.09-00: alt Roundstone — O'Dowd's só abre o bar às 12:00 (onde-comer-cork-galway.md) e a alt exige Galway às 12:30; texto agora diz que nesta manhã é só passar, sem parada",
-    "2026-10-06.0.09-00: alt Citylink 923 — fonte diz 'de Cleggan', não 'do cais'; ajustado; src da alt 'segundo dia na ilha' passou a citar também 'onde comer' de 05/10, onde está o Day's Bar",
-    "2026-10-06.3.noite: maps — '2 Sea Road' não existe em nenhum arquivo (só 'Sea Road'); número removido",
-    "2026-10-06.3.noite: alt Tigh Cóilí — t '21:30' amarrava a ida ao início da sessão (música como programa); t esvaziado, horários ficam só no texto",
-    "2026-10-06.3.noite: alt Garavan's — fonte diz flights €15–100+, não 'de €15'; corrigido",
-    "2026-10-06.3.noite: alt Tigh Neachtain — com o carro alugado a quarta é a estrada do Burren (days/2026-10-07 por quê); o 350 das 07:00 é o plano sem carro; frase e src corrigidos",
-    "2026-10-06.4.onde-comer: alt Ard Bia — 'chegar ao Crane Bar para as 21:30' fazia a sessão de horário-alvo; trocado por 'seguir para o Crane Bar depois'",
-    "etiquette: estava vazio; adicionados 7 (Pubs: rodada, sessão não é show) e 1 (Câmera: nunca filmar sessão), pertinentes ao Crane Bar/Tigh Cóilí"
-   ]
-  },
-  {
-   "d": "2026-10-07",
-   "daylead": "Cliffs antes das onze: falésia vazia e ingresso a €8. Almoço em Doolin, volta a Galway e mala pronta — amanhã é Cork.",
-   "etiquette": [
-    7,
-    1
-   ],
-   "events": [
-    {
-     "id": "2026-10-07.0.por-que",
-     "ti": "Por que os Cliffs — e a estrada do Burren",
-     "kind": "info",
-     "place": "Cliffs of Moher",
-     "maps": "Cliffs of Moher, Liscannor, Co. Clare",
-     "dur": 0,
-     "alts": []
-    },
-    {
-     "id": "2026-10-07.1.07-00",
-     "ti": "Bus 350 — Galway Bus Station 07:00",
-     "kind": "do",
-     "place": "Galway Bus Station",
-     "maps": "Galway Bus Station, Galway (ao lado da Ceannt Station)",
-     "dur": 114,
-     "alts": [
-      {
-       "ti": "De carro: a estrada do Burren",
-       "b": "Com o carro alugado o dia vira a costa do Burren: Kinvara (castelo de Dunguaire), Ballyvaughan, farol de Black Head, Fanore, Doolin, os Cliffs (estacionamento incluído no ingresso), Lisdoonvarna e volta — ~200 km. Saia cedo para chegar nos Cliffs antes das 11:00 e pagar €8.",
-       "src": "plano.json 07/10 por quê + extra_CARRO.json 'Quarta 7'",
+       "ti": "A pé até Heuston, ~30 min",
+       "b": "Sem Luas: <b>28–32 min a pé</b>, plano, pela South Circular → Con Colbert Road → ponte Sean Heuston. Com mala, saia 08:00.",
+       "src": "plano.json 15/10 (04:50, mesmo caminho)",
        "t": "08:00"
-      },
-      {
-       "ti": "O 350 das 09:00",
-       "b": "Se perder o das 07:00, o 350 seguinte sai às 09:00 e chega nos Cliffs às 10:58 — ainda dentro da faixa de ingresso de €8 (08–11), mas já com os ônibus de tour chegando.",
-       "src": "plano.json 07/10 evento 07:00",
-       "t": "09:00"
-      },
-      {
-       "ti": "Burren Loop — o plano de chuva de carro",
-       "b": "Se o tempo fechar, o loop do Burren: 66 km, ~1h de Galway — Ballyvaughan, Carran, Kilfenora, Lisdoonvarna, Fanore, Black Head e Corkscrew Hill. Sem acostamento, dirija devagar.",
-       "src": "docs/adendo-noite-rotas-cenicas-carro.md 'Plano de chuva'",
-       "t": ""
       }
      ]
     },
     {
-     "id": "2026-10-07.2.09-00",
-     "ti": "Cliffs of Moher — torre O'Brien, antes das 11",
+     "id": "2026-10-05.k1.09-00",
+     "ti": "Trem Heuston 09:00 → Cork Kent ~11:45",
      "kind": "do",
-     "place": "Cliffs of Moher Experience",
-     "maps": "Cliffs of Moher Visitor Experience, Liscannor, Co. Clare",
-     "dur": 90,
+     "place": "Heuston Station",
+     "maps": "Heuston Station, Dublin",
+     "dur": 165,
      "alts": [
       {
-       "ti": "Burren Loop de carro (chuva ou névoa)",
-       "b": "Sem visibilidade nos Cliffs, o dia rende mais na estrada: Burren Loop, 66 km, ~1h de Galway, por Ballyvaughan, Carran, Kilfenora, Lisdoonvarna, Fanore e Black Head. Calcário, mar e nenhuma cidade — sem acostamento.",
-       "src": "docs/adendo-noite-rotas-cenicas-carro.md 'Plano de chuva' + plano.json 07/10 por quê",
-       "t": ""
-      },
-      {
-       "ti": "Caherconnell — o forte escavado do Burren",
-       "b": "<b>Caherconnell</b>, no Burren, €12 (ou €23 com demonstração de cães pastores): sítio de escavação ativo com field school, habitado do séc. X ao XVII, vale mais que o Poulnabrone ao lado. Outubro 10:00–16:00. Fica na sua estrada de carro pelo Burren.",
-       "src": "docs/dossie-pesquisa-irlanda-porto.md 'Fortes' + plano.json 07/10 por quê",
+       "ti": "O trem das 10:00, chegando ~12:37",
+       "b": "Os trens saem de hora em hora, na hora cheia. O das <b>10:00</b> chega ~12:37 e ainda dá o mercado e o Long Valley no almoço; o UCC e a cadeia ficam mais apertados (a Gaol fecha às 17:00).",
+       "src": "pesquisa 04/10 — rome2rio Heuston↔Cork + irishrail.ie (avisos de obra 3–4/10); horário de agregador, não aberto no irishrail.ie",
        "t": "10:00"
       },
       {
-       "ti": "Ballinasloe Mart, gado às 11:00",
-       "b": "Só no plano de chuva — o Richie foi claro: “No. Leave the men to it.” Era o plano B do dia de carro: quarta é dia de venda de gado no <b>Ballinasloe Mart</b>, às 11:00 (090 964 2384). Vá ao escritório primeiro e diga que só está olhando; sente no fundo da arquibancada e nunca levante a mão. A cantina do andar de cima serve por ~€8–12.",
-       "src": "extra_BANDS.json índice 12 (mart) + extra_ETIQUETTE.json 'Mart de gado' + docs/revisao-regioes-v7-bagaceira.md (Ballinasloe Mart)",
-       "t": "11:00"
+       "ti": "Sem bilhete online: máquina da estação",
+       "b": "Se a compra online falhar, a máquina ou o guichê de Heuston vendem na hora, mas pela tarifa cheia: <b>~€47,35</b> o trecho simples Dublin–Cork.",
+       "src": "irishrail.ie/en-ie/offer/webfares e fares-info/dublin-cork (via resumo de busca, 04/10)",
+       "t": "08:40"
       }
      ]
     },
     {
-     "id": "2026-10-07.3.10-48",
-     "ti": "Doolin: o porto e os três pubs",
+     "id": "2026-10-05.k2.cancelar",
+     "ti": "Cancelar o que era do plano antigo",
      "kind": "do",
-     "place": "Doolin",
-     "maps": "Doolin, Co. Clare",
-     "dur": 180,
+     "place": "",
+     "maps": "",
+     "dur": 20,
+     "alts": []
+    },
+    {
+     "id": "2026-10-05.k3.11-45",
+     "ti": "Kent → centro a pé e mala na hospedagem",
+     "kind": "do",
+     "place": "Cork Kent Station",
+     "maps": "Kent Station, Cork",
+     "dur": 30,
      "alts": [
       {
-       "ti": "Ficar mais nos Cliffs e pegar o 12:05",
-       "b": "Se as falésias estiverem rendendo, o ônibus seguinte Cliffs → Doolin é o das 12:05 (€2,60). Ainda dá tempo de almoçar em Doolin antes do 14:21 de volta.",
-       "src": "plano.json 07/10 evento 10:48",
-       "t": "12:05"
-      },
-      {
-       "ti": "Ballyvaughan ou Ennistymon em vez de Doolin",
-       "b": "A pesquisa foi dura com Doolin (“95% são turistas e os outros 5% são funcionários”) e apontou <b>Ballyvaughan</b>, <b>Ennistymon</b> e Kilkee como as vilas de verdade da região. De carro, Ballyvaughan já está na sua estrada de volta.",
-       "src": "docs/dossie-pesquisa-irlanda-porto.md tabela 'Doolin como base'",
-       "t": ""
-      },
-      {
-       "ti": "Lisdoonvarna — Burren Smokehouse",
-       "b": "Se estiver de carro, Lisdoonvarna fica no caminho de volta: o <b>Burren Smokehouse</b> é um dos produtores que recebem visita, com o “Taste the Atlantic – Salmon Experience”.",
-       "src": "docs/dossie-pesquisa-irlanda-porto.md 'Produtores que recebem visita' + plano.json 07/10 por quê",
-       "t": ""
+       "ti": "Ônibus 205 com o Leap",
+       "b": "Bus Éireann <b>205</b> (Train Station → St Patrick's St), ~4 min, a cada 10–15 min. O Leap de Dublin vale nos ônibus de Cork: <b>€1,70</b> com troca livre em 90 min.",
+       "src": "about.leapcard.ie/cork + nationaltransport.ie (TFI 90 Minute Fare, Cork €1,70)",
+       "t": "11:50"
       }
      ]
     },
     {
-     "id": "2026-10-07.4.onde-comer",
-     "ti": "Almoço: chowder num pub de Doolin",
+     "id": "2026-10-05.k4.12-30",
+     "ti": "English Market: o reconhecimento",
      "kind": "do",
-     "place": "Gus O'Connor's",
-     "maps": "Gus O'Connor's Pub, Fisher Street, Doolin, Co. Clare",
+     "place": "English Market",
+     "maps": "English Market, Cork",
+     "dur": 60,
+     "alts": []
+    },
+    {
+     "id": "2026-10-05.k5.onde-comer",
+     "ti": "Comer: Long Valley e Quinlan's",
+     "kind": "do",
+     "place": "The Long Valley",
+     "maps": "The Long Valley, 10 Winthrop Street, Cork",
      "dur": 60,
      "alts": [
       {
-       "ti": "McGann's ou McDermott's (Roadford)",
-       "b": "Se o Gus O'Connor's estiver lotado de tour, os outros dois pubs de Doolin ficam em Roadford: <b>McGann's</b> (065 707 4133) e <b>McDermott's</b> (comida 11:45–21:00). Mesmo cardápio de vila: chowder, peixe do dia, Guinness stew.",
-       "src": "plano.json 07/10 evento 10:48",
+       "ti": "Farmgate já hoje, se abrir segunda",
+       "b": "Desde 23/02/2026 o <b>Farmgate Café</b> (mezanino do English Market) abriria às segundas <b>só para almoço, 12:00–15:00</b>. Listagens velhas ainda dizem \"fechado segunda\": <b>ligue antes, 021 427 8134</b>. Se abrir, o tripe and drisheen pode ser hoje e a quarta fica livre para o Kay's Kitchen.",
+       "src": "farmgatecork.ie/news (segunda só almoço desde 23/02/2026) + farmgate-cafe.tablepath.com",
        "t": "12:30"
       },
       {
-       "ti": "Vaughan's on the Prom, Lahinch — chipper",
-       "b": "De carro, em Lahinch: <b>Vaughan's on the Prom</b>, o chipper da lista do Irish Times — massa com isca-mãe de 19 anos e batata frita em sebo de boi. Fish and chips de verdade em vez de pub de turista.",
-       "src": "docs/dossie-pesquisa-irlanda-porto.md 'Fish and chips que valem'",
+       "ti": "O'Flynn's, 14 Winthrop Street",
+       "b": "Loja da linguiça na mesma rua do Long Valley (os horários divergem entre fontes: 09:30–17:00 ou seg–qui 09:00–18:00). A \"Cork Boi\" é porco e boi com cebola, tomilho e stout Murphy's. Tel. 021 427 4422.",
+       "src": "corkcity.ie/english-market (O'Flynn's) + oflynnsgourmetsausages.ie",
        "t": ""
-      },
-      {
-       "ti": "Jantar em Galway: Dela ou Rúibín",
-       "b": "À noite, se quiser comer antes do Tigh Neachtain (ele só serve até 16:00, e Crane Bar e Tigh Cóilí não servem nada): <b>Dela</b>, 51 Dominick St Lower, ou <b>Rúibín</b>, 1 Dock Road, seg–sáb 12:00–23:00.",
-       "src": "extra_EAT.json 06/10 + extra_EAT.json 02/10",
-       "t": "19:00"
       }
      ]
     },
     {
-     "id": "2026-10-07.5.14-21",
-     "ti": "Volta a Galway 14:21 e a última noite",
+     "id": "2026-10-05.k6.14-00",
+     "ti": "UCC: as pedras ogham e o Fitzgerald Park",
      "kind": "do",
-     "place": "Doolin (parada do 350)",
-     "maps": "Doolin bus stop, Doolin, Co. Clare",
-     "dur": 113,
+     "place": "Stone Corridor, UCC",
+     "maps": "Stone Corridor, University College Cork",
+     "dur": 75,
      "alts": [
       {
-       "ti": "O 350 das 16:08 → 18:02",
-       "b": "Se Doolin estiver bom, o próximo 350 sai às 16:08 e chega em Galway às 18:02. Ainda sobra a noite no Tigh Neachtain e a mala.",
-       "src": "plano.json 07/10 evento 14:21",
-       "t": "16:08"
+       "ti": "Shandon hoje em vez de quarta",
+       "b": "Se preferir o lado norte: <b>St Anne's, Shandon</b>, abre segunda (10:00–16:00, última subida 15:30, ~€8) e você toca os sinos. Mas o Butter Museum, ao lado, só abre na quarta, e é por isso que o plano junta os dois na quarta.",
+       "src": "stanneshandon.ie, thebuttermuseum.com, corkcity.ie/elizabeth-fort, stfinbarres.ie (pesquisa 04/10)",
+       "t": "14:00"
       },
       {
-       "ti": "Ficar para a noite em Doolin: 18:33 ou 20:10",
-       "b": "Se a sessão de Doolin te tentar como fundo da pinta, o 18:33 → 20:13 e o 20:10 → 21:42 ainda te trazem de volta. Só não esqueça: o 51 para Cork (ou o carro) sai cedo na quinta.",
-       "src": "plano.json 07/10 note + extra_CARRO.json 'Quinta 8'",
-       "t": "18:33"
+       "ti": "Se chover: Cork City Gaol mais cedo + St Fin Barre's",
+       "b": "Tarde coberta: a <b>Cork City Gaol</b> (todo dia 10:00–17:00, última entrada ~16:15, €12) logo depois do mercado, e a <b>St Fin Barre's Cathedral</b> (seg–sáb 09:00–17:00, €8) na volta. A Crawford Art Gallery está fechada para obras até 2028.",
+       "src": "Cork City Gaol (tripadvisor/myirelandtour, pesquisa 04/10) + stfinbarres.ie + crawfordartgallery.ie/redevelopment-main-page (fechada desde 22/09/2024, reabre em 2028)",
+       "t": "14:00"
+      }
+     ]
+    },
+    {
+     "id": "2026-10-05.k7.15-30",
+     "ti": "Cork City Gaol, €12",
+     "kind": "do",
+     "place": "Cork City Gaol",
+     "maps": "Cork City Gaol, Sunday's Well, Cork",
+     "dur": 75,
+     "alts": [
+      {
+       "ti": "Na volta: Franciscan Well, North Mall",
+       "b": "O caminho de volta passa pelo <b>Franciscan Well, 14B North Mall</b> (seg–qui 13:00–23:30): uma pint no brewpub antes do jantar. O tour da cervejaria é só qui–dom às 15:00, e está na quinta.",
+       "src": "franwellbar.com (pesquisa 04/10)",
+       "t": "17:00"
+      }
+     ]
+    },
+    {
+     "id": "2026-10-05.k8.noite",
+     "ti": "An Spailpín Fánach, o pub do Richie",
+     "kind": "do",
+     "place": "An Spailpín Fánach",
+     "maps": "An Spailpín Fánach, 29 South Main Street, Cork",
+     "dur": 120,
+     "alts": [
+      {
+       "ti": "Sin É, 8 Coburg Street",
+       "b": "Pub de 1889, colado numa funerária. Bom se você quiser a noite mais cedo e perto do lado norte; se tiver música no canto, é o fundo.",
+       "src": "thesession.org (sessions 150 e 404) + purecork.ie + pesquisa 04/10",
+       "t": "19:00"
       },
       {
-       "ti": "Noite: Crane Bar, Tigh Cóilí ou Garavan's",
-       "b": "Se o Tigh Neachtain estiver cheio, as outras salas de Galway da viagem: <b>The Crane Bar</b>, Sea Road (andar de baixo, sessão 21:30 sete noites), <b>Tigh Cóilí</b>, Mainguard Street, ou o balcão do <b>Garavan's</b>, 46 William St — a melhor sala para beber sozinho.",
-       "src": "plano.json 06/10 noite + plano.json 02/10 noite + docs/adendo-noite-rotas-cenicas-carro.md 'Galway' + docs/dossie-pesquisa-irlanda-porto.md (Crane Bar andar de baixo)",
+       "ti": "Welcome Inn, 24 Parnell Place",
+       "b": "De 1845, um dos últimos \"early houses\": seg–qui 07:00–23:30. Pub de conversa, sem programa.",
+       "src": "thewelcomeinncork.com (pesquisa 04/10)",
        "t": "21:00"
       }
      ]
     }
-   ],
-   "changes": [
-    "2026-10-07.1.07-00: maps — removido 'Station Road', endereço que não consta em nenhum arquivo; mantido 'ao lado da Ceannt Station' (texto do evento)",
-    "2026-10-07.2.09-00 (alt Caherconnell): removida a frase 'Só faz sentido de carro' (não está na fonte); trocada por 'fica na sua estrada de carro pelo Burren', apoiado no por quê do dia; src passa a citar também plano.json 07/10",
-    "2026-10-07.2.09-00 (alt Ballinasloe Mart): acrescentado que é só plano de chuva e o veto do Richie ('leave the men to it'), como está em extra_ETIQUETTE.json 'Mart de gado'; 'almoço na cantina' corrigido para 'cantina do andar de cima serve por ~€8–12' (texto da fonte); telefone 090 964 2384 de docs/revisao-regioes-v7-bagaceira.md adicionado ao src",
-    "2026-10-07.2.09-00 (alt Burren Loop): src passa a citar também plano.json 07/10 por quê, origem de 'calcário, mar e nenhuma cidade'",
-    "2026-10-07.3.10-48 (alt Burren Smokehouse): removidos 'salmão defumado da casa' e 'a parada de comida do Burren fora dos pubs' (não estão na fonte); a fonte só lista o lugar em 'Produtores que recebem visita' com o 'Taste the Atlantic – Salmon Experience'; src corrigido para essa seção",
-    "2026-10-07.3.10-48 (alt Ballyvaughan/Ennistymon): citação ajustada para o texto exato da tabela ('95% são turistas e os outros 5% são funcionários')",
-    "2026-10-07.4.onde-comer (alt Vaughan's): removido 'a poucos km dos Cliffs' (distância não consta nos arquivos) e 'entre os melhores do país' trocado por 'lista do Irish Times', que é o que a fonte diz; src apontado para a seção 'Fish and chips que valem'",
-    "2026-10-07.5.14-21: maps — removido 'Fisher Street' da parada de ônibus; nos arquivos Fisher St é só o endereço do Gus O'Connor's, nada liga a parada do 350 a essa rua",
-    "2026-10-07.5.14-21 (alt noite em Doolin): src passa a citar extra_CARRO.json 'Quinta 8', origem da menção ao carro para Cork",
-    "2026-10-07.5.14-21 (alt Crane/Cóilí/Garavan's): src completado com plano.json 02/10 (Tigh Cóilí, Mainguard Street) e dossie-pesquisa (Crane Bar 'andar de baixo' — o de cima é sala de concerto paga, que não entra)",
-    "etiquette: de [] para [7, 1] — 'Pubs' (almoço em pub de Doolin, última noite no Tigh Neachtain, rodada e sessão como fundo) e 'Câmera' (nunca filmar sessão de pub)"
    ]
   },
   {
-   "d": "2026-10-08",
-   "daylead": "Carro até Cork, tripe and drisheen no Farmgate, o único jantar caro no Goldie e o Sin É depois. Música é pano de fundo.",
+   "changes": [
+    "dia reescrito em 04/10: Cork de trem 5–8/10, sem carro; ids novos (k*), o plano antigo deste dia saiu inteiro"
+   ],
+   "d": "2026-10-06",
+   "daylead": "O bate-volta que entrega sem carro: 226 até Kinsale, Fishy Fishy ao meio-dia, Scilly Walk até o Charles Fort e a pint da noite no Sin É.",
    "etiquette": [
-    1,
-    6
+    7,
+    5
    ],
    "events": [
     {
-     "id": "2026-10-08.0.manha",
-     "ti": "De carro: Galway → Cork pela M18/M20",
+     "id": "2026-10-06.k0.o-dia",
+     "ti": "Por que Kinsale e não Beara",
+     "kind": "info",
+     "place": "Kinsale",
+     "maps": "Kinsale, Co. Cork",
+     "dur": 0,
+     "alts": []
+    },
+    {
+     "id": "2026-10-06.k1.09-50",
+     "ti": "Ônibus 226 Cork → Kinsale",
      "kind": "do",
-     "place": "Cork",
-     "maps": "Cork city centre, Cork, Ireland",
-     "dur": 165,
+     "place": "Parnell Place Bus Station",
+     "maps": "Parnell Place Bus Station, Cork",
+     "dur": 60,
      "alts": [
       {
-       "ti": "Bus Éireann 51, direto Galway → Cork",
-       "b": "Sem carro (ou sem vontade de dirigir), o <b>Bus Éireann 51</b> vai direto de Galway a Cork em 4h a 4h30. Sai cedo na quinta — era o plano do dia antes do carro.",
-       "src": "days/2026-10-08.json manhã + days/2026-10-07.json note (\"o 51 para Cork sai cedo na quinta\") + extra_CARRO.json (Quinta 8: 2h45 contra 4h30 de ônibus)",
-       "t": ""
+       "ti": "Cobh de trem: Titanic e a catedral",
+       "b": "Trem do Kent a cada 30 min, 24 min, ~€6. <b>Titanic Experience</b> no escritório original da White Star Line (todo dia 10:00–17:30, última entrada 16:30, €13; o bilhete tem o nome de um passageiro real) e a <b>St Colman's</b>, grátis, 08:00–18:00. Pint no Kelly's. ⚠️ <b>Spike Island está fora</b>: desde 5/10 o barco só sai no fim de semana. Bom como plano de chuva.",
+       "src": "Cork Suburban Rail (wikipedia, rome2rio) + titanicexperiencecobh.ie + spikeislandcork.ie/sailing-schedule (snippets)",
+       "t": "10:00"
       },
       {
-       "ti": "Parada de ostra no Moran's, Kilcolgan",
-       "b": "Se quiser quebrar a viagem logo na saída de Galway: <b>Moran's Oyster Cottage, The Weir, Kilcolgan</b> — cottage de colmo de 300 anos, 7ª geração, ostra nativa dos bancos próprios (outubro é o auge, sem multidão). Ter–dom 13:00–21:00, reserva só por telefone +353 91 796113. Conta que a ostra vira o almoço do dia: o Farmgate fecha às 15:30. De ônibus é ruim (o X51 pode não parar e são 1,5–2 km a pé com mala); de carro é sem drama.",
-       "src": "docs/onde-comer-cork-galway.md (A ostra nativa + seção Moran's Oyster Cottage) e docs/adendo-noite-rotas-cenicas-carro.md (parada em Kilcolgan)",
-       "t": "13:00"
+       "ti": "Beara num carro de 1 dia",
+       "b": "O roteiro antigo de sexta: Glengarriff → <b>Castletownbere</b> (Breen's, 027 70031, ou MacCarthy's, 027 70014, ambos abertos ter/qua) → Healy Pass → Kenmare → Cork, ~280 km, saída 08:00. <b>GoCar ~€108</b> no total (€50 + km extra), seguro e combustível incluídos, mas <b>exige PID com a CNH</b> e cadastro aprovado na véspera. Sem PID, Enterprise (Kinsale Road ou aeroporto), resolvendo o seguro no balcão.",
+       "src": "gocar.ie/international-drivers + odo.ie (snippets) + conteudo-completo.json CARRO + enrich.json 09/10 (rota)",
+       "t": "08:00"
+      },
+      {
+       "ti": "Ballycotton: cliff walk, ônibus 240",
+       "b": "Natureza pura: <b>240</b> da Parnell Place 09:00 → porto de Ballycotton 10:12, volta 16:55 → ~18:00. Cliff walk de ~7 km pelos campos acima do mar, vila de pescador real. O barco do farol já deve ter parado. Perde para Kinsale porque não tem a comida.",
+       "src": "bustimes.org 240 + theirishroadtrip.com (snippets)",
+       "t": "09:00"
       }
      ]
     },
     {
-     "id": "2026-10-08.1.13-00",
-     "ti": "English Market e almoço no Farmgate",
+     "id": "2026-10-06.k2.11-00",
+     "ti": "Kinsale a pé: o porto",
      "kind": "do",
-     "place": "English Market",
-     "maps": "English Market, Cork",
-     "dur": 120,
+     "place": "Kinsale",
+     "maps": "Kinsale Harbour, Kinsale, Co. Cork",
+     "dur": 60,
+     "alts": []
+    },
+    {
+     "id": "2026-10-06.k3.onde-comer",
+     "ti": "Almoço: Fishy Fishy, Crowley's Quay",
+     "kind": "do",
+     "place": "Fishy Fishy",
+     "maps": "Fishy Fishy, Crowley's Quay, Kinsale",
+     "dur": 75,
+     "alts": []
+    },
+    {
+     "id": "2026-10-06.k4.13-15",
+     "ti": "Scilly Walk e Charles Fort, €5",
+     "kind": "do",
+     "place": "Charles Fort",
+     "maps": "Charles Fort, Summercove, Kinsale",
+     "dur": 180,
+     "alts": []
+    },
+    {
+     "id": "2026-10-06.k5.16-30",
+     "ti": "Ônibus 226 de volta a Cork",
+     "kind": "do",
+     "place": "Kinsale",
+     "maps": "Kinsale Bus Stop, Pier Road, Kinsale",
+     "dur": 60,
      "alts": [
       {
-       "ti": "Kay's Kitchen, dentro do mercado",
-       "b": "Se o Farmgate estiver cheio ou fechado: <b>Kay's Kitchen</b>, também dentro do English Market, qua–sáb 10:30–17:00 — o <b>Fish Box €15</b> (o Irish Examiner elogiou as batatas). Quinta abre.",
-       "src": "docs/onde-comer-cork-galway.md (English Market — comer dentro; filtro seg/ter/qua)",
-       "t": "13:00"
-      },
-      {
-       "ti": "The Long Valley, doorstep sandwich",
-       "b": "<b>The Long Valley, 10 Winthrop Street</b>, todo dia 10:00–00:30: balcão comprido e o doorstep sandwich de spiced beef (corned beef €4,50). Almoço de balcão honesto.",
-       "src": "extra_EAT.json 08/10 + docs/onde-comer-cork-galway.md (Cork por faixa €) + docs/adendo-noite-rotas-cenicas-carro.md (balcão comprido)",
-       "t": "13:30"
-      },
-      {
-       "ti": "Blackrock Castle Observatory",
-       "b": "Se chover e sobrar tarde depois do mercado: <b>Blackrock Castle Observatory</b>, €11, todos os dias 10:00–20:00 (horário raro na Irlanda) — universidade + observatório + exposição \"Ireland in Space\". Tarde coberta e história.",
-       "src": "docs/dossie-pesquisa-irlanda-porto.md (Blackrock Castle Observatory)",
-       "t": "15:30"
+       "ti": "Rising Sons: tour às 18:00, €15",
+       "b": "Se quiser cerveja com história, volte no ônibus das ~16:00 e faça o tour da <b>Rising Sons</b>, Cornmarket Street (ter 18:00, €15, 2 a 10 pessoas). <b>Reserve</b>: 021 241 4764 ou risingsonscork@gmail.com. O brewpub abre seg–qui 12:00–23:30.",
+       "src": "risingsonsbrewery.com/brewery-tour (pesquisa 04/10)",
+       "t": "18:00"
       }
      ]
     },
     {
-     "id": "2026-10-08.2.19-30",
-     "ti": "Jantar: Goldie — reserve 021 239 8720",
-     "kind": "do",
-     "place": "Goldie",
-     "maps": "Goldie, 128 Oliver Plunkett Street, Cork",
-     "dur": 120,
-     "alts": [
-      {
-       "ti": "Ichigo Ichie Bistro",
-       "b": "Se o Goldie não tiver mesa: <b>Ichigo Ichie Bistro</b> (Miyazaki), Bib Gourmand, qua–sáb — jantar para dois com bebidas ~€116. Ex-kaiseki estrelado que virou bistrô casual; quinta abre.",
-       "src": "docs/onde-comer-cork-galway.md (Cork por faixa €€ + filtro seg/ter/qua)",
-       "t": "19:30"
-      },
-      {
-       "ti": "Elbow Lane — nano-cervejaria e defumadora",
-       "b": "<b>Elbow Lane</b>, 7 dias, faixa €15–35: nano-cervejaria + defumadora, no 100 Best da McKennas'. Cerveja da casa e carne defumada — a opção que sempre está aberta.",
-       "src": "docs/onde-comer-cork-galway.md (Cork por faixa €€)",
-       "t": "19:30"
-      },
-      {
-       "ti": "Miyazaki, 1A Evergreen Street",
-       "b": "<b>Miyazaki</b>, 6 lugares, ter–dom, 100 Best da McKennas' — o melhor custo-benefício de comida séria em Cork. Usa crubeens do mercado em preparações japonesas: pergunte pelo especial do dia. Chegue cedo, são só seis lugares.",
-       "src": "docs/onde-comer-cork-galway.md (Cork por faixa € + crubeens)",
-       "t": "19:00"
-      }
-     ]
-    },
-    {
-     "id": "2026-10-08.3.noite",
-     "ti": "Sin É e o Welcome Inn, sem programa",
+     "id": "2026-10-06.k6.noite",
+     "ti": "Sin É ou Callanan's, a pint da noite",
      "kind": "do",
      "place": "Sin É",
      "maps": "Sin É, 8 Coburg Street, Cork",
      "dur": 150,
      "alts": [
       {
-       "ti": "The Corner House, 7 Coburg Street",
-       "b": "Na mesma rua do Sin É: <b>The Corner House</b> — \"no TVs, no background music, and no food\". Na semana do festival tem sessão grátis às 18:00 e às 21:00. Se o Sin É estiver lotado, é a porta ao lado.",
-       "src": "docs/revisao-regioes-v7-bagaceira.md (programa grátis do Cork Folk Festival) + docs/adendo-noite-rotas-cenicas-carro.md (pub de conversa)",
+       "ti": "An Spailpín Fánach de novo",
+       "b": "Se gostou de ontem: o pub do Richie, 29 South Main Street, de 1779, sem TV. Vá pela pint e pela conversa.",
+       "src": "thesession.org (sessions 150 e 404) + purecork.ie + pesquisa 04/10",
        "t": "21:00"
-      },
-      {
-       "ti": "An Spailpín Fánach, 29 South Main St",
-       "b": "Pub de 1779, sem TV, Beamish da casa; sessão às 21:30 na quinta, grátis. O líder diz que se apresentam a quem chega. Pinta e conversa — a música fica no canto.",
-       "src": "docs/adendo-noite-rotas-cenicas-carro.md (Cork — QUI An Spailpín 21:30; session qui 21h30, Hammy Hammond) + docs/revisao-regioes-v7-bagaceira.md (An Spailpín 21:30 grátis; pub de 1779, sem TV, Beamish da casa)",
-       "t": "21:30"
-      },
-      {
-       "ti": "The Hi-B, 108 Oliver Plunkett St",
-       "b": "Se sair do Goldie sem vontade de música nenhuma: <b>The Hi-B</b>, 1º andar, na mesma rua do restaurante — pub de conversa, <b>celular proibido</b>. Só balcão e gente.",
-       "src": "docs/adendo-noite-rotas-cenicas-carro.md (pub de conversa 40+)",
-       "t": "21:30"
-      }
-     ]
-    },
-    {
-     "id": "2026-10-08.4.onde-comer",
-     "ti": "Comer: Farmgate, Goldie e o Long Valley",
-     "kind": "do",
-     "place": "Farmgate Café",
-     "maps": "Farmgate Café, English Market, Cork",
-     "dur": 60,
-     "alts": [
-      {
-       "ti": "Kay's Kitchen — Fish Box €15",
-       "b": "Dentro do mesmo English Market, qua–sáb 10:30–17:00. Se o Farmgate fechar a cozinha às 15:30 antes de você chegar, é a mesa de almoço que sobra no mercado.",
-       "src": "docs/onde-comer-cork-galway.md (English Market — comer dentro)",
-       "t": "13:30"
-      },
-      {
-       "ti": "Bracken's, Paul Street — toasted special",
-       "b": "O melhor toasted special da cidade segundo o Yay Cork. Está na faixa € (até 15) da lista de Cork — lanche barato.",
-       "src": "docs/onde-comer-cork-galway.md (Cork — outros pratos + Cork por faixa €)",
-       "t": ""
-      },
-      {
-       "ti": "Tony's Bistro, 69 North Main Street",
-       "b": "Full Irish a <b>€9</b>, todo dia 08:30–17:00 — fritada de porção descomunal a preço de banca. Serve para um almoço tardio, não para antes do Goldie (fecha às 17:00).",
-       "src": "docs/onde-comer-cork-galway.md (Cork por faixa €) + docs/adendo-dublin-porto-ultima-noite.md (Tony's Bistro, 69 North Main Street, 08:30–17:00)",
-       "t": ""
       }
      ]
     }
-   ],
-   "changes": [
-    "2026-10-08.1.13-00: maps tinha \"Grand Parade\" — endereço não consta nos arquivos como endereço do English Market (só aparece numa nota do festival, negada); reduzido a \"English Market, Cork\"",
-    "2026-10-08.4.onde-comer: maps tinha \"Princes Street\" — não consta nos arquivos como endereço do Farmgate (a rua só aparece para Nash 19 e Clancy's); reduzido a \"Farmgate Café, English Market, Cork\"",
-    "2026-10-08.0.manha (alt Bus 51): \"é o plano original do dia\" reformulado para \"era o plano do dia antes do carro\" e src ganha extra_CARRO.json, que é a fonte da troca ônibus→carro",
-    "2026-10-08.0.manha (alt Moran's): telefone corrigido para +353 91 796113 como na fonte; acrescentada a ressalva do X51/1,5–2 km a pé (onde-comer §Moran's) e o aviso de que a parada às 13:00 come a janela do Farmgate (fecha 15:30, days/2026-10-08.json)",
-    "2026-10-08.1.13-00 (alt Kay's): \"um dos poucos dias em que abre\" não está na fonte (qua–sáb) — trocado por \"quinta abre\"",
-    "2026-10-08.1.13-00 (alt Long Valley): removido \"a dois quarteirões do mercado\" (distância não consta em nenhum arquivo); \"balcão comprido\" mantido e fonte citada (adendo-noite)",
-    "2026-10-08.2.19-30 (alt Miyazaki): \"é balcão minúsculo\" não está na fonte — trocado por \"são só seis lugares\" (o que a fonte diz)",
-    "2026-10-08.3.noite (alt An Spailpín): \"pub de 1779, sem TV, Beamish da casa\" existe mas em revisao-regioes-v7 linha do Singers' Club, não nas seções citadas — src corrigido para apontar as fontes reais",
-    "2026-10-08.3.noite (alt Hi-B): \"a poucos passos do restaurante\" trocado por \"na mesma rua do restaurante\" (o arquivo só dá os endereços 108 e 128 Oliver Plunkett St, não a distância)",
-    "2026-10-08.4.onde-comer (alt Bracken's): removido \"de balcão a poucos minutos do mercado\" (não consta); \"barato\" ancorado na faixa € da fonte",
-    "2026-10-08.4.onde-comer (alt Tony's): fonte diz todo dia 08:30–17:00 (adendo-dublin-porto), então \"forrar antes do Goldie\" (19:30) era impossível — removido; endereço completo 69 North Main Street e horário adicionados; \"café de bairro, sem modinha\" (inventado) trocado pela descrição da fonte",
-    "etiquette: adicionado índice 6 (Pubs — rodada tem vez, sessão não é show, sem gorjeta no balcão), pertinente à noite de Sin É/Welcome Inn"
    ]
   },
   {
-   "d": "2026-10-09",
-   "daylead": "Dia de carro: Beara, caranguejo em Castletownbere, o Healy Pass e os galgos à noite. Saída às 08:00, sem exceção.",
+   "changes": [
+    "dia reescrito em 04/10: Cork de trem 5–8/10, sem carro; ids novos (k*), o plano antigo deste dia saiu inteiro"
+   ],
+   "d": "2026-10-07",
+   "daylead": "Sinos de Shandon e o Butter Museum, tripe and drisheen no Farmgate, forte e catedral à tarde e o jantar do Goldie, na única noite possível.",
    "etiquette": [
-    5,
-    1,
-    6
+    7,
+    1
    ],
    "events": [
     {
-     "id": "2026-10-09.0.por-que",
-     "ti": "Por que Beara: o Richie e o caranguejo",
-     "kind": "info",
-     "place": "",
-     "maps": "",
-     "dur": 0,
+     "id": "2026-10-07.k0.10-00",
+     "ti": "Shandon: tocar os sinos de St Anne's",
+     "kind": "do",
+     "place": "St Anne's Church, Shandon",
+     "maps": "St Anne's Church Shandon, Church Street, Cork",
+     "dur": 60,
+     "alts": [
+      {
+       "ti": "Nano Nagle Place",
+       "b": "Se a torre lotar: <b>Nano Nagle Place</b>, Douglas Street, ter–sex 10:00–17:00, €8,50 autoguiado (€11 guiado), com jardins e café. História social de Cork.",
+       "src": "nanonagleplace.ie/visitor-info-tours (pesquisa 04/10)",
+       "t": "10:00"
+      }
+     ]
+    },
+    {
+     "id": "2026-10-07.k1.11-15",
+     "ti": "Butter Museum e a demonstração das 12:00",
+     "kind": "do",
+     "place": "Cork Butter Museum",
+     "maps": "Cork Butter Museum, Shandon, Cork",
+     "dur": 75,
      "alts": []
     },
     {
-     "id": "2026-10-09.1.08-00",
-     "ti": "Carro: Cork → Glengarriff → Castletownbere",
+     "id": "2026-10-07.k2.12-45",
+     "ti": "Farmgate: tripe and drisheen",
      "kind": "do",
-     "place": "Castletownbere",
-     "maps": "Castletownbere, The Square, Co. Cork",
-     "dur": 180,
+     "place": "Farmgate Café",
+     "maps": "Farmgate Café, English Market, Cork",
+     "dur": 75,
      "alts": [
       {
-       "ti": "Plano de chuva: ônibus 237 e mart de Skibbereen",
-       "b": "Ônibus <b>237</b> às 09:00 pela N71 até Skibbereen; o mart roda com dois ringues às 11:00. Vá ao escritório primeiro e diga <b>“I'm just here to look, I'm not buying”</b>, sente no fundo da arquibancada e almoce no restaurante do mart (~€8–12; tel. 028 21066). Os galgos à noite continuam iguais.",
-       "src": "days/2026-10-09.json note; extra_BANDS.json marts idx 14; docs/richie-veredito-e-decisoes-12-09.md decisão 09/10; extra_ETIQUETTE.json Mart",
-       "t": "09:00"
+       "ti": "Kay's Kitchen, Fish Box €15",
+       "b": "Se o Farmgate estiver cheio: <b>Kay's Kitchen</b>, o balcão quente do peixeiro K O'Connell dentro do mercado, qua–sáb 10:30–17:00. O <b>Fish Box €15</b> traz haddock empanado, bolinho de peixe, croquete de salmão defumado e batata.",
+       "src": "corkbilly.com (Fish Box) + corkcity.ie (K O'Connell)",
+       "t": "13:00"
       },
       {
-       "ti": "Kinsale pelo ônibus 226 e o Fishy Fishy",
-       "b": "Se o carro falhar de vez: Kinsale pela rota 226, almoço no <b>Fishy Fishy</b> (todos os dias a partir do meio-dia, 100 Best) e Charles Fort. Bate-volta curto que devolve você a Cork a tempo dos galgos.",
-       "src": "docs/onde-comer-cork-galway.md Bate-voltas (Kinsale)",
+       "ti": "Drisheen para levar: A. O'Reilly's",
+       "b": "Se não quiser sentar: a banca da <b>A. O'Reilly's</b>, família desde 1910, vende tripe e drisheen do último fabricante do país. A pesquisa antiga dava ~€2 a porção; não reconfirmado.",
+       "src": "corkcity.ie/en/english-market (horários e bancas), pesquisa 04/10",
        "t": ""
       }
      ]
     },
     {
-     "id": "2026-10-09.2.onde-comer",
-     "ti": "Almoço: Breen's Lobster Bar, caranguejo",
+     "id": "2026-10-07.k3.14-30",
+     "ti": "Elizabeth Fort e St Fin Barre's",
      "kind": "do",
-     "place": "Breen's Lobster Bar",
-     "maps": "Breen's Lobster Bar, The Square, Castletownbere, Co. Cork",
+     "place": "Elizabeth Fort",
+     "maps": "Elizabeth Fort, Barrack Street, Cork",
+     "dur": 120,
+     "alts": [
+      {
+       "ti": "Cork Public Museum, Fitzgerald Park",
+       "b": "Fechado na segunda, abre hoje: <b>Cork Public Museum</b>, grátis, ter–sex 10:00–16:00. A história da cidade, da Idade do Ferro à Guerra de Independência. Do lado oeste, perto do UCC.",
+       "src": "corkcity.ie (Discover Cork Public Museum) + lamn.ie",
+       "t": "14:30"
+      }
+     ]
+    },
+    {
+     "id": "2026-10-07.k4.19-30",
+     "ti": "Jantar no Goldie — reserve já",
+     "kind": "do",
+     "place": "Goldie",
+     "maps": "Goldie, 128 Oliver Plunkett Street, Cork",
+     "dur": 120,
+     "alts": [
+      {
+       "ti": "Elbow Lane, sempre aberto",
+       "b": "Se o Goldie não tiver mesa: <b>Elbow Lane, 4 Oliver Plunkett Street</b>, todo dia 17:00–21:30, nano-cervejaria e defumadora, faixa €15–35. Mesma rua.",
+       "src": "elbowlane.ie + docs/onde-comer-cork-galway.md",
+       "t": "19:30"
+      },
+      {
+       "ti": "Miyazaki, 1A Evergreen Street",
+       "b": "<b>Miyazaki</b>, 6 lugares, ter–dom, na lista dos 100 Best da McKennas'. Comida séria e barata, com crubeens do mercado em preparo japonês. Chegue cedo.",
+       "src": "docs/onde-comer-cork-galway.md",
+       "t": "18:30"
+      }
+     ]
+    },
+    {
+     "id": "2026-10-07.k5.noite",
+     "ti": "Hi-B depois do Goldie",
+     "kind": "do",
+     "place": "The Hi-B",
+     "maps": "Hi-B Bar, 108 Oliver Plunkett Street, Cork",
+     "dur": 90,
+     "alts": [
+      {
+       "ti": "The Corner House, 7 Coburg Street",
+       "b": "Quarta tem sessão às 21:30, e o festival só começa amanhã. Sem TV, sem comida. Vá pela pint.",
+       "src": "thesession.org (sessions 150 e 404) + purecork.ie + pesquisa 04/10 + corkfolkfestival.com/tickets-2026 (snippets)",
+       "t": "21:30"
+      }
+     ]
+    },
+    {
+     "id": "2026-10-07.k6.onde-comer",
+     "ti": "Comer: Farmgate e Goldie",
+     "kind": "do",
+     "place": "English Market",
+     "maps": "English Market, Cork",
+     "dur": 0,
+     "alts": [
+      {
+       "ti": "Café da manhã no Farmgate",
+       "b": "Se quiser trocar o almoço pelo café: o Farmgate serve café da manhã ter–sex 09:00–11:30, sem reserva (só por ordem de chegada).",
+       "src": "farmgatecork.ie/news (segunda só almoço desde 23/02/2026) + farmgate-cafe.tablepath.com",
+       "t": "09:00"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "changes": [
+    "dia reescrito em 04/10: Cork de trem 5–8/10, sem carro; ids novos (k*), o plano antigo deste dia saiu inteiro"
+   ],
+   "d": "2026-10-08",
+   "daylead": "Mala na recepção, Nano Nagle Place, a última volta no mercado (spiced beef de presente), Franciscan Well se quiser e o trem das 17:25 para Dublin.",
+   "etiquette": [
+    7,
+    1
+   ],
+   "events": [
+    {
+     "id": "2026-10-08.k0.cedo",
+     "ti": "Se quiser: early house às 07:00",
+     "kind": "do",
+     "place": "Welcome Inn",
+     "maps": "Welcome Inn, 24 Parnell Place, Cork",
+     "dur": 45,
+     "alts": []
+    },
+    {
+     "id": "2026-10-08.k1.10-00",
+     "ti": "Check-out e Nano Nagle Place",
+     "kind": "do",
+     "place": "Nano Nagle Place",
+     "maps": "Nano Nagle Place, Douglas Street, Cork",
+     "dur": 75,
+     "alts": [
+      {
+       "ti": "Cork Public Museum, grátis",
+       "b": "Se preferir grátis: <b>Cork Public Museum</b>, Fitzgerald Park, grátis, ter–sex 10:00–16:00. ~20 min a pé do centro.",
+       "src": "corkcity.ie + lamn.ie",
+       "t": "10:00"
+      }
+     ]
+    },
+    {
+     "id": "2026-10-08.k2.11-30",
+     "ti": "Spiced beef do Tom Durcan, de presente",
+     "kind": "do",
+     "place": "Tom Durcan Meats",
+     "maps": "Tom Durcan Meats, English Market, Cork",
+     "dur": 45,
+     "alts": [
+      {
+       "ti": "Plano B da picanha: encomendar aqui",
+       "b": "Se tiver medo de não achar a picanha no sábado em Dublin: peça aqui (Tom Durcan, Coughlan's ou O'Mahony) <b>\"picanha\" / \"rump cap\"</b>, com a capa de gordura inteira, <b>embalada a vácuo</b>. Encomende de manhã e <b>retire às ~16:00</b>, a caminho do Kent, com gelo ou gelo reutilizável numa bolsa térmica: são ~4 h até a geladeira de Inchicore.",
+       "src": "docs/churrasco-11-10-e-final-hurling-18-09.md + tomdurcanmeats.ie",
+       "t": "16:00"
+      }
+     ]
+    },
+    {
+     "id": "2026-10-08.k3.onde-comer",
+     "ti": "Comer: Kay's Kitchen e lanche do trem",
+     "kind": "do",
+     "place": "English Market",
+     "maps": "English Market, Cork",
      "dur": 60,
+     "alts": []
+    },
+    {
+     "id": "2026-10-08.k4.15-00",
+     "ti": "Franciscan Well: tour das 15:00",
+     "kind": "do",
+     "place": "Franciscan Well",
+     "maps": "Franciscan Well Brewery, 14B North Mall, Cork",
+     "dur": 75,
      "alts": [
       {
-       "ti": "MacCarthy's Bar, The Square",
-       "b": "Bar que ainda é mercearia, das irmãs MacCarthy, seg–sáb 09:30–23:30 (027 70014). O sanduíche de caranguejo é lenda de guia: confirme no balcão e leve dinheiro. Na mesma praça do Breen's.",
-       "src": "days/2026-10-09.json onde comer; docs/adendo-noite-rotas-cenicas-carro.md Ring of Beara",
-       "t": "12:00"
-      },
-      {
-       "ti": "Lynch's on the Pier — peixe com batata",
-       "b": "O fish and chips do porto, no cais de Castletownbere. Serve se o caranguejo acabou ou se a pressa é chegar ao Healy Pass.",
-       "src": "days/2026-10-09.json onde comer; docs/adendo-noite-rotas-cenicas-carro.md Ring of Beara",
-       "t": "12:00"
+       "ti": "A pint de Cork no Long Valley",
+       "b": "Sem tour: uma <b>Murphy's</b> e uma <b>Beamish</b> no balcão do Long Valley ou do Callanan's. A Murphy's (hoje da Heineken) e a Beamish não têm visita, então a parada histórica é a pint.",
+       "src": "wikipedia Beamish and Crawford + pesquisa 04/10",
+       "t": "15:00"
       }
      ]
     },
     {
-     "id": "2026-10-09.3.13-30",
-     "ti": "Healy Pass, Lauragh, Kenmare e volta a Cork",
+     "id": "2026-10-08.k5.16-30",
+     "ti": "Mala e estação Kent",
      "kind": "do",
-     "place": "Healy Pass",
-     "maps": "Healy Pass, R574, Adrigole, Co. Cork",
-     "dur": 300,
+     "place": "Cork Kent Station",
+     "maps": "Kent Station, Cork",
+     "dur": 40,
+     "alts": []
+    },
+    {
+     "id": "2026-10-08.k6.17-25",
+     "ti": "Trem Cork Kent 17:25 → Heuston ~20:00",
+     "kind": "do",
+     "place": "Cork Kent Station",
+     "maps": "Kent Station, Cork",
+     "dur": 155,
      "alts": [
       {
-       "ti": "Caha Pass (N71): Glengarriff → Kenmare",
-       "b": "Se o Healy Pass estiver fechado ou na névoa: volte a Glengarriff e suba pelo <b>Caha Pass, N71</b> — 27 km, 320 m, túneis abertos à mão em 1842, “a melhor sensação de dirigir por km”. Chega a Kenmare do mesmo jeito e segue pela N22 para Cork.",
-       "src": "docs/adendo-noite-rotas-cenicas-carro.md Ring of Beara + Healy Pass",
-       "t": "13:30"
+       "ti": "O das 16:25, chegando ~19:00",
+       "b": "Mais cedo: sai aos :25 de hora em hora. O <b>16:25</b> chega ~19:00 e dá tempo de jantar no Black Lion (cozinha até 21:00).",
+       "src": "pesquisa 04/10 — rome2rio Heuston↔Cork + irishrail.ie (avisos de obra 3–4/10); horário de agregador, não aberto no irishrail.ie",
+       "t": "16:25"
       },
       {
-       "ti": "Volta direta pelo caminho da ida",
-       "b": "Se o almoço atrasou e os galgos estão em risco: Castletownbere → R572 → Glengarriff → R584 → Macroom → N22 para Cork, o caminho da ida sem a subida. Encurta o dia e evita dirigir no escuro — o plano não recomenda volta noturna para estreante na mão inglesa.",
-       "src": "days/2026-10-09.json 08:00; docs/adendo-noite-rotas-cenicas-carro.md Ring of Beara (aviso saindo de Cork)",
-       "t": "14:00"
+       "ti": "O das 18:25, chegando ~21:00",
+       "b": "Para ficar mais em Cork: o <b>18:25</b> chega ~21:00. Jante no trem ou em Heuston.",
+       "src": "pesquisa 04/10 — rome2rio Heuston↔Cork + irishrail.ie (avisos de obra 3–4/10); horário de agregador, não aberto no irishrail.ie",
+       "t": "18:25"
       }
      ]
     },
     {
-     "id": "2026-10-09.4.18-30",
-     "ti": "Deixar o carro e pegar o 205/208/219",
+     "id": "2026-10-08.k7.20-00",
+     "ti": "Luas até Inchicore",
      "kind": "do",
-     "place": "Curraheen Park",
-     "maps": "Curraheen Park, Bishopstown, Cork",
+     "place": "Tyrconnell Road, Inchicore",
+     "maps": "38 Tyrconnell Road, Inchicore, Dublin",
      "dur": 30,
      "alts": []
     },
     {
-     "id": "2026-10-09.5.19-35",
-     "ti": "Galgos em Curraheen Park, €10",
-     "kind": "do",
-     "place": "Curraheen Park",
-     "maps": "Curraheen Park, Bishopstown, Cork",
-     "dur": 150,
-     "alts": [
-      {
-       "ti": "Sin É, 8 Coburg Street",
-       "b": "Pub sem programa: na semana do Cork Folk Festival a sessão roda no canto das 18:00 à meia-noite, grátis — a das 18:00 é a adulta e tranquila. Se chegou tarde da estrada ou os galgos não rolaram, é aqui.",
-       "src": "days/2026-10-08.json noite; extra_BANDS.json Cork Folk Festival idx 13–14; docs/adendo-noite-rotas-cenicas-carro.md Lee Sessions",
-       "t": "20:00"
-      },
-      {
-       "ti": "An Spailpín Fánach, 29 South Main St",
-       "b": "Pub de 1779, sem TVs, sessão às 21:30 de quinta a sábado: o dono diz que os músicos se apresentam a quem chega. É o pub que o Richie escolheu para as noites de Cork.",
-       "src": "extra_RICHIE.json Noites de Cork; docs/adendo-noite-rotas-cenicas-carro.md pubs de Cork; docs/adendo-dublin-porto-ultima-noite.md An Spailpín (pub de 1779)",
-       "t": "21:30"
-      },
-      {
-       "ti": "Welcome Inn, 24 Parnell Place",
-       "b": "De 1845, o último early house da Irlanda, pub de conversa. Não serve comida — coma antes no <b>Long Valley, 10 Winthrop St</b> (todo dia até 00:30, doorstep sandwich).",
-       "src": "days/2026-10-08.json noite e onde comer; extra_BANDS.json Welcome Inn idx 13; docs/adendo-noite-rotas-cenicas-carro.md pub de conversa",
-       "t": "21:00"
-      }
-     ]
+     "id": "2026-10-08.k8.o-que-fica",
+     "ti": "O Céilí Mór (qui 20:30) fica para trás",
+     "kind": "info",
+     "place": "Douglas GAA Hall",
+     "maps": "Douglas GAA, Douglas West, Cork",
+     "dur": 0,
+     "alts": []
     }
-   ],
-   "changes": [
-    "2026-10-09.1.08-00 (alt mart): reordenada a sequência conforme extra_ETIQUETTE Mart — ir ao escritório e dizer a frase PRIMEIRO, depois sentar no fundo; texto e telefone 028 21066 confirmados em richie-veredito decisão 09/10",
-    "2026-10-09.3.13-30 (alt volta direta): a rota original dizia 'Glengarriff → N71 para Cork' e 'o caminho da ida' — contradição: a ida é R584 → Macroom → N22 (days/2026-10-09.json 08:00). Corrigido para R584/Macroom/N22 e reformulado o aviso do escuro sem atribuir a N71 ao caminho da ida",
-    "2026-10-09.4.18-30: place/maps 'Curraheen Park Greyhound Stadium' não existe nos arquivos; reduzido a 'Curraheen Park, Bishopstown, Cork' (nomes presentes no texto do evento)",
-    "2026-10-09.5.19-35: place/maps unificados com o ev.4 ('Curraheen Park, Bishopstown, Cork'), removido 'Greyhound Stadium' e 'Curraheen' duplicado, que não estão nos arquivos",
-    "2026-10-09.5.19-35 (alt An Spailpín): 'Pub de 1779' não constava nas fontes citadas; acrescentada a fonte docs/adendo-dublin-porto-ultima-noite.md, que confirma",
-    "2026-10-09.5.19-35 (alt Welcome Inn): removido 'e de balcão' (não consta em fonte alguma); 'pub de conversa' mantido e fonte docs/adendo-noite-rotas-cenicas-carro.md acrescentada ao src",
-    "etiquette: acrescentado índice 6 (Pubs) — traz a rodada e o aviso de que corrida de galgo não é papo leve, pertinente à noite em Curraheen"
    ]
   },
   {
-   "d": "2026-10-10",
-   "daylead": "Cedo pela M8 até Dublin; Howth ou Wicklow com a Priscila e o Richie; a carne do churrasco compra-se hoje. Slatt's à noite.",
+   "changes": [
+    "dia reescrito em 04/10: Cork de trem 5–8/10, sem carro; ids novos (k*), o plano antigo deste dia saiu inteiro"
+   ],
+   "d": "2026-10-09",
+   "daylead": "Sem relógio depois de Cork: tentativa na Kilmainham às 09:15, Open Gate à tarde e Shelbourne Park à noite, de preferência com o Richie.",
    "etiquette": [
-    6,
-    5
+    7
    ],
    "events": [
     {
-     "id": "2026-10-10.0.07-30",
-     "ti": "Cork → Dublin de carro pela M8/M7, ~2h45",
+     "id": "2026-10-09.k0.09-15",
+     "ti": "Kilmainham: devoluções 09:15–09:30",
      "kind": "do",
-     "place": "Cork → Dublin pela M8/M7",
-     "maps": "Cork, Ireland",
-     "dur": 165,
+     "place": "Kilmainham Gaol",
+     "maps": "Kilmainham Gaol, Inchicore Road, Dublin",
+     "dur": 15,
+     "alts": []
+    },
+    {
+     "id": "2026-10-09.k1.manha",
+     "ti": "Manhã livre ou Museu de Arqueologia",
+     "kind": "do",
+     "place": "National Museum of Ireland – Archaeology",
+     "maps": "National Museum of Ireland Archaeology, Kildare Street, Dublin",
+     "dur": 120,
      "alts": [
       {
-       "ti": "Trem Cork → Dublin Heuston, 07:00 → 09:28",
-       "b": "Só se o carro falhar: trem da estação Kent às <b>07:00, chegando a Heuston às 09:28</b>, €26,99 online (€47,35 no guichê). Mas sem carro o dia de Wicklow com eles não existe — sobra Howth de DART.",
-       "src": "docs/roteiro-fontes-build.md l.544 e docs/richie-veredito-e-decisoes-12-09.md item 4",
-       "t": "07:00"
-      },
-      {
-       "ti": "Sair às 09:00 e parar em Thurles (se houver final)",
-       "b": "Se a final de hurling cair hoje, a saída vira 09:00: M8 até a saída 6 (Horse and Jockey), N62 até Thurles — 114 km, 81 min, €2,30. Retoma às 17:30 pela saída 5 (Twomileborris), 149 km, 112 min, chegando a Dublin ~19:45. Desvio de +11 min e €0 de pedágio.",
-       "src": "docs/churrasco-11-10-e-final-hurling-18-09.md, tabela de Thurles; extra_DOUBTS.json #16",
-       "t": "09:00"
+       "ti": "Moore Street Market",
+       "b": "O último mercado de rua de Dublin, <b>qua–sáb a partir das 11:00</b>: quitandeiro, balcão africano e asiático, nenhuma barraca de artesanato.",
+       "src": "conteudo-completo.json (30/09)",
+       "t": "11:00"
       }
      ]
     },
     {
-     "id": "2026-10-10.1.o-dia",
-     "ti": "Howth ou Wicklow com a Priscila e o Richie",
+     "id": "2026-10-09.k2.onde-comer",
+     "ti": "Comer: Mannings e o Black Lion",
+     "kind": "do",
+     "place": "Mannings Bakery",
+     "maps": "Mannings Bakery, 39-40 Thomas Street, Dublin",
+     "dur": 45,
+     "alts": [
+      {
+       "ti": "Loaf Café, Kilmainham Square",
+       "b": "Se a manhã for a cadeia: <b>Loaf Café</b>, em frente à Kilmainham Gaol, todo dia 08:00–16:00, simples e barato (01 516 8294).",
+       "src": "plano.json 28/09 onde comer",
+       "t": "09:30"
+      }
+     ]
+    },
+    {
+     "id": "2026-10-09.k3.13-00",
+     "ti": "Guinness Open Gate Brewery",
+     "kind": "do",
+     "place": "Guinness Open Gate Brewery",
+     "maps": "Guinness Open Gate Brewery, 53 James's Street, Dublin",
+     "dur": 150,
+     "alts": [
+      {
+       "ti": "Collins Barracks — Museu Nacional",
+       "b": "Artes Decorativas e História, grátis, sem reserva, parada Museum do Luas. Militar, industrial, social: o museu nacional que mais combina com você.",
+       "src": "plano.json 28/09 13:00",
+       "t": "13:00"
+      }
+     ]
+    },
+    {
+     "id": "2026-10-09.k4.18-30",
+     "ti": "Galgos em Shelbourne Park, €10",
+     "kind": "do",
+     "place": "Shelbourne Park",
+     "maps": "Shelbourne Park Greyhound Stadium, South Lotts Road, Dublin",
+     "dur": 180,
+     "alts": [
+      {
+       "ti": "Sábado também tem corrida",
+       "b": "Se o Richie não puder hoje: Shelbourne corre <b>terça, sexta e sábado</b> (portões 18:30 na terça e na sexta, 18:00 no sábado). Amanhã à noite, depois de Howth, é a segunda chance.",
+       "src": "grireland.ie — Shelbourne Park (ter/sex/sáb desde 03/2026) e Curraheen (só sex/sáb)",
+       "t": "18:30"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "changes": [
+    "dia reescrito em 04/10: Cork de trem 5–8/10, sem carro; ids novos (k*), o plano antigo deste dia saiu inteiro"
+   ],
+   "d": "2026-10-10",
+   "daylead": "Açougue cedo (picanha, capa de gordura inteira), depois Howth de DART com a Priscila e o Richie: penhascos, porto e Beshoff Bros.",
+   "etiquette": [
+    7
+   ],
+   "events": [
+    {
+     "id": "2026-10-10.k0.09-30",
+     "ti": "Comprar a picanha (rump cap) e a cerveja",
+     "kind": "do",
+     "place": "",
+     "maps": "",
+     "dur": 60,
+     "alts": [
+      {
+       "ti": "Sem carne: leve o presente",
+       "b": "Se ficar sem picanha, o churrasco é deles e o seu papel vira o presente: cerveja para a casa e o sal grosso ou a cachaça. Supermercado não tem o corte, não insista.",
+       "src": "enrich.json 11/10 (a picanha)",
+       "t": ""
+      }
+     ]
+    },
+    {
+     "id": "2026-10-10.k1.11-30",
+     "ti": "Luas + DART até Howth",
+     "kind": "do",
+     "place": "Howth Station",
+     "maps": "Howth DART Station, Howth",
+     "dur": 60,
+     "alts": []
+    },
+    {
+     "id": "2026-10-10.k2.o-dia",
+     "ti": "Howth com a Priscila e o Richie",
      "kind": "do",
      "place": "Howth Cliff Path Loop",
      "maps": "Howth Cliff Path Loop, Howth, Dublin",
      "dur": 240,
      "alts": [
       {
-       "ti": "Loop do Bray Head (1h–1h30)",
-       "b": "Se Howth lotar ou o tempo apertar: <b>Bray Head Loop / Bray Head Cross</b>, 1h ida e volta ou ~1h30 no loop. É o substituto oficial da Bray–Greystones, fechada até 2029. O calçadão de Bray é kitsch; suba direto.",
-       "src": "docs/dossie-pesquisa-irlanda-porto.md §5 (Bray–Greystones fechada; substituto) e o próprio dia 10/10",
-       "t": ""
-      },
-      {
-       "ti": "Glendalough — Rota Branca (Spinc), 9,5 km",
-       "b": "Com o carro, Wicklow pode virar <b>Glendalough</b>: cidade monástica grátis e a <b>Rota Branca (Spinc & Glenealo, 9,5 km, 3h30)</b>, boardwalk sobre o Upper Lake — em 40 min de subida você deixa 90% da multidão. Estacionamento: Upper Lake €5, Visitor Centre €4, <b>Laragh grátis</b> (3 km a pé). Chegue antes das 9h ou aceite Laragh.",
-       "src": "docs/dossie-pesquisa-irlanda-porto.md §5 (Wicklow) e tabela de trilhas",
-       "t": ""
-      },
-      {
-       "ti": "Chuva: Wicklow Wolf Taproom, Newtownmountkennedy",
-       "b": "Se chover feio, a alternativa de cerveja no quintal deles: <b>Wicklow Wolf Taproom</b>, em Newtownmountkennedy, sábado 08:00–19:00, tour €20 no sábado à tarde (reservar), pizza qui–dom.",
-       "src": "docs/dossie-pesquisa-irlanda-porto.md §5 (Wicklow) e §cervejarias",
+       "ti": "Bray Head Loop, também de DART",
+       "b": "Se eles preferirem o sul: <b>DART até Bray</b> e o <b>Bray Head Loop</b>, 1 h a 1h30. A trilha de Bray a Greystones continua fechada; suba direto, o calçadão é kitsch.",
+       "src": "enrich.json 10/10 (Bray Head) + dossiê §5",
        "t": ""
       }
      ]
     },
     {
-     "id": "2026-10-10.2.se-a-final-cair-hoje",
-     "ti": "Se a final for hoje: Thurles na estrada",
-     "kind": "info",
-     "place": "Semple Stadium, Thurles",
-     "maps": "Semple Stadium, Thurles, Co. Tipperary",
-     "dur": 0,
-     "alts": []
-    },
-    {
-     "id": "2026-10-10.3.onde-comer",
-     "ti": "Almoço: Beshoff Bros ou Bloody Stream, Howth",
+     "id": "2026-10-10.k3.onde-comer",
+     "ti": "Almoço: Beshoff Bros ou Bloody Stream",
      "kind": "do",
      "place": "Beshoff Bros, Howth",
      "maps": "Beshoff Bros, Harbour Road, Howth, Dublin",
      "dur": 60,
      "alts": [
       {
-       "ti": "Octopussy's, Howth — sentado, peixe dos Doran",
-       "b": "Se o Beshoff estiver com fila ou você quiser sentar: <b>Octopussy's</b>, no porto de Howth, abastecido pela família Doran. Regra anti-armadilha: evite cardápio plastificado com foto na porta.",
-       "src": "docs/dossie-pesquisa-irlanda-porto.md §5 (Howth: comer)",
-       "t": ""
-      },
-      {
-       "ti": "Mercado de Howth (sáb 9–18h)",
-       "b": "O <b>mercado de Howth</b> roda sábado e domingo das 9 às 18h — comida de barraca para comer andando antes ou depois da trilha, e as focas de graça no West Pier.",
-       "src": "docs/dossie-pesquisa-irlanda-porto.md §5 (Howth) e o próprio dia 10/10",
-       "t": ""
-      },
-      {
-       "ti": "Se for Bray/Wicklow: Killruddery farm shop e café",
-       "b": "No lado de Wicklow, quem escolhe são eles; se pedirem sugestão: <b>Killruddery House & Gardens</b> (Bray) — fazenda em operação, jardins do século XVII, farm shop e café todos os dias 9–17h.",
-       "src": "docs/dossie-pesquisa-irlanda-porto.md §5 (Bray)",
+       "ti": "Mercado de Howth, sáb 9–18h",
+       "b": "Comida de barraca para comer andando antes ou depois da trilha, e as focas de graça no West Pier.",
+       "src": "enrich.json 10/10 + dossiê §5",
        "t": ""
       }
      ]
     },
     {
-     "id": "2026-10-10.4.noite",
-     "ti": "Cama em Inchicore e a última no Slatt's",
+     "id": "2026-10-10.k4.noite",
+     "ti": "Slatt's, ou os galgos se ontem falhou",
      "kind": "do",
      "place": "Slatt's, Inchicore",
      "maps": "Slatt's, 126A Tyrconnell Park, Inchicore, Dublin",
@@ -2447,35 +2277,33 @@
      "alts": [
       {
        "ti": "Old Royal Oak, 11 Kilmainham Lane",
-       "b": "Se o Slatt's estiver fechado ou lotado: <b>Old Royal Oak, 11 Kilmainham Lane</b> — uma sala só, snug de verdade com passa-copos, aquecedor a gás dos anos 70, na mesma família desde 1837. Praticamente só bebida.",
-       "src": "days/2026-09-26.json noite; days/2026-10-11.json note; docs/adendo-dublin-porto-ultima-noite.md tabela Inchicore",
+       "b": "Uma sala só, snug de verdade com passa-copos, na mesma família desde 1837. Praticamente só bebida.",
+       "src": "enrich.json 10/10",
        "t": ""
       },
       {
        "ti": "Black Lion, 207A Emmet Road",
-       "b": "O pub mais antigo de Inchicore, documentado desde 1734. Atenção: cozinha só seg–sex 15:00–21:00 — no sábado é pint, não jantar.",
-       "src": "days/2026-09-25.json onde comer; docs/adendo-dublin-porto-ultima-noite.md tabela Inchicore",
-       "t": ""
-      },
-      {
-       "ti": "Confirme as noites avulsas de Tyrconnell Road",
-       "b": "Quem te hospeda precisa confirmar as <b>três noites avulsas: 10, 11 e 14/10</b> — o fim de semana com eles depende disso. O plano só tem substituto escrito para a noite de 14/10: <b>albergue no centro (~€22, cancelamento grátis)</b>. Os ônibus G1/G2 param em Inchicore Village e rodam 24h, se a noite acabar longe.",
-       "src": "extra_CONFIRMADO.json 'Base em Dublin'; docs/adendo-dublin-porto-ultima-noite.md (ação crítica da cama, noite de 14/10)",
+       "b": "O pub mais antigo de Inchicore (1734). Sábado a cozinha serve das 12:00 às 21:00 (dois pratos por €17), então ainda dá jantar se voltar de Howth antes das 20:30.",
+       "src": "enrich.json 10/10",
        "t": ""
       }
      ]
+    },
+    {
+     "id": "2026-10-10.k5.se-a-final-cair-hoje",
+     "ti": "Se a final for hoje: Thurles de trem",
+     "kind": "info",
+     "place": "Semple Stadium, Thurles",
+     "maps": "Semple Stadium, Thurles, Co. Tipperary",
+     "dur": 0,
+     "alts": []
     }
-   ],
-   "changes": [
-    "2026-10-10.0.07-30: alt 'Trem' — removido 'ou você preferir não dirigir depois de Beara' (o carro alugado fica com ele até 12/10 e o trem de sábado saiu do plano, per extra_CONFIRMADO.json; não reabrir decisão) e removida a frase 'Inchicore é a parada seguinte de Heuston' (a fonte l.662 fala do Luas/782, não do trem).",
-    "2026-10-10.1.o-dia: maps — removido 'Howth DART Station', que não aparece no texto do evento.",
-    "2026-10-10.1.o-dia: alt 'Wicklow Wolf' — removido 'Fica na N11, a caminho de Bray/Wicklow' (N11 não existe em nenhum arquivo); mantido só o que o dossiê §5 diz.",
-    "2026-10-10.4.noite: alt 'Black Lion' — removido 'na mesma caminhada' (não está na fonte) e o emoji ⚠️.",
-    "2026-10-10.4.noite: alt 'albergue' — a fonte (adendo l.85) trata da noite de 14/10, não de 10/10; reescrita para o que extra_CONFIRMADO.json diz (confirmar as três noites 10, 11 e 14/10; substituto escrito só para 14/10) e título encurtado para ≤50 caracteres (o anterior tinha 53).",
-    "etiquette: adicionado o índice 5 (Jogo do GAA), pertinente ao evento condicional da final em Thurles."
    ]
   },
   {
+   "changes": [
+    "04/10: textos sem carro — \"confirmar\" (sem a parada na estrada Cork–Dublin), \"a picanha\" e \"onde comer\" (sem geladeira de isopor no carro e sem o Hayes Hotel de sábado); alt da picanha reescrita para o plano B de Cork no trem"
+   ],
    "d": "2026-10-11",
    "daylead": "Último dia irlandês inteiro: churrasco no quintal dos pais do Richie. Sem dirigir, sem trem, sem horário. Só a carne e a cerveja.",
    "etiquette": [
@@ -2537,9 +2365,9 @@
      "dur": 30,
      "alts": [
       {
-       "ti": "Encomendar na quinta no English Market",
-       "b": "Se o açougue de Dublin não rolar no sábado de manhã, encomende na quinta 8 no <b>English Market de Cork</b> (seg–sáb 08:00–18:00): Tom Durcan, Coughlan's ou O'Mahony cortam a peça com a capa de gordura inteira. Volta na geladeira de isopor, já que está de carro.",
-       "src": "days/2026-10-08.json (English Market seg–sáb 08:00–18:00); days/2026-10-11.json evento 'a picanha'; docs/churrasco-11-10-e-final-hurling-18-09.md",
+       "ti": "Plano B: encomendada em Cork na quinta",
+       "b": "Se você já trouxe de Cork: a peça encomendada na quinta 8 no <b>English Market</b> (Tom Durcan, Coughlan's ou O'Mahony), embalada a vácuo, retirada às ~16:00 e levada no trem com gelo, só precisa ter dormido na geladeira de Tyrconnell Road.",
+       "src": "plano novo 08/10 (alt do Tom Durcan); docs/churrasco-11-10-e-final-hurling-18-09.md",
        "t": ""
       },
       {
@@ -2621,17 +2449,14 @@
       }
      ]
     }
-   ],
-   "changes": [
-    "daylead: 'Sem carro' trocado por 'Sem dirigir' — o evento diz 'Sem dirigir, sem trem, sem horário' e o carro alugado só é devolvido na segunda 12/10",
-    "etiquette: adicionado o cartão 7 (Pubs) — a nota do dia e a alternativa da noite mandam ao Old Royal Oak / Slatt's",
-    "2026-10-11.8.onde-comer (alt Patriot's Inn): removido 'em frente à Kilmainham Gaol e a pé de Inchicore' — nenhuma fonte diz isso (é o Loaf Café que fica em frente à Gaol); as fontes dizem 'ao lado do Royal Hospital', texto corrigido e days/2026-09-28.json acrescentado ao src",
-    "2026-10-11.8.onde-comer (alt Old Royal Oak): src completado com days/2026-09-25.json — o endereço do Slatt's (126A Tyrconnell Park, 150 m) não está nas fontes que estavam citadas"
    ]
   },
   {
+   "changes": [
+    "04/10: sem carro. 12.12.15-30 (devolução no Eastlands) substituído por 12.k0.15-45 (Luas + Dublin Express 782); 12.10 e alts ajustados (\"pegar a mala\" no lugar de \"pegar o carro\" / \"antes de dirigir\")"
+   ],
    "d": "2026-10-12",
-   "daylead": "Manhã de sobra em Inchicore, carro devolvido às 15:30 no aeroporto e o Porto às 22:00. Jante tarde: Cufra ou Capa Negra II.",
+   "daylead": "Manhã de sobra em Inchicore, Luas + 782 para o aeroporto às 15:45 e o Porto às 22:00. Jante tarde: Cufra ou Capa Negra II.",
    "etiquette": [],
    "events": [
     {
@@ -2644,19 +2469,19 @@
      "alts": [
       {
        "ti": "Jardins do Memorial de Guerra, Islandbridge",
-       "b": "Jardins de Lutyens, grátis, abrem <b>08:00 de segunda a sexta</b>, ~22 min a pé de Tyrconnell Road. Serve para a manhã inteira se o Open Gate já foi feito em 28/09 ou se ele não quiser cerveja antes de dirigir.",
+       "b": "Jardins de Lutyens, grátis, abrem <b>08:00 de segunda a sexta</b>, ~22 min a pé de Tyrconnell Road. Serve para a manhã inteira se o Open Gate já foi feito em 28/09.",
        "src": "plano.json 28/09 08:00 · docs/adendo-dublin-porto-ultima-noite.md §2 (terça 29/09)",
        "t": "08:00"
       },
       {
        "ti": "Tour grátis do Royal Hospital + Bully's Acre",
-       "b": "Guia no local <b>todo dia às 11:00</b> (também 13:00 e 15:00), sem reserva, só os terrenos — o IMMA fecha às segundas. Emenda com o cemitério de Bully's Acre, entrada pela avenida oeste. A ~10 min da cama.",
+       "b": "Guia no local <b>todo dia às 11:00</b> (também 13:00 e 15:00), grátis, mas <b>reserve</b> em heritageireland.ie (vagas limitadas); só os terrenos, porque o Great Hall e a capela estão fechados até o fim de 2026, e o IMMA fecha às segundas. Emenda com o cemitério de Bully's Acre, entrada pela avenida oeste. A ~10 min da cama.",
        "src": "plano.json 28/09 11:00 · docs/adendo-dublin-porto-ultima-noite.md §2 plano C · docs/dossie-pesquisa-irlanda-porto.md §3 (~10 min)",
        "t": "11:00"
       },
       {
        "ti": "Collins Barracks — Museu Nacional",
-       "b": "Artes Decorativas e História, grátis, sem reserva, <b>segunda 13:00–17:00</b>, parada Museum do Luas. Cabe das 13:00 às 14:30 e ainda sobra hora para voltar e pegar o carro.",
+       "b": "Artes Decorativas e História, grátis, sem reserva, <b>segunda 13:00–17:00</b>, parada Museum do Luas. Cabe das 13:00 às 14:30 e ainda sobra hora para voltar e pegar a mala.",
        "src": "plano.json 28/09 13:00 · docs/dossie-pesquisa-irlanda-porto.md §4",
        "t": "13:00"
       }
@@ -2684,30 +2509,36 @@
       },
       {
        "ti": "Prato sentado: The Patriot's Inn",
-       "b": "760 South Circular Road, ao lado do Royal Hospital, cozinha <b>12:00–21:30</b>. Almoço de verdade antes de pegar a estrada — mas o coddle não estava no cardápio lido; ligue 01 679 9595 se for por ele.",
+       "b": "760 South Circular Road, ao lado do Royal Hospital, cozinha <b>12:00–21:30</b>. Almoço de verdade antes do aeroporto. O coddle não estava no cardápio lido; ligue 01 679 9595 se for por ele.",
        "src": "plano.json 28/09 onde comer · extra_DOUBTS.json (Coddle no Patriot's Inn)",
        "t": "12:30"
       }
      ]
     },
     {
-     "id": "2026-10-12.12.15-30",
-     "ti": "Devolver o carro — Eastlands, aeroporto",
+     "id": "2026-10-12.k0.15-45",
+     "ti": "Luas + Dublin Express 782 até o T1",
      "kind": "do",
-     "place": "Eastlands Car Hire Facility, Dublin Airport",
-     "maps": "Eastlands Car Hire Facility, Dublin Airport",
+     "place": "Heuston Station (Dublin Express 782)",
+     "maps": "Heuston Station, Dublin",
      "dur": 75,
      "alts": [
       {
-       "ti": "Sem carro: Luas + Dublin Express 782",
-       "b": "Se o carro já não estiver com você (devolução antecipada ou problema), é Luas vermelha de Goldenbridge até Heuston e o <b>Dublin Express 782, Heuston → Terminal 1, €10</b>, mais barato no app. É a mesma rota da última manhã.",
-       "src": "plano.json 12/10 15:30 (rodapé) · plano.json 15/10 05:35 · docs/adendo-dublin-porto-ultima-noite.md §3",
-       "t": "15:00"
+       "ti": "Aircoach 700 da O'Connell Street",
+       "b": "Luas vermelha até Abbey Street e o <b>Aircoach 700</b> da O'Connell Street, 24 h, a cada ~15 min (não aceita Leap). Bom se o 782 atrasar.",
+       "src": "aircoach.ie/dublin (snippet, pesquisa 04/10)",
+       "t": "15:45"
+      },
+      {
+       "ti": "Ônibus 16 com o Leap (lento)",
+       "b": "Dublin Bus <b>16</b> da O'Connell Street / College Green até o aeroporto, a cada 10–15 min, €2 no Leap, mas cheio de paradas. Saia mais cedo.",
+       "src": "dublinairport.com (by bus) + bustimes.org 16 (snippets)",
+       "t": "15:15"
       },
       {
        "ti": "Táxi porta a porta ao T1",
-       "b": "FreeNow ou táxi de Tyrconnell Road direto ao Terminal 1, ~13 km. O adendo cota <b>€40–50 na tarifa noturna</b> (20:00–08:00: €5,40 de bandeirada + €1,81/km + €3 de reserva); o valor de dia não está nos arquivos.",
-       "src": "docs/adendo-dublin-porto-ultima-noite.md §3 alternativas",
+       "b": "FreeNow ou táxi de Tyrconnell Road direto ao Terminal 1, ~13 km. O preço de dia não está nos arquivos; peça a estimativa no app.",
+       "src": "enrich.json 12/10 (alt táxi)",
        "t": ""
       }
      ]
@@ -2774,15 +2605,6 @@
      "dur": 0,
      "alts": []
     }
-   ],
-   "changes": [
-    "2026-10-12.10.manha: maps — removido \"Dublin 8\" (o distrito postal não consta junto ao endereço de James's Street nos arquivos; ficou \"Dublin\")",
-    "2026-10-12.10.manha (alt Royal Hospital): \"10 min a pé da cama\" só se sustenta pelo dossiê §3 (IMMA/Royal Hospital ~10 min do endereço); fonte acrescentada ao src e texto ajustado para \"~10 min\"",
-    "2026-10-12.11.onde-comer: maps — removido \"Dublin 8\" pelo mesmo motivo",
-    "2026-10-12.11.onde-comer (alt Loaf Café): \"A 5 minutos da cama\" era falso — os 5 min da fonte (26/09) são do Richmond Barracks; corrigido para ~12 min a pé, distância da Kilmainham Gaol no dossiê §3, com a fonte no src",
-    "2026-10-12.12.15-30 (alt Táxi): removida a inferência \"de dia a bandeirada é menor\" (não está nos arquivos); substituída pela composição da tarifa noturna que o adendo §3 realmente publica (20:00–08:00, €5,40 + €1,81/km + €3 de reserva)",
-    "2026-10-12.0.22-00: place/maps — \"Aeroporto Francisco Sá Carneiro\" não aparece em nenhum arquivo; trocado por \"Aeroporto do Porto\" (Estação de Metro Aeroporto)",
-    "2026-10-12.1.onde-comer (alt Gazela): removido \"no centro\" — o dossiê §15 cita só o nome e os cachorrinhos em pé, sem bairro nem endereço; texto passa a dizer que nem endereço nem horário constam"
    ]
   },
   {
