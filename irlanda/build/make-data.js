@@ -121,24 +121,7 @@ const links = [
 ];
 
 /* ---------- lembretes com hora (handoff §11 e §13) ---------- */
-const reminders = [
-  { id: 'r-balsa', d: '2026-09-28', t: '10:00', ti: 'Ligar para a balsa de Inishbofin', b: 'Reservar a saída de seg 5/10 às 11:30 e a volta de ter 6/10 às 09:00 (não estão online). 095 37228, seg–sex 10:00–18:00.', tel: '095 37228', dur: 20 },
-  { id: 'r-kil', d: '2026-09-26', t: '09:10', ti: 'Kilmainham Gaol: devoluções 09:15–09:30', b: 'Janela de ~8 minutos em kilmainhamgaol.admit-one.eu. Vale tentar em toda manhã de Dublin até 01/10.', url: 'https://kilmainhamgaol.admit-one.eu', dur: 20, repeatUntil: '2026-10-01' },
-  { id: 'r-hurl', d: '2026-09-30', t: '09:00', ti: 'Final de hurling: sábado 10 ou nada', b: 'Conferir em tipperary.gaa.ie a data da final sênior. Sábado 10 → Thurles vira parada na M8 (+11 min). Domingo 11 → cai, o churrasco fica.', url: 'https://tipperary.gaa.ie', dur: 10 },
-  { id: 'r-camas', d: '2026-09-26', t: '12:00', ti: 'Camas: Galway (2–4 e 6–7), Inishbofin (5), Cork (8–9)', b: 'Semana da feira esvazia a região. Athlone é o plano B de Galway. Cork: perto de South Main St / Coburg St, com estacionamento.', dur: 30 },
-  { id: 'r-inch', d: '2026-09-27', t: '19:00', ti: 'Confirmar com a Priscila as noites 10, 11 e 14/10', b: 'As três noites avulsas em Inchicore ainda precisam de confirmação.', dur: 5 },
-  { id: 'r-carro', d: '2026-09-28', t: '18:00', ti: 'Reservar o carro (pagamento na retirada, cancelamento grátis)', b: 'Sex 2/10 ~09:00 Dublin → seg 12/10 ~15:30 Dublin Airport. Manual compacto, ~1.500 km. Comparar Hertz (sem carta), Sixt, Enterprise, carhire.ie.', dur: 30 },
-  { id: 'r-hen', d: '2026-09-29', t: '18:00', ti: 'Reservar 14 Henrietta Street, qua 30/09 10:00', b: '€12, 14henriettastreet.ticketsolve.com ou 01 524 0383. Ou chegar 09:50 e arriscar.', url: 'https://14henriettastreet.ticketsolve.com', dur: 5 },
-  { id: 'r-mala', d: '2026-10-01', t: '20:00', ti: 'Mala pronta: amanhã 09:00 sai para Galway', b: 'Retirada do carro ~09:00 com a Priscila e o Richie.', dur: 30 },
-  { id: 'r-goldie', d: '2026-10-05', t: '12:00', ti: 'Reservar o Goldie para qui 8/10 19:30', b: '021 239 8720. 28 lugares na semana do Folk Festival.', tel: '021 239 8720', dur: 5 },
-  { id: 'r-cliffs', d: '2026-10-06', t: '20:00', ti: 'Comprar o ingresso dos Cliffs para amanhã antes das 11:00 (€8)', b: 'bookings.cliffsofmoher.ie — horário da manhã 08–11.', url: 'https://bookings.cliffsofmoher.ie', dur: 5 },
-  { id: 'r-carne', d: '2026-10-10', t: '10:30', ti: 'Comprar a carne do churrasco HOJE', b: 'Domingo fecha tudo. Picanha / "rump cap" / "top sirloin cap", capa de gordura inteira. Cerveja para a casa.', dur: 40 },
-  { id: 'r-ck1', d: '2026-10-11', t: '20:00', ti: 'Check-in Ryanair FR7072 (amanhã 19:35)', b: 'Fazer no app da Ryanair. Reserva D2T4SZ. Check-in no balcão custa €55.', dur: 10 },
-  { id: 'r-dev', d: '2026-10-12', t: '14:30', ti: 'Sair para devolver o carro (15:30, Eastlands, aeroporto)', b: 'Tanque cheio. M50 €3,80. Shuttle grátis até o T1. Portão da Ryanair fecha 19:05.', dur: 60 },
-  { id: 'r-ck2', d: '2026-10-13', t: '18:30', ti: 'Check-in Ryanair FR7079 (amanhã 17:55)', b: 'Reserva D2T4SZ.', dur: 10 },
-  { id: 'r-782', d: '2026-10-14', t: '22:00', ti: 'Conferir o horário do 782 de amanhã e pôr o despertador 04:30', b: 'Dublin Express 782 Heuston 05:35 → T1 06:21 (€10, app). Check-in AF fecha 08:35. Sair a pé 04:50.', url: 'https://www.dublinexpress.ie', dur: 10 },
-  { id: 'r-ckaf', d: '2026-10-14', t: '09:15', ti: 'Check-in Air France AF1617 (amanhã 09:15)', b: 'Reserva Y4WCIU. Abre 24h antes; fecha 08:35 do dia 15.', dur: 10 },
-];
+const reminders = read('lembretes.json');
 
 /* ---------- texto do plano para o Claude (compacto) ---------- */
 const WDN = { SEX: 'sex', SÁB: 'sáb', DOM: 'dom', SEG: 'seg', TER: 'ter', QUA: 'qua', QUI: 'qui' };
@@ -164,6 +147,7 @@ const secs = handoff.split(/^## /m);
 const keep = new Set(['1.', '3.', '4.', '5.', '6.', '9.', '10.']);
 const brief = secs.filter((s) => keep.has(s.slice(0, 3)) || keep.has(s.slice(0, 2))).map((s) => '## ' + s.trim()).join('\n\n')
   .replace(/\n{3,}/g, '\n\n');
+const mudancas = fs.existsSync(path.join(SRC, 'mudancas.md')) ? fs.readFileSync(path.join(SRC, 'mudancas.md'), 'utf8').trim() : '';
 const dontText = (/Não faça:.*$/m.exec(handoff) || [''])[0];
 
 const out = {
@@ -182,7 +166,7 @@ const out = {
   eat: full.EAT,
   phones, links, reminders,
   claude: {
-    brief: brief + '\n\n' + dontText,
+    brief: (mudancas ? mudancas + '\n\n' : '') + brief + '\n\n' + dontText,
     plan: planText,
     doubts: doubtsText,
     etiquette: etqText,
