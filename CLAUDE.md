@@ -90,6 +90,9 @@ GitHub Pages (branch main, /root). Publicar = GitHub → repo → Add file → U
 - Estimativa de EC da receita é por coeficiente (aproximada) — a calibração corrige na prática.
 - Possível: ícone/manifest PWA, gráfico de histórico de EC/pH por vaso, multi-idioma.
 
+## App irmão: `irlanda/` (roteiro de viagem)
+Na pasta `irlanda/` mora um segundo app, independente do cultivo: o roteiro dos 21 dias na Irlanda e no Porto (25/09–15/10/2026) como PWA de tema escuro, com o Claude embutido (chave da API guardada só no aparelho). URL: https://lucascabralcd.github.io/cultivo/irlanda/ . Leia `irlanda/README.md` (instalação, arquivos, como atualizar) e `irlanda/src/handoff.md` (o contexto inteiro da viagem: regras do Lucas, decisões tomadas, telefones). Regra de ouro ao mexer nos dados: os `ev[].id` de `src/plano.json` são a chave do estado salvo no celular — não renumere. Para publicar: subir `VERSION`, rodar `node irlanda/build/make-data.js`, commitar `data.js` + `sw.js`.
+
 ## Como continuar no Claude Code
 1. Clonar o repo: `git clone https://github.com/lucascabralCD/cultivo`
 2. Colocar este `CLAUDE.md` na raiz (se ainda não estiver) e commitar.
