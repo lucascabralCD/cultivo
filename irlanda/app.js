@@ -858,6 +858,7 @@
         else if (r.stopReason === 'max_tokens') a.tail = t('tail_max');
         else if (r.stopReason === 'pause_turn') a.tail = t('tail_pause');
         else if (!r.complete) a.tail = t('tail_cut');
+        if (r.noSearch) { a.search = false; a.tail = [t('tail_nosearch', { why: String(r.noSearch).slice(0, 140) }), a.tail].filter(Boolean).join(' '); }
       }
     } catch (err) {
       const f = SAMPLE ? ClaudeAPI.sampleFriendly(err) : ClaudeAPI.friendly(err);

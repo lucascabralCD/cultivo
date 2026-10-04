@@ -35,11 +35,12 @@
       messages: opts.messages,
     };
     if (m.effort && opts.effort) body.output_config = { effort: opts.effort };
-    if (opts.search) {
-      body.tools = [{
-        type: m.search, name: 'web_search', max_uses: opts.maxSearches || 3,
-        user_location: { type: 'approximate', city: opts.city || 'Dublin', country: opts.country || 'IE', timezone: 'Europe/Dublin' },
-      }];
+    if (opts.search && variant.search !== false) {
+      const tool = { type: m.search, name: 'web_search', max_uses: opts.maxSearches || 3 };
+      // Sem "country": a API recusa códigos de país que não suporta (IE dá 400). Cidade + fuso já localizam a busca.
+      if (variant.loc !== false) tool.user_location = { type: 'approximate', city: 'Dublin', timezone: 'Europe/Dublin' };
+      if (variant.direct) tool.allowed_callers = ['direct'];
+      body.tools = [tool];
     }
     const betas = [];
     if (m.fallbacks && variant.fallbacks) { body.fallbacks = 'default'; betas.push('server-side-fallback-2026-07-01'); }
@@ -117,30 +118,40 @@
   /* opts: {key, model, effort, search, system:[blocks], messages:[...], signal, onEvent} */
   async function send(opts) {
     if (!opts.key) { const e = new Error('Sem chave da API.'); e.status = 401; throw e; }
-    let variant = { fallbacks: true };
-    for (let attempt = 0; attempt < 3; attempt++) {
+    // variant: o que mandar nesta tentativa. Cada recusa 400 conhecida desliga uma coisa e tenta de novo,
+    // então são no máximo 4 rebaixamentos + as novas tentativas por falha de rede/servidor.
+    const variant = { fallbacks: true, search: true, loc: true, direct: false };
+    let transient = 0, limited = 0, noSearch = null;
+    for (let attempt = 0; attempt < 9; attempt++) {
       const { body, betas } = buildBody(opts, variant);
       let res;
       try {
         res = await fetch(API, { method: 'POST', headers: headers(opts.key, betas), body: JSON.stringify(body), signal: opts.signal });
       } catch (err) {
         if (err.name === 'AbortError') throw err;
-        if (attempt < 2) { await wait(1200 * (attempt + 1)); continue; }
+        if (transient < 2) { transient++; await wait(1200 * transient); continue; }
         throw err;
       }
       if (res.ok) {
-        // erro dentro do stream (ex.: overloaded) antes de qualquer texto: tenta de novo uma vez
+        // erro dentro do stream (ex.: overloaded) antes de qualquer texto: tenta de novo
         let gotText = false;
         const onEvent = (ev) => { if (ev.type === 'text') gotText = true; opts.onEvent(ev); };
-        try { return await readStream(res, onEvent, opts.signal); }
-        catch (err) { if (err.streamError && !gotText && attempt < 2) { await wait(1500 * (attempt + 1)); continue; } throw err; }
+        try { const r = await readStream(res, onEvent, opts.signal); if (noSearch) r.noSearch = noSearch; return r; }
+        catch (err) { if (err.streamError && !gotText && transient < 2) { transient++; await wait(1500 * transient); continue; } throw err; }
       }
       const text = await res.text();
       const err = parseError(res.status, text);
+      const m = String(err.message || '');
+      if (res.status === 400 && body.tools && /tools\.\d|web.?search|user_location|allowed_callers/i.test(m) && !/credit|balance|billing/i.test(m)) {
+        // recusa por causa da ferramenta de pesquisa: 1) sem localização, 2) chamada direta, 3) sem pesquisa
+        if (variant.loc && /user_location|country|city|region|timezone|location/i.test(m)) { variant.loc = false; continue; }
+        if (!variant.direct && /allowed_callers|direct/i.test(m)) { variant.direct = true; continue; }
+        variant.search = false; noSearch = m; continue;
+      }
       // Se a beta de fallback não for aceita nesta conta/modelo, tenta sem ela.
-      if (res.status === 400 && betas.length && /fallback|beta|unexpected|extra|unrecognized/i.test(err.message)) { variant = { fallbacks: false }; continue; }
-      if ((res.status === 529 || res.status >= 500) && attempt < 2) { await wait(1500 * (attempt + 1)); continue; }
-      if (res.status === 429 && attempt < 1) { await wait(4000); continue; }
+      if (res.status === 400 && betas.length && /fallback|beta|unexpected|extra|unrecognized/i.test(m)) { variant.fallbacks = false; continue; }
+      if ((res.status === 529 || res.status >= 500) && transient < 2) { transient++; await wait(1500 * transient); continue; }
+      if (res.status === 429 && limited < 1) { limited++; await wait(4000); continue; }
       throw err;
     }
     throw new Error('Não consegui falar com a API.');
