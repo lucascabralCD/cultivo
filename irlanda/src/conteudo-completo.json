@@ -1238,7 +1238,7 @@
    ]
   },
   {
-   "titulo": "Carro — o cenário novo: alugado de sexta 2 a segunda 12",
+   "titulo": "Carro — ⚠️ superado em 04/10 (agora é de trem)",
    "itens": [
     "A Priscila e o Richie <b>não têm carro</b>: vocês alugam um em Dublin na sexta 2, vão os três para Galway, eles voltam de trem no domingo e <b>o carro fica com você até a devolução no aeroporto de Dublin, segunda 12, antes do voo</b>. Dez dias e meio, ~1.500 km.",
     "Os dois GoCar (Galway seg–ter e Cork sex) <b>saem do plano</b>; os ônibus para Galway e para Cork e o trem de sábado também. A seção 06 tem os preços, as locadoras e — o mais importante — a verdade sobre o seguro do seu cartão na Irlanda.",
@@ -1266,6 +1266,12 @@
   }
  ],
  "CARRO": [
+  {
+   "titulo": "⚠️ Superado em 04/10: agora é sem carro",
+   "itens": [
+    "Você foi de trem para Cork na segunda 5/10 e o plano não conta mais com carro. O que vem abaixo é o desenho antigo, guardado como histórico. Se chegou a reservar o carro, cancele; se precisar de um carro de 1 dia em Cork para Beara, peça ao Claude."
+   ]
+  },
   {
    "titulo": "O desenho",
    "itens": [

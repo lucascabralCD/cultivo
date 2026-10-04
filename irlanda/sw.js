@@ -1,6 +1,6 @@
 /* Service worker — o app inteiro fica no aparelho e abre sem rede.
    A versão vem de VERSION (o build troca a linha abaixo). */
-const VERSION = '1.1.1';
+const VERSION = '1.2.0';
 const CACHE = 'irl-' + VERSION;
 const SHELL = [
   './', './index.html', './i18n.js', './app.js', './claude.js', './data.js', './manifest.webmanifest',

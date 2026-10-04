@@ -65,7 +65,12 @@
   /* ---------- tradução do conteúdo (pelo Claude, guardada no aparelho) ---------- */
   const trBusy = {};
   function TR(sec) { const tr = S.tr && S.tr[lang]; return (tr && tr[sec]) || null; }
-  function X(sec, key, orig) { if (lang === 'pt') return orig; const m = TR(sec); const v = m && m[key]; return (typeof v === 'string' && v) ? v : orig; }
+  // a chave guardada leva um hash do texto original: se o roteiro mudar, a tradução velha deixa de valer sozinha
+  const hcache = new Map();
+  function hs(str) { let v = hcache.get(str); if (v) return v; let x = 0x811c9dc5; for (let i = 0; i < str.length; i++) { x ^= str.charCodeAt(i); x = Math.imul(x, 0x01000193); } v = (x >>> 0).toString(36); hcache.set(str, v); return v; }
+  const tk = (key, orig) => key + '|' + hs(String(orig));
+  function X(sec, key, orig) { if (lang === 'pt' || orig == null || orig === '') return orig; const m = TR(sec); const v = m && m[tk(key, orig)]; return (typeof v === 'string' && v) ? v : orig; }
+  function trMissing(sec) { const m = TR(sec) || {}; const src = secMap(sec); return Object.keys(src).filter((k) => !m[tk(k, src[k])]); }
   const dsec = (d) => 'd:' + d.d;
   const dTi = (d) => X(dsec(d), 'ti', d.ti), dLead = (d) => X(dsec(d), 'lead', d.lead), dNote = (d) => X(dsec(d), 'note', d.note), dTag = (d, i) => X(dsec(d), 'tag.' + i, d.tags[i]);
   const eTi = (e, d) => (d ? X(dsec(d), 'e.' + e.id + '.ti', e.ti) : e.ti);
@@ -93,7 +98,7 @@
   };
   function secMap(sec) { if (sec.startsWith('d:')) { const d = DAYS[dayIndex(sec.slice(2))]; return d ? dayMap(d) : {}; } return SECS[sec] ? SECS[sec]() : {}; }
   function trBtn(sec, label) {
-    if (lang === 'pt' || TR(sec)) return '';
+    if (lang === 'pt' || !trMissing(sec).length) return '';
     if (trBusy[sec]) return '<div class="status" style="margin:4px 0 10px"><span class="sp"></span><span>' + esc(t('tr_loading')) + '</span></div>';
     return '<div class="btnrow" style="margin:0 0 10px"><button class="btn sm cl" data-act="tr" data-sec="' + esc(sec) + '">🌐 ' + esc(label || t('tr_section')) + '</button><span class="k" style="align-self:center">' + esc(t('tr_hint')) + '</span></div>';
   }
@@ -113,7 +118,7 @@
   async function translateSection(sec) {
     if (lang === 'pt' || trBusy[sec]) return;
     if (!hasClaude()) { toast(t('tr_need')); if (!IN_ARTIFACT) sheetCfg(); return; }
-    const map = secMap(sec); const keys = Object.keys(map).filter((k) => !(TR(sec) && TR(sec)[k]));
+    const map = secMap(sec); const keys = trMissing(sec);
     if (!keys.length) return;
     trBusy[sec] = true; render();
     const target = { en: 'English', ga: 'Irish (Gaeilge)' }[lang] || lang;
@@ -125,7 +130,7 @@
       for (const c of chunks) {
         const out = parseJsonObject(await askClaudeRaw(sys, JSON.stringify(c)));
         S.tr[lang] = S.tr[lang] || {}; S.tr[lang][sec] = S.tr[lang][sec] || {};
-        Object.keys(c).forEach((k) => { if (typeof out[k] === 'string' && out[k].trim()) S.tr[lang][sec][k] = out[k]; });
+        Object.keys(c).forEach((k) => { if (typeof out[k] === 'string' && out[k].trim()) S.tr[lang][sec][tk(k, c[k])] = out[k]; });
         save();
       }
       toast(t('tr_done'));

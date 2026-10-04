@@ -1,14 +1,5 @@
 [
  {
-  "id": "r-balsa",
-  "d": "2026-09-28",
-  "t": "10:00",
-  "ti": "Ligar para a balsa de Inishbofin",
-  "b": "Reservar a saída de seg 5/10 às 11:30 e a volta de ter 6/10 às 09:00 (não estão online). 095 37228, seg–sex 10:00–18:00.",
-  "tel": "095 37228",
-  "dur": 20
- },
- {
   "id": "r-kil",
   "d": "2026-09-26",
   "t": "09:10",
@@ -23,17 +14,9 @@
   "d": "2026-09-30",
   "t": "09:00",
   "ti": "Final de hurling: sábado 10 ou nada",
-  "b": "Conferir em tipperary.gaa.ie a data da final sênior. Sábado 10 → Thurles vira parada na M8 (+11 min). Domingo 11 → cai, o churrasco fica.",
+  "b": "Conferir em tipperary.gaa.ie a data da final sênior. Sábado 10 → Thurles de trem pela linha de Cork (Heuston → Thurles ~1h30). Domingo 11 → cai, o churrasco fica.",
   "url": "https://tipperary.gaa.ie",
   "dur": 10
- },
- {
-  "id": "r-camas",
-  "d": "2026-09-26",
-  "t": "12:00",
-  "ti": "Camas: Galway (2–4 e 6–7), Inishbofin (5), Cork (8–9)",
-  "b": "Semana da feira esvazia a região. Athlone é o plano B de Galway. Cork: perto de South Main St / Coburg St, com estacionamento.",
-  "dur": 30
  },
  {
   "id": "r-inch",
@@ -42,14 +25,6 @@
   "ti": "Confirmar com a Priscila as noites 10, 11 e 14/10",
   "b": "As três noites avulsas em Inchicore ainda precisam de confirmação.",
   "dur": 5
- },
- {
-  "id": "r-carro",
-  "d": "2026-09-28",
-  "t": "18:00",
-  "ti": "Reservar o carro (pagamento na retirada, cancelamento grátis)",
-  "b": "Sex 2/10 ~09:00 Dublin → seg 12/10 ~15:30 Dublin Airport. Manual compacto, ~1.500 km. Comparar Hertz (sem carta), Sixt, Enterprise, carhire.ie.",
-  "dur": 30
  },
  {
   "id": "r-hen",
@@ -61,37 +36,133 @@
   "dur": 5
  },
  {
-  "id": "r-mala",
-  "d": "2026-10-01",
-  "t": "20:00",
-  "ti": "Mala pronta: amanhã 09:00 sai para Galway",
-  "b": "Retirada do carro ~09:00 com a Priscila e o Richie.",
-  "dur": 30
+  "id": "r-trens",
+  "d": "2026-10-04",
+  "t": "21:30",
+  "ti": "Hoje: comprar os trens de Cork (seg 09:00 e qui 17:25)",
+  "b": "irishrail.ie, Low Fare a partir de €21,49 por trecho, com assento marcado. Na máquina amanhã seria ~€47,35. A venda online fecha 60 min antes da saída.",
+  "url": "https://www.irishrail.ie",
+  "dur": 20
  },
  {
-  "id": "r-goldie",
-  "d": "2026-10-05",
-  "t": "12:00",
-  "ti": "Reservar o Goldie para qui 8/10 19:30",
-  "b": "021 239 8720. 28 lugares na semana do Folk Festival.",
+  "id": "r-cork-cama",
+  "d": "2026-10-04",
+  "t": "21:45",
+  "ti": "Hoje: cama em Cork para 5, 6 e 7/10",
+  "b": "Perto da estação Kent / MacCurtain Street ou da South Main Street / Coburg Street. O Cork Folk Festival começa na quinta 8, então reserve já. Se já tinha cama em Cork para 8–9/10, tente mudar para 5–7/10 no mesmo lugar. Peça para deixar a mala na quinta.",
+  "dur": 20
+ },
+ {
+  "id": "r-goldie-qua",
+  "d": "2026-10-04",
+  "t": "22:00",
+  "ti": "Hoje: reservar o Goldie para qua 7/10",
+  "b": "É a única noite possível (abre qua–sáb). Online em goldie.tablepath.com; telefone 021 239 8720.",
+  "url": "https://goldie.tablepath.com/reservations",
   "tel": "021 239 8720",
   "dur": 5
  },
  {
-  "id": "r-cliffs",
+  "id": "r-inch-qui",
+  "d": "2026-10-04",
+  "t": "22:10",
+  "ti": "Avisar a Priscila: volto qui 8 ~20:30",
+  "b": "Confirmar as noites novas de 8 e 9/10 em Inchicore, além de 10, 11 e 14/10. E cancelar o que era do plano antigo, se reservou: cama de Inishbofin, Galway 6–7/10, camas de Cork de 8–9/10 (tente trocar para 5–7/10 no mesmo lugar), a mesa do Goldie se estava na quinta 8 (mude para quarta 7) e o carro.",
+  "dur": 10
+ },
+ {
+  "id": "r-trem-ida",
+  "d": "2026-10-05",
+  "t": "07:50",
+  "ti": "Sair 08:10: Luas até Heuston, trem 09:00",
+  "b": "Luas vermelha de Goldenbridge ou Suir Road até Heuston, ~6 min. Bilhete no celular. O Leap não vale no InterCity.",
+  "dur": 10
+ },
+ {
+  "id": "r-balsa-cancel",
+  "d": "2026-10-05",
+  "t": "10:00",
+  "ti": "Balsa de Inishbofin: cancelar, se reservou",
+  "b": "Saídas de seg 5 às 11:30 e de ter 6 às 09:00. Atende seg–sex 10:00–18:00; SMS 087 180 0586.",
+  "tel": "095 37228",
+  "dur": 10
+ },
+ {
+  "id": "r-rising",
+  "d": "2026-10-05",
+  "t": "18:00",
+  "ti": "Se quiser: reservar o tour da Rising Sons (ter 18:00)",
+  "b": "€15, 2 a 10 pessoas. Só cabe voltando de Kinsale no ônibus das ~16:00. Ou por e-mail: risingsonscork@gmail.com.",
+  "tel": "021 241 4764",
+  "dur": 5
+ },
+ {
+  "id": "r-kinsale",
+  "d": "2026-10-06",
+  "t": "09:30",
+  "ti": "Ônibus 226 para Kinsale: Kent às 09:50",
+  "b": "Passa pela Parnell Place minutos depois. Fishy Fishy não aceita reserva no almoço: chegar às 12:00.",
+  "dur": 10
+ },
+ {
+  "id": "r-richie-galgos",
+  "d": "2026-10-06",
+  "t": "19:00",
+  "ti": "Chamar o Richie para os galgos de sexta 9",
+  "b": "Shelbourne Park, portões 18:30, €10. Se sexta não der, sábado 10 também tem corrida.",
+  "dur": 5
+ },
+ {
+  "id": "r-farmgate",
   "d": "2026-10-06",
   "t": "20:00",
-  "ti": "Comprar o ingresso dos Cliffs para amanhã antes das 11:00 (€8)",
-  "b": "bookings.cliffsofmoher.ie — horário da manhã 08–11.",
-  "url": "https://bookings.cliffsofmoher.ie",
+  "ti": "Reservar o almoço do Farmgate (qua 12:45)",
+  "b": "Tripe and drisheen. Almoço 12:30–15:30. Online em farmgate-cafe.tablepath.com ou 021 427 8134.",
+  "url": "https://farmgate-cafe.tablepath.com/reservations",
+  "tel": "021 427 8134",
   "dur": 5
+ },
+ {
+  "id": "r-franwell",
+  "d": "2026-10-07",
+  "t": "10:00",
+  "ti": "Se quiser: reservar o tour do Franciscan Well (qui 15:00)",
+  "b": "~1 h, termina a tempo do trem das 17:25.",
+  "url": "https://franwellbar.com",
+  "dur": 5
+ },
+ {
+  "id": "r-trem-volta",
+  "d": "2026-10-08",
+  "t": "16:30",
+  "ti": "Mala na recepção e Kent: trem 17:25",
+  "b": "Cork Kent → Heuston ~20:00, direto. Spiced beef do Tom Durcan na mala. Depois Luas até Goldenbridge.",
+  "dur": 30
+ },
+ {
+  "id": "r-kil2",
+  "d": "2026-10-09",
+  "t": "09:10",
+  "ti": "Kilmainham Gaol: devoluções 09:15–09:30",
+  "b": "Janela de ~8 minutos em kilmainhamgaol.admit-one.eu. Tente para o dia ou para o seguinte, com o Richie.",
+  "url": "https://kilmainhamgaol.admit-one.eu",
+  "dur": 20,
+  "repeatUntil": "2026-10-12"
+ },
+ {
+  "id": "r-galgos",
+  "d": "2026-10-09",
+  "t": "17:45",
+  "ti": "Shelbourne Park: portões 18:30",
+  "b": "Luas até Connolly + DART até Grand Canal Dock ou Lansdowne Road, ~10 min a pé. Primeiro páreo ~19:42, €10.",
+  "dur": 45
  },
  {
   "id": "r-carne",
   "d": "2026-10-10",
-  "t": "10:30",
+  "t": "09:30",
   "ti": "Comprar a carne do churrasco HOJE",
-  "b": "Domingo fecha tudo. Picanha / \"rump cap\" / \"top sirloin cap\", capa de gordura inteira. Cerveja para a casa.",
+  "b": "Domingo fecha tudo. Picanha / \"rump cap\" / \"top sirloin cap\", capa de gordura inteira. Pergunte ao Richie qual é o açougue da família. Cerveja para a casa. Depois, Howth de DART.",
   "dur": 40
  },
  {
@@ -103,12 +174,22 @@
   "dur": 10
  },
  {
-  "id": "r-dev",
+  "id": "r-782-seg",
+  "d": "2026-10-11",
+  "t": "21:00",
+  "ti": "Comprar o 782 de amanhã e conferir os horários da tarde",
+  "b": "Dublin Express 782, Heuston → T1, ~€8–10 no app; bilhete flexível (±12 h). Sair de casa 15:45.",
+  "url": "https://www.dublinexpress.ie",
+  "dur": 10
+ },
+ {
+  "id": "r-aero",
   "d": "2026-10-12",
-  "t": "14:30",
-  "ti": "Sair para devolver o carro (15:30, Eastlands, aeroporto)",
-  "b": "Tanque cheio. M50 €3,80. Shuttle grátis até o T1. Portão da Ryanair fecha 19:05.",
-  "dur": 60
+  "t": "15:30",
+  "ti": "Sair 15:45 para o aeroporto: Luas + 782",
+  "b": "Luas vermelha até Heuston, 782 na entrada da estação (parada 4425). 45–60 min até o T1. Portão da Ryanair fecha 19:05.",
+  "url": "https://www.dublinexpress.ie",
+  "dur": 75
  },
  {
   "id": "r-ck2",
@@ -119,20 +200,20 @@
   "dur": 10
  },
  {
+  "id": "r-ckaf",
+  "d": "2026-10-14",
+  "t": "09:15",
+  "ti": "Check-in Air France AF1617 (amanhã 09:15)",
+  "b": "Reserva Y4WCIU. Abre 24h antes; fecha 08:35 do dia 15.",
+  "dur": 10
+ },
+ {
   "id": "r-782",
   "d": "2026-10-14",
   "t": "22:00",
   "ti": "Conferir o horário do 782 de amanhã e pôr o despertador 04:30",
   "b": "Dublin Express 782 Heuston 05:35 → T1 06:21 (€10, app). Check-in AF fecha 08:35. Sair a pé 04:50.",
   "url": "https://www.dublinexpress.ie",
-  "dur": 10
- },
- {
-  "id": "r-ckaf",
-  "d": "2026-10-14",
-  "t": "09:15",
-  "ti": "Check-in Air France AF1617 (amanhã 09:15)",
-  "b": "Reserva Y4WCIU. Abre 24h antes; fecha 08:35 do dia 15.",
   "dur": 10
  }
 ]
